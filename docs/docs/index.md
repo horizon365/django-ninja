@@ -1,90 +1,90 @@
-# Django Ninja - Fast Django REST Framework
+# Django Ninja - 快速的 Django REST 框架
 
 
 ![Django Ninja](img/hero.png)
 
-Django Ninja is a web framework for building APIs with Django and Python 3.6+ type hints.
+Django Ninja 是一个用于使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
 
-Key features:
+主要特点:
 
- - **Easy**: Designed to be easy to use and intuitive.
- - **FAST execution**: Very high performance thanks to **<a href="https://pydantic-docs.helpmanual.io" target="_blank">Pydantic</a>** and **<a href="guides/async-support/">async support</a>**. 
- - **Fast to code**: Type hints and automatic docs lets you focus only on business logic.
- - **Standards-based**: Based on the open standards for APIs: **OpenAPI** (previously known as Swagger) and **JSON Schema**.
- - **Django friendly**: (obviously) has good integration with the Django core and ORM.
- - **Production ready**: Used by multiple companies on live projects (If you use Django Ninja and would like to publish your feedback, please email ppr.vitaly@gmail.com).
+ - **简单易懂**: 设计为易于使用和符合直觉。
+ - **快速执行**: 多亏了 **<a href="https://pydantic-docs.helpmanual.io" target="_blank">Pydantic</a>** 和 **<a href="guides/async-support/">异步支持</a>**，具有非常高的性能。
+ - **快速编程**: Django Ninja 是一个用于使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
+ - **基于标准**: 基于标准: **OpenAPI** (以前称为 Swagger) 和 **JSON 模式**。
+ - **对 Django 友好**: （显然）与 Django 核心和对象关系映射有良好的集成。
+ - **可用于生产**: 被多家公司用于实际项目（如果你使用 Django Ninja 并想发布你的反馈，请发邮件至 ppr.vitaly@gmail.com）。
 
-<a href="https://github.com/vitalik/django-ninja-benchmarks" target="_blank">Benchmarks</a>:
+<a href="https://github.com/vitalik/django-ninja-benchmarks" target="_blank">基准测试</a>:
 
 ![Django Ninja REST Framework](img/benchmark.png)
 
-## Installation
+## 安装
 
 ```
 pip install django-ninja
 ```
 
-## Quick Example
+## 快速示例
 
-Start a new Django project (or use an existing one)
+开始一个新的 Django 项目（或使用现有的一个）
 ```
 django-admin startproject apidemo
 ```
 
-in `urls.py`
+在 `urls.py` 中
 
 ```python hl_lines="3 5 8 9 10 15"
 {!./src/index001.py!}
 ```
 
-Now, run it as usual:
+现在，像平常一样运行它:
 ```
 ./manage.py runserver
 ```
 
-Note: You don't have to add Django Ninja to your installed apps for it to work.
+注意：你不必将 Django Ninja 添加到你的已安装应用中，它就可以工作。     
+注：如果打开 docs 时发现很卡顿，则需添加到 installed_apps 可解决。
+## 检查它
 
-## Check it
+打开你的浏览器，在 <a href="http://127.0.0.1:8000/api/add?a=1&b=2" target="_blank">http://127.0.0.1:8000/api/add?a=1&b=2</a>
 
-Open your browser at <a href="http://127.0.0.1:8000/api/add?a=1&b=2" target="_blank">http://127.0.0.1:8000/api/add?a=1&b=2</a>
-
-You will see the JSON response as:
+你将看到 JSON 响应为：
 ```JSON
 {"result": 3}
 ```
-Now you've just created an API that:
+你将看到 JSON 响应为：
 
- - receives an HTTP GET request at `/api/add`
- - takes, validates and type-casts GET parameters `a` and `b`
- - decodes the result to JSON
- - generates an OpenAPI schema for defined operation
+ - 在 `/api/add` 接收一个 HTTP GET 请求
+ - 接收、验证并类型转换 GET 参数 `a` 和 `b`
+ - 将结果解码为 JSON
+ - 为定义的操作生成一个 OpenAPI 模式
 
-## Interactive API docs
+## 交互式 API 文档
 
-Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs</a>
+现在前往 <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs</a>
 
-You will see the automatic, interactive API documentation (provided by the <a href="https://github.com/swagger-api/swagger-ui" target="_blank">OpenAPI / Swagger UI</a> or <a href="https://github.com/Redocly/redoc" target="_blank">Redoc</a>):
+你将看到自动的、交互式 API 文档 (由 <a href="https://github.com/swagger-api/swagger-ui" target="_blank">OpenAPI / Swagger UI</a> 或 <a href="https://github.com/Redocly/redoc" target="_blank">Redoc</a> 提供) :
 
 ![Swagger UI](img/index-swagger-ui.png)
 
 
-## Recap
+## 总结
 
-In summary, you declare the types of parameters, body, etc. **once only**, as function parameters. 
+总之，你只需 **一次** 声明参数、请求体等的类型， 作为函数参数。 
 
-You do that with standard modern Python types.
+你使用标准的现代 Python 类型来做到这一点。
 
-You don't have to learn a new syntax, the methods or classes of a specific library, etc.
+你不必学习新的语法、特定库的方法或类等。
 
-Just standard **Python 3.6+**.
+只需标准的 **Python 3.6+**.
 
-For example, for an `int`:
+例如, 对于一个 `int`:
 
 ```python
 a: int
 ```
 
-or, for a more complex `Item` model:
+或者, 对于一个更复杂的 `Item` 模型:
 
 ```python
 class Item(Schema):
@@ -95,23 +95,23 @@ def operation(a: Item):
     ...
 ```
 
-... and with that single declaration you get:
+...仅通过这一个声明，你就可以得到 :
 
-* Editor support, including:
-    * Completion
-    * Type checks
-* Validation of data:
-    * Automatic and clear errors when the data is invalid
-    * Validation, even for deeply nested JSON objects
-* <abbr title="also known as: serialization, parsing, marshalling">Conversion</abbr> of input data coming from the network, to Python data and types, and reading from:
+* 编辑器支持，包括:
+    * 自动完成
+    * 类型检查
+* 数据验证:
+    * 当数据无效时自动且清晰的错误
+    * 甚至对深度嵌套的 JSON 对象进行验证
+* <abbr title="也称为: serialization, parsing, marshalling">序列化</abbr> 网络输入的数据并转换成 Python 数据输出, 并从以下读取:
     * JSON
-    * Path parameters
-    * Query parameters
+    * Path parameters 路径参数
+    * Query parameters 查询参数
     * Cookies
-    * Headers
-    * Forms
-    * Files
-* Automatic, interactive API documentation
+    * Headers 请求头
+    * Forms 表单
+    * Files 文件
+* 自动的、交互式 API 文档
 
-This project was heavily inspired by <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> (developed by <a href="https://github.com/tiangolo" target="_blank">Sebastián Ramírez</a>)
+这个项目很大程度上受到了 <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> (由 <a href="https://github.com/tiangolo" target="_blank">Sebastián Ramírez</a>开发)的启发。
 
