@@ -1,14 +1,5 @@
-<a href="https://github.com/vitalik/django-ninja/issues/383"><img width="814" alt="SCR-20230123-m1t" src="https://user-images.githubusercontent.com/95222/214056666-585c0479-c122-4cb3-add4-b8844088ccdd.png"></a>
-
-
-
-<a href="https://github.com/vitalik/django-ninja/issues/383">^ Please read ^</a>
-
-
-
-
 <p align="center">
-  <a href="https://django-ninja.dev/"><img src="https://django-ninja.dev/img/logo-big.png"></a>
+  <a href="https://django-ninja.cn/"><img src="https://django-ninja.cn/img/logo-big.png"></a>
 </p>
 <p align="center">
     <em>Fast to learn, fast to code, fast to run</em>
@@ -23,7 +14,7 @@
 # Django Ninja - Fast Django REST Framework
 
 # v1.0 What's new
-Read more details here - https://django-ninja.dev/whatsnew_v1/ 
+Read more details here - https://django-ninja.cn/whatsnew_v1/ 
 
 Or Watch here:
 
@@ -48,7 +39,7 @@ Or Watch here:
 
 ![Django Ninja REST Framework](docs/docs/img/benchmark.png)
 
-**Documentation**: https://django-ninja.dev
+**Documentation**: https://django-ninja.cn
 
 ---
 
@@ -110,7 +101,7 @@ You will see the automatic interactive API documentation (provided by <a href="h
 
 ## What next?
 
- - Read the full documentation here - https://django-ninja.dev
+ - Read the full documentation here - https://django-ninja.cn
  - To support this project, please give star it on Github. ![github star](docs/docs/img/github-star.png)
  - Share it [via Twitter](https://twitter.com/intent/tweet?text=Check%20out%20Django%20Ninja%20-%20Fast%20Django%20REST%20Framework%20-%20https%3A%2F%2Fdjango-ninja.dev)
  - If you already using django-ninja, please share your feedback to ppr.vitaly@gmail.com

@@ -8,7 +8,7 @@ Simply give django-ninja a <a href="https://github.com/vitalik/django-ninja" tar
 
 or share this URL on social media: 
 ```
-https://django-ninja.dev
+https://django-ninja.cn
 ```
 Follow updates on twitter <a href="https://twitter.com/django_ninja">@django_ninja</a>
 
