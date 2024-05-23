@@ -1,9 +1,5 @@
 # Django Ninja - Fast Django REST Framework
 
-<div style="background-color: black; color: red; font-size: 16px; padding: 8px;">
- RUSSIA INVADED UKRAINE - <a href="https://github.com/vitalik/django-ninja/issues/383">Please read</a>
-</div>
-
 
 ![Django Ninja](img/hero.png)
 

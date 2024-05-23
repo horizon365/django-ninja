@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://django-ninja.cn/"><img src="https://django-ninja.cn/img/logo-big.png"></a>
+  <a href="https://django-ninja.cn/"><img src="docs/docs/img/logo-big.png"></a>
 </p>
 <p align="center">
     <em>Fast to learn, fast to code, fast to run</em>
@@ -105,3 +105,5 @@ You will see the automatic interactive API documentation (provided by <a href="h
  - To support this project, please give star it on Github. ![github star](docs/docs/img/github-star.png)
  - Share it [via Twitter](https://twitter.com/intent/tweet?text=Check%20out%20Django%20Ninja%20-%20Fast%20Django%20REST%20Framework%20-%20https%3A%2F%2Fdjango-ninja.dev)
  - If you already using django-ninja, please share your feedback to ppr.vitaly@gmail.com
+
+[配置 vercel](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
