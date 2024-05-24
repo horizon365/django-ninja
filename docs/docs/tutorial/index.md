@@ -1,31 +1,31 @@
-# Tutorial - First Steps
+# 教程 - 第一步
 
-This tutorial shows you how to use **Django Ninja** with most of its features.
+本教程向您展示如何使用 **Django Ninja** 的大部分功能.
 
-This tutorial assumes that you know at least some basics of the <a href="https://www.djangoproject.com/" target="_blank">Django Framework</a>, like how to create a project and run it.
+本教程假定您至少了解 <a href="https://www.djangoproject.com/" target="_blank">Django 框架</a>的一些基础知识，例如如何创建项目并运行它。
 
-## Installation
+## 安装
 
 ```console
 pip install django-ninja
 ```
 
-!!! note
+!!! 注意
 
-    It is not required, but you can also put `ninja` to `INSTALLED_APPS`.
-    In that case the OpenAPI/Swagger UI (or Redoc) will be loaded (faster) from the included JavaScript bundle (otherwise the JavaScript bundle comes from a CDN).
+    这不是必需的，但您也可以将 `ninja` 添加到 `INSTALLED_APPS`。
+    在这种情况下，OpenAPI/Swagger UI（或 Redoc）将从自带的 JavaScript 捆绑包中加载（更快）（否则 JavaScript 捆绑包来自内容分发网络）
 
-## Create a Django project
+## 创建 Django 项目
 
-Start a new Django project (or if you already have an existing Django project, skip to the next step).
+启动一个新的 Django 项目（或者如果您已经有一个现有的 Django 项目，请跳到下一步）。
 
 ```
 django-admin startproject myproject
 ```
 
-## Create the API
+## 创建 API
 
-Let's create a module for our API. Create an `api.py` file in the same directory location as your Django project's root `urls.py`:
+让我们为我们的 API 创建一个模块。在与您的 Django 项目的根 `urls.py` 相同的目录位置创建一个 `api.py` 文件：
 
 ```python
 from ninja import NinjaAPI
@@ -33,7 +33,7 @@ from ninja import NinjaAPI
 api = NinjaAPI()
 ```
 
-Now go to `urls.py` and add the following:
+现在转到 `urls.py` 并添加以下内容:
 
 ```python hl_lines="3 7"
 from django.contrib import admin
@@ -46,11 +46,10 @@ urlpatterns = [
 ]
 ```
 
-## Our first operation
+## 我们的第一个操作
 
-**Django Ninja** comes with a decorator for each HTTP method (`GET`, `POST`,
-`PUT`, etc). In our `api.py` file, let's add in a simple "hello world"
-operation.
+**Django Ninja** 为每个 HTTP 方法 (`GET`, `POST`,
+`PUT`, 等) 配备了一个装饰器。在我们的 `api.py` 文件中，让我们添加一个简单的 "hello world" 操作。
 
 ```python hl_lines="5-7"
 from ninja import NinjaAPI
@@ -62,13 +61,12 @@ def hello(request):
     return "Hello world"
 ```
 
-Now browsing to <a href="http://localhost:8000/api/hello"
-target="_blank">localhost:8000/api/hello</a> will return a simple JSON
-response:
+现在去浏览器打开 <a href="http://localhost:8000/api/hello"
+target="_blank">localhost:8000/api/hello</a> 将返回一个简单的 JSON 响应:
 ```json
 "Hello world"
 ```
 
-!!! success
+!!! 大功告成
 
-    Continue on to **[Parsing input](step2.md)**.
+    继续下一章节 **[解析传入参数](step2.md)**.

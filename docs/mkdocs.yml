@@ -40,17 +40,17 @@ theme:
   icon:
     repo: fontawesome/brands/github-alt
 nav:
-  - Intro: index.md
-  - motivation.md
-  - Tutorial:
-      - "First Steps": tutorial/index.md
-      - "Parsing Input": tutorial/step2.md
-      - "Handling Responses": tutorial/step3.md
-      - Other Tutorials:
+  - 介绍: index.md
+  - 动机: motivation.md
+  - 教程:
+      - "第一步": tutorial/index.md
+      - "解析输入": tutorial/step2.md
+      - "处理响应": tutorial/step3.md
+      - 其它教程:
           - tutorial/other/video.md
           - tutorial/other/crud.md
-  - How-to Guides:
-      - Parsing input:
+  - How-to 系列:
+      - 解析传参:
           - guides/input/operations.md
           - guides/input/path-params.md
           - guides/input/query-params.md
@@ -59,35 +59,35 @@ nav:
           - guides/input/file-params.md
           - guides/input/request-parsers.md
           - guides/input/filtering.md
-      - Handling responses:
-          - Defining a Schema: guides/response/index.md
-          - guides/response/temporal_response.md
-          - Generating a Schema from Django models: guides/response/django-pydantic.md
-          - Generating a Schema dynamically: guides/response/django-pydantic-create-schema.md
-          - guides/response/config-pydantic.md
-          - guides/response/pagination.md
-          - guides/response/response-renderers.md
-      - Splitting your API with Routers: guides/routers.md
-      - guides/authentication.md
-      - guides/testing.md
-      - guides/api-docs.md
-      - guides/errors.md
-      - guides/urls.md
-      - guides/async-support.md
-      - guides/versioning.md
-  - Reference:
+      - 处理响应:
+          - 定义新 Schema: guides/response/index.md
+          - 调整响应: guides/response/temporal_response.md
+          - 从 Django models 中生成 Schema: guides/response/django-pydantic.md
+          - 动态生成 Schema: guides/response/django-pydantic-create-schema.md
+          - 覆盖 Pydantic 配置: guides/response/config-pydantic.md
+          - 分页: guides/response/pagination.md
+          - 响应渲染: guides/response/response-renderers.md
+      - 通过路由来区分你的 API : guides/routers.md
+      - 鉴权: guides/authentication.md
+      - 测试: guides/testing.md
+      - API 文档: guides/api-docs.md
+      - 处理错误: guides/errors.md
+      - 反转资源的 URLS 链接: guides/urls.md
+      - 异步支持: guides/async-support.md
+      - 多个 API 版本: guides/versioning.md
+  - 参考:
       - NinjaAPI class: reference/api.md
       - reference/csrf.md
-      - reference/operations-parameters.md
-      - reference/management-commands.md
-      - reference/settings.md
-      - releases.md
-  - help.md
-  - Enhancement Proposals:
-      - Intro: proposals/index.md
-      - proposals/cbv.md
-      - proposals/v1.md
-  - What's new in V1: whatsnew_v1.md
+      - 操作参数: reference/operations-parameters.md
+      - 自定义管理命令: reference/management-commands.md
+      - Django 设置: reference/settings.md
+      - 发布日志: releases.md
+  - 需要帮助: help.md
+  - 规划中的功能:
+      - 简介: proposals/index.md
+      - 基于类的操作（cbv）: proposals/cbv.md
+      - 提案: proposals/v1.md
+  - V1 的新版变化: whatsnew_v1.md
 markdown_extensions:
   - markdown_include.include
   - markdown.extensions.codehilite:

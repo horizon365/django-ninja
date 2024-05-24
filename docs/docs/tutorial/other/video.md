@@ -1,4 +1,4 @@
-# Video Tutorials
+# 视频教程
 
 ## Sneaky REST APIs With Django Ninja
 
