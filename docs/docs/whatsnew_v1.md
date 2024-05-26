@@ -1,39 +1,36 @@
-# Welcome to Django Ninja 1.0
+# 欢迎来到 Django Ninja 1.0
 
 
-To get started install latest version with
+要开始使用，请使用以下命令安装最新版本：
 ```
 pip install -U django-ninja
 ```
 
-django-ninja v1 is compatible with Python 3.7 and above.
+django-ninja v1 与 Python 3.7 及以上版本兼容。
 
 
-Django ninja seres 0.x is still supported but will receive only security updates and critical bug fixes
+Django ninja 系列 0.x 仍然受支持，但将仅接收安全更新和关键错误修复。
 
 
+# Django Ninja 1.0 中的新特性
 
-# What's new in Django Ninja 1.0
+## 对 Pydantic2 的支持
 
-## Support for Pydantic2
+Pydantic 版本 2 用 Rust 重写，包含了许多改进和特性，如：
+ - 更安全的类型。
+ - 更好的可扩展性。
+ - 更好的性能。
 
-Pydantic version 2 is re-written in Rust and includes a lot of improvements and features like:
-
- - Safer types.
- - Better extensibility.
- - Better performance 
-
-By our tests average project can gain some 10% performance increase on average, while some edge parsing/serializing cases can give you 4x boost.
-
-On the other hand it introduces breaking changes and pydantic 1 and 2 are not very compatible - but we tried or best to make this transition easy as possible. So if you used 'Schema' class migration to ninja v1 should be easy. Otherwise follow [pydantic migration guide](https://docs.pydantic.dev/latest/migration/)
+根据我们的测试，平均项目可以平均获得约 10%的性能提升，而在某些边缘解析/序列化情况下可以给你带来 4 倍的提升。
+另一方面，它引入了破坏性变化，pydantic 1 和 2 不是非常兼容 - 但我们尽力使这个过渡尽可能容易。
+所以如果你使用了 'Schema' 类，迁移到 ninja v1 应该很容易。否则，请遵循  [pydantic 迁移指南](https://docs.pydantic.dev/latest/migration/)
 
 
-Some features that are made possible with pydantic2
+一些 pydantic2 提供的新特性
 
-### pydantic context
+### pydantic 上下文
 
-Pydantic now supports context during validation and serialization and Django ninja passes "request" object during request and response work
-
+Pydantic 现在在验证和序列化期间支持上下文，Django ninja 在请求和响应工作期间传递“请求”对象。
 ```Python hl_lines="6 7"
 class Payload(Schema):
     id: int
@@ -47,12 +44,11 @@ class Payload(Schema):
 
 ```
 
-During response a "response_code" is also passed to context
+在响应期间，“response_code”也传递到上下文。
 
 ## Schema.Meta
 
-Pydantic now deprecates BaseModel.Config class.  But to keep things consistent with all other django parts we introduce "Meta" class for ModelSchema - which works in a similar way as django's ModelForms:
-
+Pydantic 现在弃用了 BaseModel.Config 类。但为了与所有其他 Django 部分保持一致，我们为 ModelSchema 引入了“Meta”类 - 它的工作方式与 Django 的 ModelForms 类似：
 ```Python hl_lines="2 4"
 class TxItem(ModelSchema):
     class Meta:
@@ -61,10 +57,10 @@ class TxItem(ModelSchema):
 
 ```
 
-(The "Config" class is still supported, but deprecated)
+（“Config”类仍然支持，但已处于弃用状态）
 
 
-## Shorter / cleaner parameters syntax
+## 更短/更简洁的参数语法
 
 ```python
 @api.post('/some')
@@ -72,7 +68,7 @@ def some_form(request, username: Form[str], password: Form[str]):
     return True
 ```
 
-instead of
+而不是
 
 ```python
 @api.post('/some')
@@ -80,7 +76,7 @@ def some_form(request, username: str = Form(...), password: str = Form(...)):
     return True
 ```
 
-or 
+或
 
 ```python
 @api.post('/some')
@@ -89,7 +85,7 @@ def some_form(request, data: Form[AuthSchema]):
 ```
 
 
-instead of
+而不是
 
 ```python
 @api.post('/some')
@@ -99,15 +95,15 @@ def some_form(request, data: AuthSchema = Form(...)):
 
 
 
-with all the the autocompletion in editors
+以及在编辑器中的所有自动完成功能。
 
 
-On the other hand the **old syntax is still supported** so you can easy port your project to a newer django-ninja version without much haste 
+另一方面， **旧语法仍然支持** ，因此你可以轻松地将你的项目移植到更新的 django-ninja 版本而不费吹灰之力。
 
 
 #### + Annotated
 
-typing.Annotated is also supported:
+typing.Annotated 也已经被支持:
 
 ```Python
 @api.get("/annotated")
@@ -117,9 +113,9 @@ def annotated(request, data: Annotated[SomeData, Form()]):
 ```
 
 
-## Async auth support
+## Async auth 异步身份验证支持
 
-The async authenticators are finally supported. All you have to do is just add `async` to your `authenticate` method:
+异步身份验证器终于得到支持。你所要做的只是在你的 `authenticate` 方法中添加 `async`:
 
 ```Python
 class Auth(HttpBearer):
@@ -131,20 +127,19 @@ class Auth(HttpBearer):
 ```
 
 
-## Changed CSRF Behavior
+## 更改的 CSRF 行为
 
 
-`csrf=True` requirement is no longer required if you use cookie based authentication. Instead CSRF protection is enabled automatically. This also allow you to  mix csrf-protected authenticators and other methods that does not requrie cookies:
+`csrf=True` 不再是必须的，如果你使用了基于 cookie 的身份验证。 相反，CSRF 保护自动启用。这也允许你混合受 CSRF 保护的身份验证器和其他不需要 Cookie 的方法：
 
 ```Python
 api = NinjaAPI(auth=[django_auth, Auth()])
 ```
 
 
-## Docs
+## 文档
 
-Doc viewer are now configurable and plugable. By default django ninja comes with Swagger and Redoc:
-
+文档查看器现在是可配置和可插拔的。默认情况下，django-ninja 带有 Swagger 和 Redoc：
 ```Python
 from ninja import NinjaAPI, Redoc, Swagger
 
@@ -159,11 +154,11 @@ api = NinjaAPI(docs=Swagger())
 api = NinjaAPI(docs=Swagger({"persistAuthorization": True}))
 ```
 
-Users now able to create custom docs viewer by inheriting `DocsBase` class
+用户现在能够通过继承 `DocsBase` 类创建自定义文档查看器。
 
-## Router
+## 路由器
 
-add_router supports string paths:
+add_router 支持字符串路径：
 
 ```Python
 api = NinjaAPI()
@@ -177,10 +172,9 @@ api.add_router('/app5', 'myproject.app5.router')
 ```
 
 
-## Decorators
+## 装饰器
 
-When django ninja decorates a view with .get/.post etc - it wraps the result of the function (which in most cases are not HttpResponse - but some serializable object) so it's not really possible to use some built-in or 3rd-party decorators like:
-
+当 django-ninja 用.get/.post 等装饰视图时，它会包装函数的结果（在大多数情况下不是 HttpResponse - 而是一些可序列化的对象），因此不太可能使用一些内置或第三方装饰器，如：
 ```python hl_lines="4"
 from django.views.decorators.cache import cache_page
 
@@ -189,10 +183,9 @@ from django.views.decorators.cache import cache_page
 def test_view(request):
     return {"some": "Complex data"}
 ```
-This example does not work.
+这个例子不起作用。
 
-Now django ninja introduces a decorator decorate_view that allows inject decorators that work with http response:
-
+现在 django-ninja 引入了一个装饰器 decorate_view，允许注入与 http 响应一起工作的装饰器：
 ```python hl_lines="1 4"
 from ninja.decorators import decorate_view
 
@@ -203,14 +196,14 @@ def test_view(request):
 ```
 
 
-## Paginations
+## 分页
 
-`paginate_queryset` method now takes `request` object
+`paginate_queryset` 方法现在接受 `request` 对象
 
 
-#### Backwards incompatible stuff
- - resolve_xxx(self, ...) - support resolve with (self) is dropped in favor of pydantic build-in functionality
- - pydantic v1 is no longer supported
- - python 3.6 is no longer supported
+#### 不向后兼容的内容
+ - resolve_xxx(self, ...) - 支持代 (self) 的解析被弃用，转而支持 pydantic 内置功能。
+ - pydantic v1 不再支持
+ - python 3.6 不再支持
 
-BTW - if you like this project and still did not give it a github start - please do so ![github star](img/github-star.png)
+顺便说一句 - 如果你喜欢这个项目并且还没有给它一个 Github 星标 - 请这样做！[github star](img/github-star.png)
