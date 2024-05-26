@@ -1,10 +1,10 @@
-# Routers
+# 路由器
 
-Real world applications can almost never fit all logic into a single file. 
+现实世界的应用程序几乎不可能将所有逻辑都放入单个文件中。 
 
-**Django Ninja** comes with an easy way to split your API into multiple modules using Routers.
+**Django Ninja** 提供了一种简单的方法，可以使用路由器将您的 API 拆分为多个模块。
 
-Let's say you have a Django project with a structure like this:
+假设您有一个 Django 项目，结构如下：
 
 
 ```
@@ -22,7 +22,7 @@ Let's say you have a Django project with a structure like this:
 └── manage.py
 ```
 
-To add API's to each of the Django applications, create an `api.py` module in each app:
+要向每个 Django 应用程序添加 API，在每个应用程序中创建一个 `api.py` 模块:
 
 ``` hl_lines="5 9 13"
 ├── myproject
@@ -42,7 +42,7 @@ To add API's to each of the Django applications, create an `api.py` module in ea
 └── manage.py
 ```
 
-Now let's add a few operations to `events/api.py`. The trick is that instead of using the `NinjaAPI` class, you use the **Router** class:
+现在让我们在 `events/api.py` 中添加一些操作。诀窍是，您不是使用 `NinjaAPI` 类，而是使用 **Router** 类:
 
 ```python  hl_lines="1 4 6 13"
 from ninja import Router
@@ -63,7 +63,7 @@ def event_details(request, event_id: int):
     return {"title": event.title, "details": event.details}
 ```
 
-Then do the same for the `news` app with `news/api.py`:
+然后对 `news` app 的 `news/api.py` 也进行同样的操作:
 
 ```python  hl_lines="1 4"
 from ninja import Router
@@ -79,11 +79,11 @@ def list_news(request):
 def news_details(request, news_id: int):
     ...
 ```
-and then also `blogs/api.py`.
+然后还有`blogs/api.py`。
 
 
-Finally, let's group them together.
-In your top level project folder (next to `urls.py`), create another `api.py` file with the main `NinjaAPI` instance:
+最后，让我们将它们组合在一起。
+在您的顶级项目文件夹 (在 `urls.py` 旁边)，创建另一个带有 `NinjaAPI` 实例的 `api.py` 文件 :
 
 ``` hl_lines="2"
 ├── myproject
@@ -98,7 +98,7 @@ In your top level project folder (next to `urls.py`), create another `api.py` fi
 
 ```
 
-It should look like this:
+它应该看起来像这样：
 
 ```python
 from ninja import NinjaAPI
@@ -107,7 +107,7 @@ api = NinjaAPI()
 
 ```
 
-Now we import all the routers from the various apps, and include them into the main API instance:
+现在我们从各个应用程序导入所有路由器，并将它们包含到主 API 实例中：
 
 ```python hl_lines="2 6 7 8"
 from ninja import NinjaAPI
@@ -120,46 +120,46 @@ api.add_router("/news/", "news.api.router")  #   or by Python path
 api.add_router("/blogs/", "blogs.api.router")
 ```
 
-Now, include `api` to your urls as usual and open your browser at `/api/docs`, and you should see all your routers combined into a single API:
+现在，像往常一样将 `api` 添加到您的 URL 中，并在 `/api/docs` 打开您的浏览器， 您应该看到您所有的路由器组合成一个单一的 API：
 
 
 ![Swagger UI Simple Routers](../img/simple-routers-swagger.png)
 
 
-## Router authentication
+## 路由器认证
 
-Use `auth` argument to apply authenticator to all operations declared by router:
+使用 `auth` 参数将认证器应用于路由器声明的所有操作：
 
 ```python
 api.add_router("/events/", events_router, auth=BasicAuth())
 ```
 
-or using router constructor
+或者使用路由器构造函数
 ```python
 router = Router(auth=BasicAuth())
 ```
 
-## Router tags
+## 路由器标签
 
-You can use `tags` argument to apply tags to all operations declared by router:
+您可以使用 `tags` 参数将标签应用于路由器声明的所有操作：
 
 ```python
 api.add_router("/events/", events_router, tags=["events"])
 ```
 
-or using router constructor
+或者使用路由器构造函数
 ```python
 router = Router(tags=["events"])
 ```
 
 
-## Nested routers
+## 嵌套路由器
 
-There are also times when you need to split your logic up even more.
-**Django Ninja** makes it possible to include a router into another router as many times as you like, and finally include the top level router into the main `api` instance.
+有时您还需要将逻辑进一步细分。
+**Django Ninja** 使您可以将一个路由器包含在另一个路由器中任意多次，最后将顶级路由器包含在主 `api` 实例中。
 
 
-Basically, what that means is that you have `add_router` both on the `api` instance and on the `router` instance:
+基本上，这意味着您在 `api` 实例和 `router` 实例上都有 `add_router` :
 
 
 
@@ -205,7 +205,7 @@ urlpatterns = [
 ]
 ```
 
-Now you have the following endpoints:
+现在您有以下端点
 
 ```
 /api/add
@@ -214,6 +214,6 @@ Now you have the following endpoints:
 /api/l1/l2/l3/add
 ```
 
-Great! Now go have a look at the automatically generated docs:
+太棒了！现在去看看自动生成的文档：
 
-![Swagger UI Nested Routers](../img/nested-routers-swagger.png)
+![Swagger UI 嵌套路由](../img/nested-routers-swagger.png)

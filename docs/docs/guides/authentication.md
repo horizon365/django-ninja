@@ -1,22 +1,19 @@
-# Authentication
+# 认证
 
-## Intro
+## 介绍
 
-**Django Ninja** provides several tools to help you deal with authentication and authorization easily, rapidly, in a standard way, and without having to study and learn <a href="https://swagger.io/docs/specification/authentication/" target="_blank">all the security specifications</a>.
+**Django Ninja** 提供了若干工具来帮助你轻松、快速、以标准方式处理认证和授权，而无需研究和学习 <a href="https://swagger.io/docs/specification/authentication/" target="_blank">所有安全规范</a>.
 
-The core concept is that when you describe an API operation, you can define an authentication object.
-
+核心概念是，当你描述一个 API 操作时，你可以定义一个认证对象。
 ```python hl_lines="2 7"
 {!./src/tutorial/authentication/code001.py!}
 ```
 
-In this example, the client will only be able to call the `pets` method if it uses Django session authentication (the default is cookie based), otherwise an HTTP-401 error will be returned.
+在这个例子中，如果客户端使用 Django 会话认证（默认是基于 cookie 的），它将只能调用 `pets` 方法，否则将返回一个 HTTP-401 错误。
+如果你只需要授权超级用户，你可以使用 `from ninja.security import django_auth_superuser` 来代替。
+## 自动 OpenAPI 模式
 
-If you need to authorize only a superuser, you can use `from ninja.security import django_auth_superuser` instead.
-
-## Automatic OpenAPI schema
-
-Here's an example where the client, in order to authenticate, needs to pass a header:
+这里有一个例子，其中客户端为了进行认证需要传递一个头信息：
 
 `Authorization: Bearer supersecret`
 
@@ -24,21 +21,20 @@ Here's an example where the client, in order to authenticate, needs to pass a he
 {!./src/tutorial/authentication/bearer01.py!}
 ```
 
-Now go to the docs at <a href="http://localhost:8000/api/docs" target="_blank">http://localhost:8000/api/docs</a>.
+现在访问 <a href="http://localhost:8000/api/docs" target="_blank">http://localhost:8000/api/docs</a> 文档。
 
 
 ![Swagger UI Auth](../img/auth-swagger-ui.png)
 
-Now, when you click the **Authorize** button, you will get a prompt to input your authentication token.
+现在，当你点击 **Authorize** 按钮，你将得到一个输入你的认证令牌的提示。
 
 ![Swagger UI Auth](../img/auth-swagger-ui-prompt.png)
 
-When you do test calls, the Authorization header will be passed for every request.
+当你进行测试调用时，每个请求都会传递授权头信息。
 
+## 全局认证
 
-## Global authentication
-
-In case you need to secure **all** methods of your API, you can pass the `auth` argument to the `NinjaAPI` constructor:
+如果你需要保护你的 API 的 **所有 **方法，你可以将 `auth` 参数传递给 `NinjaAPI` 构造函数:
 
 
 ```python hl_lines="11 19"
@@ -61,66 +57,65 @@ api = NinjaAPI(auth=GlobalAuth())
 # def ...
 ```
 
-And, if you need to overrule some of those methods, you can do that on the operation level again by passing the `auth` argument. In this example, authentication will be disabled for the `/token` operation:
-
+并且，如果您需要否决其中一些方法，可以再次在操作级别通过传递 `auth` 参数来实现。在这个例子中，对于 `/token` 操作将禁用身份验证：
 ```python hl_lines="19"
 {!./src/tutorial/authentication/global01.py!}
 ```
 
-## Available auth options
+## 可用的身份验证选项
 
-### Custom function
+### 自定义函数
 
 
-The "`auth=`" argument accepts any Callable object. **NinjaAPI** passes authentication only if the callable object returns a value that can be **converted to boolean `True`**. This return value will be assigned to the `request.auth` attribute.
+"`auth=`" 参数参数接受任何可调用对象。只有当可调用对象返回一个可以 **转换为布尔值`True`的值** 时， **NinjaAPI** 才会传递身份验证。这个返回值将被分配给 `request.auth` 属性。
 
 ```python hl_lines="1 2 3 6"
 {!./src/tutorial/authentication/code002.py!}
 ```
 
 
-### API Key
+### API 密钥
 
-Some API's use API keys for authorization. An API key is a token that a client provides when making API calls to identify itself. The key can be sent in the query string:
+一些 API 使用 API 密钥进行授权。API 密钥是客户端在进行 API 调用时提供的用于识别自身的令牌。该密钥可以在查询字符串中发送：
 ```
 GET /something?api_key=abcdef12345
 ```
 
-or as a request header:
+或者作为请求头：
 
 ```
 GET /something HTTP/1.1
 X-API-Key: abcdef12345
 ```
 
-or as a cookie:
+或者作为一个 cookie：
 
 ```
 GET /something HTTP/1.1
 Cookie: X-API-KEY=abcdef12345
 ```
 
-**Django Ninja** comes with built-in classes to help you handle these cases.
+**Django Ninja** 带有内置类来帮助您处理这些情况。
 
 
-#### in Query
+#### 在 Query 中
 
 ```python hl_lines="1 2 5 6 7 8 9 10 11 12"
 {!./src/tutorial/authentication/apikey01.py!}
 ```
 
-In this example we take a token from `GET['api_key']` and find a `Client` in the database that corresponds to this key. The Client instance will be set to the `request.auth` attribute.
+在这个例子中，我们从 `GET['api_key']` 获取一个令牌，并在数据库中找到与之对应的 `Client`。 Client 实例将被设置为 `request.auth` 属性。
 
-Note: **`param_name`** is the name of the GET parameter that will be checked for. If not set, the default of "`key`" will be used.
+注意: **`param_name`** 是将被检查的 GET 参数的名称。如果未设置，将使用默认的 "`key`" 。
 
 
-#### in Header
+#### 在 Header 中
 
 ```python hl_lines="1 4"
 {!./src/tutorial/authentication/apikey02.py!}
 ```
 
-#### in Cookie
+#### 在 Cookie 中
 
 ```python hl_lines="1 4"
 {!./src/tutorial/authentication/apikey03.py!}
@@ -134,52 +129,51 @@ Note: **`param_name`** is the name of the GET parameter that will be checked for
 {!./src/tutorial/authentication/bearer01.py!}
 ```
 
-### HTTP Basic Auth
+### HTTP 基本身份验证
 
 ```python hl_lines="1 4 5 6 7"
 {!./src/tutorial/authentication/basic01.py!}
 ```
 
 
-## Multiple authenticators
+## 多个身份验证器
 
-The **`auth`** argument also allows you to pass multiple authenticators:
+The **`auth`** 参数也允许您传递多个身份验证器：
 
 ```python hl_lines="18"
 {!./src/tutorial/authentication/multiple01.py!}
 ```
 
-In this case **Django Ninja** will first check the API key `GET`, and if not set or invalid will check the `header` key.
-If both are invalid, it will raise an authentication error to the response.
+在这种情况下， **Django Ninja** 将首先检查 API 密钥 `GET`，如果未设置或无效，将检查 `header`密钥。
+如果两者都无效，它将向响应引发身份验证错误。
 
 
-## Router authentication
+## 路由器身份验证
 
-Use `auth` argument on Router to apply authenticator to all operations declared in it:
+在路由器上使用 `auth` 参数， 将身份验证器应用于其中声明的所有操作：
 
 ```python
 api.add_router("/events/", events_router, auth=BasicAuth())
 ```
 
-or using router constructor
+或者使用路由器构造函数
 ```python
 router = Router(auth=BasicAuth())
 ```
 
 
-## Custom exceptions
+## 自定义异常
 
-Raising an exception that has an exception handler will return the response from that handler in
-the same way an operation would:
+引发具有异常处理程序的异常将以与操作相同的方式返回该处理程序的响应：
 
 ```python hl_lines="1 4"
 {!./src/tutorial/authentication/bearer02.py!}
 ```
 
 
-## Async authentication
+## 异步身份验证
 
-**Django Ninja** has basic support for asynchronous authentication. While the default authentication classes are not async-compatible, you can still define your custom asynchronous authentication callables and pass them in using `auth`.
+**Django Ninja** 对异步身份验证有基本支持。虽然默认的身份验证类不是异步兼容的，但您仍然可以定义您的自定义异步身份验证可调用对象，并使用 `auth` 传递它们。
 
 ```python
 async def async_auth(request):
@@ -192,4 +186,4 @@ def pets(request):
 ```
 
 
-See [Handling errors](errors.md) for more information.
+有关更多信息，请参阅 [处理错误](errors.md) 。

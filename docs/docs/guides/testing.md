@@ -1,8 +1,8 @@
-# Testing
+# 测试
 
-**Django Ninja** is fully compatible with standard [django test client](https://docs.djangoproject.com/en/dev/topics/testing/tools/) , but also provides a test client to make it easy to test just APIs without middleware/url-resolver layer making tests run faster.
+**Django Ninja** 与标准的 [django 测试客户端](https://docs.djangoproject.com/en/dev/topics/testing/tools/)完全兼容，但也提供了一个测试客户端，以便于仅测试 API，而无需中间件/URL 解析层，从而使测试运行得更快。
 
-To test the following API:
+要测试以下 API:
 ```python
 from ninja import NinjaAPI, Schema
 
@@ -19,7 +19,7 @@ def hello(request):
 api.add_router("", router)
 ```
 
-You can use the Django test class:
+你可以使用 Django 测试类：
 ```python
 from django.test import TestCase
 from ninja.testing import TestClient
@@ -32,8 +32,7 @@ class HelloTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {"msg": "Hello World"})
 ```
-
-Arbitrary attributes can be added to the request object by passing keyword arguments to the client request methods:
+可以通过向客户端请求方法传递关键字参数来向请求对象添加任意属性：
 ```python
 class HelloTest(TestCase):
     def test_hello(self):

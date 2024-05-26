@@ -1,11 +1,9 @@
-# Versioning
+# 版本控制
 
-## Different API version numbers
+## 不同的 API 版本号
 
-With **Django Ninja** it's easy to run multiple API versions from a single Django project.
-
-All you have to do is create two or more NinjaAPI instances with different `version` arguments:
-
+使用 **Django Ninja** ，从单个 Django 项目中运行多个 API 版本很容易。
+你所要做的就是创建两个或更多具有不同 `version` 参数的 NinjaAPI 实例：
 
 **api_v1.py**:
 
@@ -36,7 +34,7 @@ def hello(request):
 ```
 
 
-and then in **urls.py**:
+然后在 **urls.py** 中:
 
 ```python hl_lines="8 9"
 ...
@@ -53,17 +51,16 @@ urlpatterns = [
 ```
 
 
-Now you can go to different OpenAPI docs pages for each version:
+现在你可以为每个版本访问不同的 OpenAPI 文档页面：
 
  - http://127.0.0.1/api/**v1**/docs
  - http://127.0.0.1/api/**v2**/docs
 
 
 
-## Different business logic
+## 不同的业务逻辑
 
-In the same way, you can define a different API for different components or areas:
-
+以同样的方式，你可以为不同的组件或领域定义不同的 API：
 ```python hl_lines="4 7"
 ...
 
@@ -82,5 +79,5 @@ urlpatterns = [
 ]
 
 ```
-!!! note
-    If you use different **NinjaAPI** instances, you need to define different `version`s or different `urls_namespace`s.
+!!! 注意
+    如果你使用不同的 **NinjaAPI** 实例，你需要定义不同的 `version` 或不同的 `urls_namespace`。

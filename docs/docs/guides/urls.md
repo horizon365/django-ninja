@@ -1,12 +1,12 @@
-# Reverse Resolution of URLS
+# URL 的反向解析
 
-A reverse URL name is generated for each method in a Django Ninja Schema (or `Router`).
+在 Django Ninja 模式 (or `Router`) 中的每个方法都会生成一个反向 URL 名称。
 
-## How URLs are generated
+## URL 如何生成
 
-The URLs are all contained within a namespace, which defaults to `"api-1.0.0"`, and each URL name matches the function it is decorated. 
+这些 URL 都包含在一个命名空间中，默认是 `"api-1.0.0"`并且每个 URL 名称与它所装饰的函数相匹配。
 
-For example:
+例如:
 
 ```python
 api = NinjaAPI()
@@ -18,12 +18,11 @@ def index(request):
 index_url = reverse_lazy("api-1.0.0:index")
 ```
 
-This implicit URL name will only be set for the first operation for each API path.  If you *don't* want any implicit reverse URL name generated, just explicitly specify `url_name=""` (an empty string) on the method decorator.
+这种隐式的 URL 名称只会为每个 API 路径的第一个操作设置。如果你 *不* 希望生成任何隐式的反向 URL 名称，只需在方法装饰器上明确指定 `url_name=""` (一个空字符串)。
 
-### Changing the URL name
+### 更改 URL 名称
 
-Rather than using the default URL name, you can specify it explicitly as a property on the method decorator.
-
+你可以不使用默认的 URL 名称，而是明确地将其作为方法装饰器上的属性指定。
 ```python
 @api.get("/users", url_name="user_list")
 def users(request):
@@ -32,12 +31,12 @@ def users(request):
 users_url = reverse_lazy("api-1.0.0:user_list")
 ```
 
-This will override any implicit URL name to this API path.
+这将覆盖此 API 路径的任何隐式 URL 名称。
 
 
-#### Overriding default url names
+#### 覆盖默认 URL 名称
 
-You can also override implicit url naming by overwriting the `get_operation_url_name` method:
+你也可以通过覆盖 `get_operation_url_name` 方法来覆盖隐式的 URL 命名：
 
 ```python
 class MyAPI(NinjaAPI):
@@ -47,10 +46,9 @@ class MyAPI(NinjaAPI):
 api = MyAPI()
 ```
 
-### Customizing the namespace
+### 自定义命名空间
 
-The default URL namespace is built by prepending the Schema's version with `"api-"`, however you can explicitly specify the namespace by overriding the `urls_namespace` attribute of the `NinjaAPI` Schema class.
-
+默认的 URL 命名空间是通过在模式的版本前加上 `"api-"` 构建的，然而你可以通过覆盖 NinjaAPI 模式类的 `urls_namespace` 属性来明确指定命名空间。
 ```python
 
 api = NinjaAPI(auth=token_auth, version='2')
