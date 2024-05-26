@@ -1,9 +1,9 @@
-# Enhancement Proposals
+# 增强提案
 
-Enhancement Proposals are a formal way of proposing large feature additions to the **Django Ninja Framework**.
+增强提案是向 **Django Ninja 框架**提议大型功能需求的一种正式方式。
 
-You can create a proposal by making a pull request with a new page under [`docs/proposals`](https://github.com/vitalik/django-ninja/tree/master/docs/docs/proposals), or by creating an [issue on github](https://github.com/vitalik/django-ninja/issues).
+您可以通过在 [`docs/proposals`](https://github.com/vitalik/django-ninja/tree/master/docs/docs/proposals)下创建一个带有新页面的拉取请求，或者通过在 [issue on github](https://github.com/vitalik/django-ninja/issues)来创建一个提案。
 
-Please see the current proposals:
+请查看当前的提案：
 
- - [Class Based Operations](cbv.md)
+ - [基于类的操作](cbv.md)

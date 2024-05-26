@@ -1,24 +1,23 @@
-# Class Based Operations
+# 基于类的操作
 
 
-!!! warning ""
-    This is just a proposal and it is **not present in library code**, but eventually this can be a part of Django Ninja.
+!!! 警告
+    这只是一个提议，且 **不在库代码中**， 但最终它可能会成为 Django Ninja 的一部分。
 
-    Please consider adding likes/dislikes or comments in [github issue](https://github.com/vitalik/django-ninja/issues/15) to express your feeling about this proposal
+    请考虑在 [github issue](https://github.com/vitalik/django-ninja/issues/15) 中添加喜欢/不喜欢或评论来表达你对这个提议的感受
 
 
-## Problem
+## 问题
 
-An API operation is a callable which takes a request and parameters and returns a response, but it is often a case in real world when you need to reuse the same pieces of code in multiple operations.
+一个 API 操作是一个可调用对象，它接受请求和参数并返回响应，但在现实世界中，经常会出现需要在多个操作中重用相同代码片段的情况。
+让我们看下面这个例子：
 
-Let's take the following example:
+ - 我们有一个待办事项应用程序，包含项目和任务
+ - 每个项目有多个任务
+ - 每个项目可能也有一个所有者（用户）
+ - 用户不应能访问他们不拥有的项目
 
- - we have a Todo application with Projects and Tasks
- - each project has multiple tasks
- - each project may also have an owner (user)
- - users should not be able to access projects they do not own
-
-Model structure is something like this:
+模型结构大概是这样的：
 
 ```python
 class Project(models.Model):
@@ -32,15 +31,14 @@ class Task(models.Model):
 ```
 
 
-Now, let's create a few API operations for it:
+现在，让我们为此创建一些 API 操作：
+- 项目的任务列表
+- 一些任务详情
+- 一个“完成任务”操作
 
- - a list of tasks for the project
- - some task details
- - a 'complete task' action
+代码应该验证用户只能访问他/她自己项目的任务（否则，返回 404）
 
-The code should validate that a user can only access his/her own project's tasks (otherwise, return 404)
-
-It can be something like this:
+它可以是这样的：
 
 
 ```python
@@ -72,20 +70,18 @@ def complete(request, task_id: int):
 ```
 
 
-As you can see, these lines are getting repeated pretty often to check permission:
+如你所见，这些行经常重复出现以检查权限：
 
 ```python hl_lines="1 2"
 user_projects = request.user.project_set
 project = get_object_or_404(user_projects, id=project_id))
 ```
 
-You can extract it to a function, but it will just make it 3 lines smaller, and it will still be pretty polluted ...
+你可以将其提取到一个函数中，但这只会使其减少 3 行，并且仍然会相当混乱...
 
+## 解决方案
 
-## Solution
-
-The proposal is to have alternative called "Class Based Operation" where you can decorate the entire class with a `path` decorator:
-
+提议是有一个替代方案称为“基于类的操作”，你可以用一个 `path` 装饰器来装饰整个类：
 
 ```python hl_lines="7 8"
 from ninja import Router
@@ -117,8 +113,7 @@ class Tasks:
         return task
 ```
 
-All common initiation and permission checks are placed in the constructor:
-
+所有常见的初始化和权限检查都放在构造函数中：
 ```python hl_lines="4 5 6"
 @router.path('/project/{project_id}/tasks')
 class Tasks:
@@ -128,19 +123,19 @@ class Tasks:
         self.tasks = self.project.task_set.all()
 ```
 
-This makes the main business operation focus only on tasks (exposed as the `self.tasks` attribute)
+这使得主要业务操作仅关注任务 (作为 `self.tasks` 属性暴露)
 
-You can use both `api` and `router` instances to support class paths.
+你可以使用 `api` and `router` 实例来支持类路径。
 
-## Issue
+## 问题
 
-The `__init__` method:
+`__init__` 方法:
 
 ```def __init__(self, request, project_id=int):```
 
-Python doesn't support the `async` keyword for `__init__`, so to support async operations we need some other method for initialization, but `__init__` sounds the most logical.
+Python 不支持把 `async` 关键字用于 `__init__`, 所以为了支持异步操作，我们需要其他初始化方法，但 `__init__` 听起来最符合逻辑。
 
 
-## Your thoughts/proposals
+## 你的想法/提议
 
-Please give you thoughts/likes/dislikes about this proposal in the [github issue](https://github.com/vitalik/django-ninja/issues/15)
+请在 [github 问题](https://github.com/vitalik/django-ninja/issues/15) 中给出你对这个提议的想法/喜欢/不喜欢。
