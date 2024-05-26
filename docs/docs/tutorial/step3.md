@@ -1,10 +1,10 @@
-# Tutorial - Handling Responses
+# 教程 - 处理响应
 
-## Define a response Schema
+## 定义响应模式
 
-**Django Ninja** allows you to define the schema of your responses both for validation and documentation purposes.
+**Django Ninja** 允许您出于验证和文档目的定义响应的模式。
 
-We'll create a third operation that will return information about the current Django user.
+我们将创建第三个操作，该操作将返回有关当前 Django 用户的信息。
 
 ```python
 from ninja import Schema
@@ -12,7 +12,7 @@ from ninja import Schema
 class UserSchema(Schema):
     username: str
     is_authenticated: bool
-    # Unauthenticated users don't have the following fields, so provide defaults.
+    # 未经过身份验证的用户没有以下字段，因此提供默认值。
     email: str = None
     first_name: str = None
     last_name: str = None
@@ -22,11 +22,11 @@ def me(request):
     return request.user
 ```
 
-This will convert the Django `User` object into a dictionary of only the defined fields.
+这将把 Django 的 `用户` 对象转换为仅包含定义字段的字典。
 
-### Multiple response types
+### 这将把 Django 的“用户”对象转换为仅包含定义字段的字典。
 
-Let's return a different response if the current user is not authenticated.
+如果当前用户未经过身份验证，让我们返回不同的响应。
 
 ```python hl_lines="2-5 7-8 10 12-13"
 class UserSchema(Schema):
@@ -45,8 +45,8 @@ def me(request):
     return request.user 
 ```
 
-As you see, you can return a 2-part tuple which will be interpreted as the HTTP response code and the data.
+如您所见，您可以返回一个由两部分组成的元组，该元组将被解释为 HTTP 响应码和数据。
 
-!!! success
+!!! 大功告成
 
-    That concludes the tutorial! Check out the **Other Tutorials** or the **How-to Guides** for more information.
+    本教程到此结束！查看 **其他教程** 或 ** 操作指南 ** 以获取更多信息。
