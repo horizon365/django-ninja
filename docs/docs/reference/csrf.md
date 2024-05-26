@@ -1,21 +1,21 @@
-# CSRF
+# CSRF 跨站请求伪造
 
-## What is CSRF?
-> [Cross Site Request Forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery) occurs when a malicious website contains a link, a form button or some JavaScript that is intended to perform some action on your website, using the credentials (or location on the network, not covered by this documentation) of a logged-in user who visits the malicious site in their browser.
-
-
-## How to protect against CSRF with Django Ninja
-### Use an authentication method not automatically embedded in the request
-CSRF attacks rely on authentication methods that are automatically included in requests started from another site, like [cookies](https://en.wikipedia.org/wiki/HTTP_cookie) or [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
-Using an authentication method that does not automatically gets embedded, such as the `Authorization: Bearer` header for exemple, mitigates this attack.
+## 什么是跨站请求伪造？
+> [跨站请求伪造](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 发生在一个恶意网站包含一个链接、表单按钮或一些 JavaScript 时，旨在使用在其浏览器中访问恶意网站的已登录用户的凭证（或网络上未被本文档涵盖的位置）在您的网站上执行某些操作。
 
 
-### Use Django's built-in CSRF protection
-In case you are using the default Django authentication, which uses cookies, you must also use the default [Django CSRF protection](https://docs.djangoproject.com/en/4.2/ref/csrf/).
+## 如何使用 Django Ninja 防范跨站请求伪造
+### 使用非自动嵌入请求的身份验证方法
+跨站请求伪造攻击依赖于自动包含在从其他网站发起的请求中的身份验证方法，如 [cookies](https://en.wikipedia.org/wiki/HTTP_cookie) 或 [基本访问身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication).
+使用不会自动嵌入的身份验证方法，例如 `Authorization: Bearer` ，可减轻这种攻击。
 
 
-By default, **Django Ninja** has CSRF protection turned **OFF** for all operations.
-To turn it on you need to use the `csrf` argument of the NinjaAPI class:
+### 使用 Django 的内置跨站请求伪造保护
+如果您使用的是默认的 Django 身份验证，该身份验证使用 Cookie，您还必须使用默认的 [Django 跨站请求伪造保护](https://docs.djangoproject.com/en/4.2/ref/csrf/)。
+
+
+默认情况下， **Django Ninja** 对所有操作的跨站请求伪造保护都处于 **OFF** 状态。
+要打开它，您需要使用 NinjaAPI 类的 `csrf` 参数 :
 
 ```python hl_lines="3"
 from ninja import NinjaAPI
@@ -23,10 +23,10 @@ from ninja import NinjaAPI
 api = NinjaAPI(csrf=True)
 ```
 
-<span style="color: red;">Warning</span>: It is not secure to use API's with cookie-based authentication! (like `CookieKey`, or `django_auth`) when csrf is turned OFF.
+<span style="color: red;">Warning</span>: 在跨站请求伪造关闭的情况下使用基于 Cookie 的身份验证的 API 是不安全的！ (如 `CookieKey`, 或 `django_auth`)。
 
 
-**Django Ninja** will automatically enable csrf for Cookie based authentication
+**Django Ninja** 将自动为基于 Cookie 的身份验证启用跨站请求伪造。
 
 
 ```python hl_lines="8"
@@ -42,7 +42,7 @@ api = NinjaAPI(auth=CookieAuth())
 ```
 
 
-or django-auth based (which is inherited from cookie based auth):
+或者基于 django-auth 的（它继承自基于 Cookie 的身份验证）：
 
 ```python hl_lines="4"
 from ninja import NinjaAPI
@@ -52,11 +52,11 @@ api = NinjaAPI(auth=django_auth)
 ```
 
 
-#### Django `ensure_csrf_cookie` decorator
-You can use the Django [ensure_csrf_cookie](https://docs.djangoproject.com/en/4.2/ref/csrf/#django.views.decorators.csrf.ensure_csrf_cookie) decorator on an unprotected route to make it include a `Set-Cookie` header for the CSRF token. Note that:
-- The route decorator must be executed before (i.e. above) the [ensure_csrf_cookie](https://docs.djangoproject.com/en/4.2/ref/csrf/#django.views.decorators.csrf.ensure_csrf_cookie) decorator).
-- You must `csrf_exempt` that route.
-- The `ensure_csrf_cookie` decorator works only on a Django `HttpResponse` and not also on a dict like most Django Ninja decorators.
+#### Django `ensure_csrf_cookie` 装饰器
+您可以在未受保护的路由上使用 Django [ensure_csrf_cookie](https://docs.djangoproject.com/en/4.2/ref/csrf/#django.views.decorators.csrf.ensure_csrf_cookie) 装饰器，使其包含用于跨站请求伪造令牌的 `Set-Cookie`头，请注意:
+- 路由装饰器必须在 [ensure_csrf_cookie](https://docs.djangoproject.com/en/4.2/ref/csrf/#django.views.decorators.csrf.ensure_csrf_cookie) 装饰器之前（即之上）执行。
+- 您必须对该路由进行 `csrf_exempt` 。
+-  `ensure_csrf_cookie` 装饰器仅在 Django `HttpResponse` 上起作用，而不像大多数 Django Ninja 装饰器那样也在字典上起作用。
 ```python hl_lines="4"
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
@@ -67,14 +67,14 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 def get_csrf_token(request):
     return HttpResponse()
 ```
-A request to that route triggers a response with the adequate `Set-Cookie` header from Django.
+对该路由的请求会触发来自 Django 的带有适当 `Set-Cookie` 头的响应。
 
 
-#### Frontend code
-You may use the [Using CSRF protection with AJAX](https://docs.djangoproject.com/en/4.2/howto/csrf/#using-csrf-protection-with-ajax) and [Setting the token on the AJAX request](https://docs.djangoproject.com/en/4.2/howto/csrf/#setting-the-token-on-the-ajax-request) part of the [How to use Django’s CSRF protection](https://docs.djangoproject.com/en/4.2/howto/csrf/) to know how to handle that CSRF protection token in your frontend code.
+#### 前端代码
+你可以使用 [使用 AJAX 进行 CSRF 保护 ](https://docs.djangoproject.com/en/4.2/howto/csrf/#using-csrf-protection-with-ajax) 和 [在 AJAX 请求上设置令牌](https://docs.djangoproject.com/en/4.2/howto/csrf/#setting-the-token-on-the-ajax-request) 部分的 [如何使用 Django’s CSRF 保护](https://docs.djangoproject.com/en/4.2/howto/csrf/) 以了解如何在您的前端代码中处理该跨站请求伪造保护令牌。
 
 
-## A word about CORS
-You may want to set-up your frontend and API on different sites (in that case, you may check [django-cors-headers](https://github.com/adamchainz/django-cors-headers)).
-While not directly related to CSRF, CORS (Cross-Origin Resource Sharing) may help in case you are defining the CSRF cookie on another site than the frontend consuming it, as this is not allowed by default by the [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
-You may check the [django-cors-headers README](https://github.com/adamchainz/django-cors-headers#readme) then.
+## 关于 CORS 的其它
+您可能希望在不同的站点上设置前端和 API (在这种情况下，您可以查看 [django-cors-headers](https://github.com/adamchainz/django-cors-headers)).
+虽然与跨站请求伪造没有直接关系，但 CORS (跨源资源共享) 在您在不同于前端使用的站点上定义跨站请求伪造 Cookie 时可能会有所帮助，因为这在默认情况下是不被 [同源策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)允许的。
+然后您可以查看 [django-cors-headers README](https://github.com/adamchainz/django-cors-headers#readme)。

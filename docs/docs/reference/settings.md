@@ -1,4 +1,4 @@
-# Django Settings
+# Django 设置
 
 ::: ninja.conf.Settings
     rendering:

@@ -1,7 +1,6 @@
-# Management Commands
+# 管理命令
 
-Management commands require **Django Ninja** to be installed in Django's
-`INSTALLED_APPS` setting:
+管理命令要求 **Django Ninja** 配置在 Django 的`INSTALLED_APPS` 设置中:
 
 ```python
 INSTALLED_APPS = [
