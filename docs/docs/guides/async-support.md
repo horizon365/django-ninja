@@ -1,25 +1,23 @@
-## Intro
+## 介绍
 
-Since **version 3.1**, Django comes with **async views support**. This allows you run efficient concurrent views that are network and/or IO bound.
+自 ** 3.1 版本** 起, Django 带有 **异步视图支持**。 这允许你运行高效的受网络和/或 I/O 限制的并发视图。
 
 ```
 pip install Django>=3.1 django-ninja
 ```
 
-Async views work more efficiently when it comes to:
+在以下方面异步视图工作得更高效:
+- 通过网络调用外部 API
+- 执行/等待数据库查询
+- 对磁盘驱动器进行读/写
 
-- calling external APIs over the network
-- executing/waiting for database queries
-- reading/writing from/to disk drives
+**Django Ninja** 充分利用异步视图，并使其非常容易使用。
 
-**Django Ninja** takes full advantage of async views and makes it very easy to work with them.
+## 快速示例
 
-## Quick example
+### 代码
 
-### Code
-
-Let's take an example.  We have an API operation that does some work (currently just sleeps for provided number of seconds) and returns a word:
-
+让我们举个例子。我们有一个 API 操作，它做一些工作（目前只是为给定的秒数休眠）并返回一个单词：
 ```python hl_lines="5"
 import time
 
@@ -29,7 +27,7 @@ def say_after(request, delay: int, word: str):
     return {"saying": word}
 ```
 
-To make this code asynchronous, all you have to do is add the **`async`** keyword to a function (and use async aware libraries for work processing - in our case we will replace the stdlib `sleep` with `asyncio.sleep`):
+要使这段代码异步执行， 你所要做的就是给函数添加 **`async`** 关键字 (并使用对工作处理有感知的异步库 - 在我们的例子中，我们将标准库的 `sleep` 替换为 `asyncio.sleep`):
 
 ```python hl_lines="1 4 5"
 import asyncio
@@ -40,42 +38,42 @@ async def say_after(request, delay: int, word: str):
     return {"saying": word}
 ```
 
-### Run
+### 运行
 
-To run this code you need an ASGI server like <a href="https://www.uvicorn.org/" target="_blank">Uvicorn</a> or <a href="https://github.com/django/daphne" target="_blank">Daphne</a>. Let's use Uvicorn for, example:
+要运行此代码，你需要一个像<a href="https://www.uvicorn.org/" target="_blank">Uvicorn</a> 或 <a href="https://github.com/django/daphne" target="_blank">Daphne</a>的 ASGI 服务。我们这里就使用 Uvicorn 吧, 示例如下:
 
-To install Uvicorn, use:
+要安装 Uvicorn，使用:
 
 ```
 pip install uvicorn
 ```
 
-Then start the server:
+然后启动服务:
 
 ```
 uvicorn your_project.asgi:application --reload
 ```
 
 > <small>
-> *Note: replace `your_project` with your project package name*<br>
-> *`--reload` flag used to automatically reload server if you do any changes to the code (do not use on production)*
+> *注意: 用你的项目包名替换 `your_project` *<br>
+> *`--reload` 标志用于在你对代码进行任何更改时自动重新加载服务器（在生产环境中不要使用）*
 > </small>
 
-!!! note
-    You can run async views with `manage.py runserver`, but it does not work well with some libraries, so at this time (July 2020) it is recommended to use ASGI servers like Uvicorn or Daphne.
+!!! 注意
+    你可以使用 `manage.py runserver` 运行异步视图，但它与一些库配合不太好，所以在此时（2020 年 7 月）建议使用像 Uvicorn 或 Daphne 这样的 ASGI 服务器。
 
-### Test
+### 测试
 
-Go to your browser and open <a href="http://127.0.0.1:8000/api/say-after?delay=3&word=hello" target="_blank">http://127.0.0.1:8000/api/say-after?delay=3&word=hello</a> (**delay=3**)
-After a 3-second wait you should see the "hello" message.
+在你的浏览器中打开 <a href="http://127.0.0.1:8000/api/say-after?delay=3&word=hello" target="_blank">http://127.0.0.1:8000/api/say-after?delay=3&word=hello</a> (**delay=3**)
+等待 3 秒后，你应该看到 "hello" 消息。
 
-Now let's flood this operation with **100 parallel requests**:
+现在让我们用 **100 parallel requests** 来淹没这个操作:
 
 ```
 ab -c 100 -n 100 "http://127.0.0.1:8000/api/say-after?delay=3&word=hello"
 ```
 
-which will result in something like this:
+这将得到类似这样的结果：
 
 ```
 Connection Times (ms)
@@ -97,13 +95,13 @@ Percentage of the requests served within a certain time (ms)
  100%   3083 (longest request)
 ```
 
-Based on the numbers, our service was able to handle each of the 100 concurrent requests with just a little overhead.
+根据这些数字，我们的服务能够处理这 100 个并发请求，只有一点开销。
 
-To achieve the same concurrency with WSGI and sync operations you would need to spin up about 10 workers with 10 threads each!
+要使用 WSGI 和同步操作实现相同的并发，你需要启动大约 10 个每个有 10 个线程的工作者！
 
-## Mixing sync and async operations
+## 混合同步和异步操作
 
-Keep in mind that you can use **both sync and async operations** in your project, and **Django Ninja** will route it automatically:
+请记住，你可以在你的项目中 **同时使用 sync 和 async 操作** ，并且 **Django Ninja** 将自动路由它:
 
 ```python hl_lines="2 7"
 
@@ -118,15 +116,14 @@ async def say_after_async(request, delay: int, word: str):
     return {"saying": word}
 ```
 
-## Elasticsearch example
+## Elasticsearch 示例
 
-Let's take a real world use case. For this example, let's use the latest version of Elasticsearch that now comes with async support:
-
+让我们举一个实际的用例。对于这个例子，让我们使用现在带有异步支持的最新版本的 Elasticsearch：
 ```
 pip install elasticsearch>=7.8.0
 ```
 
-And now instead of the `Elasticsearch` class, use the `AsyncElasticsearch` class and `await` the results:
+现在，不是使用 `Elasticsearch` 类，而是使用 `AsyncElasticsearch` 类并 `await` 结果:
 
 ```python hl_lines="2 7 11 12"
 from ninja import NinjaAPI
@@ -148,13 +145,12 @@ async def search(request, q: str):
     return resp["hits"]
 ```
 
-## Using ORM
+## 使用 ORM
 
-Currently, certain key parts of Django are not able to operate safely in an async environment, as they have global state that is not coroutine-aware. These parts of Django are classified as “async-unsafe”, and are protected from execution in an async environment. **The ORM** is the main example, but there are other parts that are also protected in this way.
+目前，Django 的某些关键部分不能在异步环境中安全操作，因为它们具有全局状态，该状态不是协程感知的。Django 的这些部分被分类为“异步不安全”，并在异步环境中受到保护，不执行。*** ORM*** 是主要示例，但还有其他部分也以这种方式受到保护。
+在<a href="https://docs.djangoproject.com/en/stable/topics/async/#async-safety" target="_blank">Django 官方文档</a>中了解更多关于异步安全的信息。
 
-Learn more about async safety here in the <a href="https://docs.djangoproject.com/en/stable/topics/async/#async-safety" target="_blank">official Django docs</a>.
-
-So, if you do this:
+所以，如果你这样做：
 
 ```python hl_lines="3"
 @api.get("/blog/{post_id}")
@@ -163,7 +159,7 @@ async def search(request, post_id: int):
     ...
 ```
 
-it throws an error. Until the async ORM is implemented, you can use the `sync_to_async()` adapter:
+它会抛出一个错误。在异步 ORM 实现之前，你可以使用 `sync_to_async()` 适配器:
 
 ```python hl_lines="1 3 9"
 from asgiref.sync import sync_to_async
@@ -178,7 +174,7 @@ async def search(request, post_id: int):
     ...
 ```
 
-or even shorter:
+或者甚至更短：
 
 ```python hl_lines="3"
 @api.get("/blog/{post_id}")
@@ -187,7 +183,7 @@ async def search(request, post_id: int):
     ...
 ```
 
-There is a common **GOTCHA**: Django queryset's are lazily evaluated (database query happens only when you start iterating), so this will **not** work:
+有一个常见的 **陷阱**: Django 查询集是惰性评估的（数据库查询仅在你开始迭代时发生），所以这将 **不** 起作用：
 
 ```python
 all_blogs = await sync_to_async(Blog.objects.all)()
@@ -195,17 +191,17 @@ all_blogs = await sync_to_async(Blog.objects.all)()
 ...
 ```
 
-Instead, use evaluation (with `list`):
+相反，使用评估 (用 `list`):
 
 ```python
 all_blogs = await sync_to_async(list)(Blog.objects.all())
 ...
 ```
 
-Since Django **version 4.1**, Django comes with asynchronous versions of ORM operations.
-These eliminate the need to use `sync_to_async` in most cases.
-The async operations have the same names as their sync counterparts but are prepended with *a*. So using
-the example above, you can rewrite it as:
+自从 Django **version 4.1**，Django 带有异步版本的 ORM 操作。
+这些在大多数情况下消除了使用 `sync_to_async`的需要。
+异步操作具有与它们的同步对应操作相同的名称，但前面加上 *a*。所以使用上面的例子，
+你可以重写为:
 
 ```python hl_lines="3"
 @api.get("/blog/{post_id}")
@@ -214,11 +210,11 @@ async def search(request, post_id: int):
     ...
 ```
 
-When working with querysets, use `async for` paired with list comprehension:
+当处理查询集时，使用 `async for`与列表推导式配对：
 
 ```python
 all_blogs = [blog async for blog in Blog.objects.all()]
 ...
 ```
 
-Learn more about the async ORM interface in the <a href="https://docs.djangoproject.com/en/4.1/releases/4.1/#asynchronous-orm-interface" target="_blank">official Django docs</a>.
+在<a href="https://docs.djangoproject.com/en/4.1/releases/4.1/#asynchronous-orm-interface" target="_blank">Django 官方文档</a>中了解更多关于异步 ORM 接口的信息。
