@@ -1,11 +1,11 @@
 # CRUD（增删改查）例子
 
 
-**CRUD**  - **C**reate, **R**etrieve, **U**pdate, **D**elete are the four basic functions of persistent storage.
+**CRUD**  - **C**reate, **R**etrieve, **U**pdate, **D**elete （增删改查）是持久存储的四项基本功能。
 
-This example will show you how to implement these functions with **Django Ninja**.
+这个示例将向你展示如何用 **Django Ninja** 来实现这些功能。
 
-Let's say you have the following Django models that you need to perform these operations on:
+假设你有以下需要对其执行这些操作的 Django 模型：
 
 
 ```python
@@ -21,11 +21,11 @@ class Employee(models.Model):
     cv = models.FileField(null=True, blank=True)
 ```
 
-Now let's create CRUD operations for the Employee model.
+现在让我们来对 Employee 创建 CRUD 操作。
 
-## Create
+## C: 创建
 
-To create an employee lets define an INPUT schema:
+创建一个 employee 对象的话，需要定义一个输入 schema:
 
 ```python
 from datetime import date
@@ -39,7 +39,7 @@ class EmployeeIn(Schema):
 
 ```
 
-This schema will be our input payload:
+这个 schema 将是我们的传入的 payload:
 
 ```python hl_lines="2"
 @api.post("/employees")
@@ -49,11 +49,11 @@ def create_employee(request, payload: EmployeeIn):
 ```
 
 !!! tip
-    `Schema` objects have `.dict()` method with all the schema attributes represented as a dict.
+    `Schema` 对象有 `.dict()` 方法，所有模式属性都表示为一个字典。
 
-    You can pass it as `**kwargs` to the Django model's `create` method (or model `__init__`).
+    你可以传递它作为 `**kwargs` 给到 Django 模型的`create` 方法 (或模型的 `__init__`).
 
-See the recipe below for handling the file upload (when using Django models):
+参考下面的代码片段去处理文件上传 (通过 Django models 的形式):
 
 ```python hl_lines="2"
 from ninja import UploadedFile, File
@@ -66,7 +66,7 @@ def create_employee(request, payload: EmployeeIn, cv: UploadedFile = File(...)):
     return {"id": employee.id}
 ```
 
-If you just need to handle a file upload:
+如果你仅仅需要上传一个文件:
 
 ```python hl_lines="2"
 from django.core.files.storage import FileSystemStorage
@@ -80,12 +80,11 @@ def create_upload(request, cv: UploadedFile = File(...)):
     # Handle things further
 ```
 
-## Retrieve
+## R: 查
 
-### Single object
+### 单个对象
 
-Now to get employee we will define a schema that will describe what our responses will look like. Here we will basically use the same schema as `EmployeeIn`, but will add an extra attribute `id`:
-
+现在为了获取 employee 对象，我们将定义一个模式，它将描述我们的响应会是什么样子。在这里，我们基本上将使用与 `EmployeeIn` 相同的模式，但会添加一个额外的属性 `id`：
 
 ```python hl_lines="2"
 class EmployeeOut(Schema):
@@ -96,10 +95,9 @@ class EmployeeOut(Schema):
     birthdate: date = None
 ```
 
-!!! note
-    Defining response schemas are not really required, but when you do define it you will get results validation, documentation and automatic ORM objects to JSON conversions.
-
-We will use this schema as the `response` type for our `GET` employee view:
+!!! 注意
+    定义响应模式并非真正必需的，但当你进行定义时，你将获得结果验证、文档以及自动将 ORM 对象转换为 JSON 的功能。
+我们将把这个模式用作我们使用 `GET` 方式获取 employee 视图的 `响应` 类型：
 
 
 ```python hl_lines="1"
@@ -108,8 +106,7 @@ def get_employee(request, employee_id: int):
     employee = get_object_or_404(Employee, id=employee_id)
     return employee
 ```
-
-Notice that we simply returned an employee ORM object, without a need to convert it to a dict. The `response` schema does automatic result validation and conversion to JSON:
+请注意，我们只是简单地返回了一个员工 ORM 对象，无需将其转换为字典。`响应` 模式会自动进行结果验证并转换为 JSON：
 ```python hl_lines="4"
 @api.get("/employees/{employee_id}", response=EmployeeOut)
 def get_employee(request, employee_id: int):
@@ -117,9 +114,8 @@ def get_employee(request, employee_id: int):
     return employee
 ```
 
-### List of objects
-
-To output a list of employees, we can reuse the same `EmployeeOut` schema. We will just set the `response` schema to a *List* of `EmployeeOut`.
+### 获取对象列表
+要输出 employees 的列表，我们可以复用相同的 `EmployeeOut` 模式。我们只需将响应模式设置为 `EmployeeOut` 的*List*。
 ```python hl_lines="3"
 from typing import List
 
@@ -129,7 +125,7 @@ def list_employees(request):
     return qs
 ```
 
-Another cool trick - notice we just returned a Django ORM queryset:
+另一个很酷的技巧 - 注意我们只是返回了一个 Django ORM 查询集：
 
 ```python hl_lines="4"
 @api.get("/employees", response=List[EmployeeOut])
@@ -137,13 +133,13 @@ def list_employees(request):
     qs = Employee.objects.all()
     return qs
 ```
-It automatically gets evaluated, validated and converted to a JSON list!
+它会自动被求值、验证并转换为 JSON 列表！
 
 
 
-## Update
+## U: 更新
 
-Update is pretty trivial. We just use the `PUT` method and also pass `employee_id`:
+更新相当简单。我们只需使用 `PUT` 方法并同时传递 `employee_id`:
 
 ```python hl_lines="1"
 @api.put("/employees/{employee_id}")
@@ -155,13 +151,13 @@ def update_employee(request, employee_id: int, payload: EmployeeIn):
     return {"success": True}
 ```
 
-**Note**
+**注意**
 
-Here we used the `payload.dict` method to set all object attributes:
+在这里我们使用了 `payload.dict` 方法来设置所有对象的属性:
 
 `for attr, value in payload.dict().items()`
 
-You can also do this more explicit:
+你也可以明确的写成这样:
 
 ```python
 employee.first_name = payload.first_name
@@ -170,13 +166,13 @@ employee.department_id = payload.department_id
 employee.birthdate = payload.birthdate
 ```
 
-**Partial updates**
+**部分更新**
 
-To allow the user to make partial updates, use `payload.dict(exclude_unset=True).items()`. This ensures that only the specified fields get updated.
+为了允许用户进行部分更新，使用 `payload.dict(exclude_unset=True).items()`。这确保了只有指定的字段会被更新。
 
-**Enforcing strict field validation**
+**强制严格字段验证**
 
-By default, any provided fields that don't exist in the schema will be silently ignored. To raise an error for these invalid fields, you can set `extra = "forbid"` in the schema's Config class. For example:
+默认情况下，任何提供的不存在于模式中的字段将被静默忽略。要对这些无效字段引发错误，你可以在模式的 Config 类中设置 `extra = "forbid"`。例如：
 
 ```python hl_lines="4 5"
 class EmployeeIn(Schema):
@@ -186,9 +182,9 @@ class EmployeeIn(Schema):
         extra = "forbid"
 ```
 
-## Delete
+## D: 删除
 
-Delete is also pretty simple. We just get employee by `id` and delete it from the DB:
+删除也相当简单。我们只需通过 `id` 获取员工并从数据库中删除它：
 
 
 ```python hl_lines="1 2 4"
@@ -199,9 +195,9 @@ def delete_employee(request, employee_id: int):
     return {"success": True}
 ```
 
-## Final code
+## 最终代码
 
-Here's a full CRUD example:
+这是一个完整的 CRUD 示例：
 
 
 ```python
