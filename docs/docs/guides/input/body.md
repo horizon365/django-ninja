@@ -1,34 +1,35 @@
-# Request Body
+# 请求体
 
-Request bodies are typically used with “create” and “update” operations (POST, PUT, PATCH).
-For example, when creating a resource using POST or PUT, the request body usually contains the representation of the resource to be created.
+请求体通常与“创建”和“更新”操作（POST、PUT、PATCH）一起使用。
+例如，使用 POST 或 PUT 创建资源时，请求体通常包含要创建的资源的表示形式。
 
-To declare a **request body**, you need to use **Django Ninja `Schema`**.
+要声明一个请求体 **request body**, 你需要使用 **Django Ninja 的 `Schema`**.
 
-!!! info
-    Under the hood **Django Ninja** uses <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> models with all their power and benefits.
-    The alias `Schema` was chosen to avoid confusion in code when using Django models, as Pydantic's model class is called Model by default, and conflicts with Django's Model class.
+!!! 注意⚠️
+    在底层实现上，**Django Ninja** 使用了 <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> Model 的所有能力和特性。
 
-## Import Schema
+       选择 `Schema` 作为别名是为了在使用 Django 模型时避免代码混淆，因为 Pydantic 的模型类默认情况下被称为 Model，这与 Django 的Model类冲突。
+    
 
-First, you need to import `Schema` from `ninja`:
+## 导入 Schema
+
+首先，你需要从 `ninja` 中导入`Schema`:
 
 ```python hl_lines="2"
 {!./src/tutorial/body/code01.py!}
 ```
 
-## Create your data model
+## 创建你的数据模型
 
-Then you declare your data model as a class that inherits from `Schema`.
+然后将你的数据模型声明为一个继承自 `Schema` 的类。
 
-Use standard Python types for all the attributes:
+为所有属性使用标准的 Python 类型：
 
 ```python hl_lines="5 6 7 8 9"
 {!./src/tutorial/body/code01.py!}
 ```
 
-Note: if you use **`None`** as the default value for an attribute, it will become optional in the request body.
-For example, this model above declares a JSON "`object`" (or Python `dict`) like:
+注意: 如果你将一个属性的默认值设置为 **`None`** ，它将在请求体中成为可选的。例如，，上面的模型声明了一个 JSON "`object`" (或 Python `dict`) ，如下所示:
 
 ```JSON
 {
@@ -39,7 +40,7 @@ For example, this model above declares a JSON "`object`" (or Python `dict`) like
 }
 ```
 
-...as `description` is optional (with a default value of `None`), this JSON "`object`" would also be valid:
+...由于 `description` 是可选的(默认值为 `None`), 因此这个 JSON "`object`" 也将是有效的:
 
 ```JSON
 {
@@ -49,75 +50,77 @@ For example, this model above declares a JSON "`object`" (or Python `dict`) like
 }
 ```
 
-## Declare it as a parameter
+## 将其声明为参数
 
-To add it to your *path operation*, declare it the same way you declared the path and query parameters:
+要将其添加到你的 *路径操作* 中，以与声明路径和查询参数相同的方式进行声明：
+
 
 ```python hl_lines="13"
 {!./src/tutorial/body/code01.py!}
 ```
 
-... and declare its type as the model you created, `Item`.
+... 并将其类型声明为你创建的 `Item` 模型。
 
-## Results
+## 结果
 
-With just that Python type declaration, **Django Ninja** will:
+仅使用该 Python 类型声明, **Django Ninja** 将:
 
-* Read the body of the request as JSON.
-* Convert the corresponding types (if needed).
-* Validate the data.
-    * If the data is invalid, it will return a nice and meaningful error, indicating exactly where and what the incorrect data was.
-* Give you the received data in the parameter `item`.
-    * Because you declared it in the function to be of type `Item`, you will also have all the editor support
-      (completion, etc.) for all the attributes and their types.
-* Generate <a href="https://json-schema.org" class="external-link" target="_blank">JSON Schema</a> definitions for
-  your models, and you can also use them anywhere else you like if it makes sense for your project.
-* Those schemas will be part of the generated OpenAPI schema, and used by the automatic documentation <abbr title="User Interfaces">UI's</abbr>.
+* 将请求体读取为 JSON。
+* 转换相应的类型（如果需要）。
+* 验证数据。
+    * 如果数据无效，它将返回一个友好且有意义的错误，准确指出错误数据的位置和内容。
+* 在参数`item`中为你提供接收到的数据.
+    * 由于你在函数中声明它的类型为Item，你还将获得所有属性及其类型的编辑器支持
+（自动完成等）。
+* 为你的模型生成 <a href="https://json-schema.org" class="external-link" target="_blank">JSON Schema</a> 定义，你也可以在项目中需要的任何地方使用它们。
+* 这些模式将成为生成的 OpenAPI 模式的一部分，并由自动文档 <abbr title="User Interfaces">UI</abbr> 使用。
 
-## Automatic docs
+## 自动文档
 
-The JSON Schemas of your models will be part of your OpenAPI generated schema, and will be shown in the interactive API docs:
+你的模型的 JSON Schemas 将成为你生成的 OpenAPI 模式的一部分，并将在交互式 API 文档中显示：
 
 ![Openapi schema](../../img/body-schema-doc.png)
 
-... and they will be also used in the API docs inside each *path operation* that needs them:
+...并且它们也将在每个需要它们的 *路径操作* 的 API 文档中使用：
 
 ![Openapi schema](../../img/body-schema-doc2.png)
 
-## Editor support
+## 编辑器支持
 
-In your editor, inside your function you will get type hints and completion everywhere (this wouldn't happen if you received a `dict` instead of a Schema object):
+在你的编辑器中，在你的函数内部，你将获得无处不在的类型提示和完成功能（如果使用`dict`而不是Schema对象，则不会发生这种情况）：
 
 ![Type hints](../../img/body-editor.gif)
 
 
-The previous screenshots were taken with <a href="https://code.visualstudio.com" class="external-link" target="_blank">Visual Studio Code</a>.
+前面的截图中使用的是<a href="https://code.visualstudio.com" class="external-link" target="_blank">Visual Studio Code</a>。
 
-You would get the same editor support with <a href="https://www.jetbrains.com/pycharm/" class="external-link" target="_blank">PyCharm</a> and most of the other Python editors.
+你将在<a href="https://www.jetbrains.com/pycharm/" class="external-link" target="_blank">PyCharm</a> 和大多数其它Python 编辑器获得相同的编辑器支持。
+
+## 请求体 + 路径参数
+
+你可以同时声明路径参数**和**请求体。
 
 
-## Request body + path parameters
-
-You can declare path parameters **and** body requests at the same time.
-
-**Django Ninja** will recognize that the function parameters that match path parameters should be **taken from the path**, and that function parameters that are declared with `Schema` should be **taken from the request body**.
+**Django Ninja** 将识别出与路径参数匹配的函数参数应 **从路径中** 获取，而使用 `Schema` 声明的函数参数应 **从请求体中** 获取。
 
 ```python hl_lines="11 12"
 {!./src/tutorial/body/code02.py!}
 ```
 
-## Request body + path + query parameters
+## 请求体 + 路径 + 查询参数
 
-You can also declare **body**, **path** and **query** parameters, all at the same time.
+你也可以同时声明 **请求体 **、 **路径 **和 **查询 **参数。
 
-**Django Ninja** will recognize each of them and take the data from the correct place.
+ **Django Ninja** 将识别出每个参数，并从正确的位置获取数据。
 
 ```python hl_lines="11 12"
 {!./src/tutorial/body/code03.py!}
 ```
 
-The function parameters will be recognized as follows:
+函数参数将被识别为：
 
-* If the parameter is also declared in the **path**, it will be used as a path parameter.
-* If the parameter is of a **singular type** (like `int`, `float`, `str`, `bool`, etc.), it will be interpreted as a **query** parameter.
-* If the parameter is declared to be of the type of **Schema** (or Pydantic `BaseModel`), it will be interpreted as a request **body**.
+* 如果参数也在 **路径** 中声明，它将被用作路径参数。
+
+ 
+* 如果参数是一个**单一类型** (如 `int`, `float`, `str`, `bool`等)，它将被解释为 **查询**参数。
+* 如果参数被声明为**Schema** (or Pydantic `BaseModel`)的类型，它将被解释为 **请求体**。

@@ -1,16 +1,16 @@
-# HTTP Methods
+# HTTP 方法
 
-## Defining operations
+## 定义操作
 
-An `operation` can be one of the following [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods):
+一个 `操作` 可以是 [HTTP 方法](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)之一:
 
-- GET
-- POST
-- PUT
-- DELETE
-- PATCH
+- GET（获取）
+- POST（提交）
+- PUT（更新）
+- DELETE（删除）
+- PATCH（补丁）
 
-**Django Ninja** comes with a decorator for each operation:
+**Django Ninja** 为每个操作都有一个装饰器：
 
 ```python hl_lines="1 5 9 13 17"
 @api.get("/path")
@@ -34,13 +34,11 @@ def patch_operation(request):
     ...
 ```
 
-See the [operations parameters](../../reference/operations-parameters.md)
-reference docs for information on what you can pass to any of these decorators.
+有关可以传递给这些装饰器中的任何一个的信息，请参阅 [操作参数](../../reference/operations-parameters.md) 参考文档。
 
-## Handling multiple methods
+## 处理多种方法
 
-If you need to handle multiple methods with a single function for a given path,
-you can use the `api_operation` decorator:
+如果你需要用一个函数处理给定路径的多种方法，你可以使用 `api_operation` 装饰器：
 
 ```python hl_lines="1"
 @api.api_operation(["POST", "PATCH"], "/path")
@@ -48,8 +46,7 @@ def mixed_operation(request):
     ...
 ```
 
-This feature can also be used to implement other HTTP methods that don't have
-corresponding **Django Ninja** methods, such as `HEAD` or `OPTIONS`.
+这个功能也可以用于实现其他没有相应 **Django Ninja** 方法的 HTTP 方法, 例如 `HEAD（头部）` 或 `OPTIONS（选项）`。
 
 ```python hl_lines="1"
 @api.api_operation(["HEAD", "OPTIONS"], "/path")

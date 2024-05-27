@@ -1,18 +1,17 @@
-# Request parsers
+# 请求解析器
 
-In most cases, the default content type for REST API's is JSON, but in case you need to work with
-other content types (like YAML, XML, CSV) or use faster JSON parsers, **Django Ninja** provides a `parser` configuration.
+在大多数情况下，REST API 的默认内容类型是 JSON，但如果你需要处理其他内容类型（如 YAML、XML、CSV）或使用更快的 JSON 解析器，**Django Ninja** 提供了一个 `解析器` 配置。
 
 ```python
 api = NinjaAPI(parser=MyYamlParser())
 ```
 
-To create your own parser, you need to extend the `ninja.parser.Parser` class, and override the `parse_body` method.
+要创建你自己的解析器，你需要扩展 `ninja.parser.Parser` 类，并覆盖 `parse_body` 方法。
 
 
-## Example YAML Parser
+## 示例 YAML 解析器
 
-Let's create our custom YAML parser:
+让我们创建我们自定义的 YAML 解析器：
 
 ```python hl_lines="4 8 9"
 import yaml
@@ -42,7 +41,7 @@ def operation(request, payload: Payload):
 
 ```
 
-If you now send YAML like this as the request body:
+如果你现在像这样发送 YAML 作为请求主体：
 
 ```YAML
 ints:
@@ -52,7 +51,7 @@ string: hello
 f: 3.14
 ```
 
-it will be correctly parsed, and you should have JSON output like this:
+它将被正确解析，并且你应该有像这样的 JSON 输出：
 
 
 ```JSON
@@ -67,15 +66,15 @@ it will be correctly parsed, and you should have JSON output like this:
 ```
 
 
-## Example ORJSON Parser
+## 示例 ORJSON 解析器
 
-[orjson](https://github.com/ijl/orjson#orjson) is a fast, accurate JSON library for Python. It benchmarks as the fastest Python library for JSON and is more accurate than the standard `json` library or other third-party libraries.
+[orjson](https://github.com/ijl/orjson#orjson) 是一个用于 Python 的快速、准确的 JSON 库。它在基准测试中是最快的 Python JSON 库，并且比标准的 `json` 库或其他第三方库更准确。
 
 ```
 pip install orjson
 ```
 
-Parser code:
+解析器代码：
 
 ```python hl_lines="1 8 9"
 import orjson

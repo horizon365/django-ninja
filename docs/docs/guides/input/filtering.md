@@ -1,11 +1,10 @@
-# Filtering
+# 过滤
 
-If you want to allow the user to filter your querysets by a number of different attributes, it makes sense
-to encapsulate your filters into a `FilterSchema` class. `FilterSchema` is a regular `Schema`, so it's using all the
-necessary features of Pydantic, but it also adds some bells and whistles that ease the translation of the user-facing filtering
-parameters into database queries. 
+如果你想允许用户通过多个不同的属性来过滤你的查询集，那么将你的过滤器封装到一个 `FilterSchema` 类中是有意义的。
+`FilterSchema` 是一个常规的 `Schema`，所以它使用了 Pydantic 的所有必要特性，但它也添加了一些便利功能，
+以便将面向用户的过滤参数轻松转换为数据库查询。
 
-Start off with defining a subclass of `FilterSchema`:
+首先定义一个 `FilterSchema` 的子类:
 
 ```python hl_lines="6 7 8"
 from ninja import FilterSchema, Field
@@ -19,7 +18,7 @@ class BookFilterSchema(FilterSchema):
 ```
 
 
-Next, use this schema in conjunction with `Query` in your API handler:
+接下来，在你的 API 处理程序中结合 `Query` 使用这个模式:
 ```python hl_lines="2"
 @api.get("/books")
 def list_books(request, filters: BookFilterSchema = Query(...)):
@@ -28,10 +27,8 @@ def list_books(request, filters: BookFilterSchema = Query(...)):
     return books
 ```
 
-Just like described in [defining query params using schema](./query-params.md#using-schema), Django Ninja converts the fields
-defined in `BookFilterSchema` into query parameters.
-
-You can use a shorthand one-liner `.filter()` to apply those filters to your queryset:
+就像在 [使用模式定义查询参数](./query-params.md#using-schema)中描述的那样, Django Ninja 将`BookFilterSchema` 中定义的字段转换为查询参数。
+你可以使用一个简写的单行代码 `.filter()` 将这些过滤器应用到你的查询集：
 ```python hl_lines="4"
 @api.get("/books")
 def list_books(request, filters: BookFilterSchema = Query(...)):
@@ -40,11 +37,11 @@ def list_books(request, filters: BookFilterSchema = Query(...)):
     return books
 ```
 
-Under the hood, `FilterSchema` converts its fields into [Q expressions](https://docs.djangoproject.com/en/3.1/topics/db/queries/#complex-lookups-with-q-objects) which it then combines and uses to filter your queryset.
+在底层， `FilterSchema` 将其字段转换为 [Q 表达式](https://docs.djangoproject.com/en/3.1/topics/db/queries/#complex-lookups-with-q-objects) ，然后将它们组合起来并用于过滤你的查询集。
 
 
-Alternatively to using the `.filter` method, you can get the prepared `Q`-expression and perform the filtering yourself.
-That can be useful, when you have some additional queryset filtering on top of what you expose to the user through the API:
+或者，除了使用 `.filter` 方法，你也可以获取准备好的 `Q`表达式并自己进行过滤。
+当你在通过 API 向用户公开的内容之上还有一些额外的查询集过滤时，这可能会很有用：
 ```python hl_lines="5 8"
 @api.get("/books")
 def list_books(request, filters: BookFilterSchema = Query(...)):
@@ -57,56 +54,56 @@ def list_books(request, filters: BookFilterSchema = Query(...)):
     return Book.objects.filter(q)
 ```
 
-By default, the filters will behave the following way:
+默认情况下，过滤器将按照以下方式运行：
 
-* `None` values will be ignored and not filtered against;
-* Every non-`None` field will be converted into a `Q`-expression based on the `Field` definition of each field;
-* All `Q`-expressions will be merged into one using `AND` logical operator;
-* The resulting `Q`-expression is used to filter the queryset and return you a queryset with a `.filter` clause applied.
+* `None` 值将被忽略且不进行过滤；
+* 每个非 `None` 字段将根据每个字段的 `Field` 定义转换为一个 `Q` 表达式；
+* 所有的 `Q` 表达式将使用 `AND` 逻辑运算符合并为一个；
+* 生成的 `Q`表达式用于过滤查询集，并返回一个应用了 `.filter` 子句的查询集给你。
 
-## Customizing Fields
-By default, `FilterSet` will use the field names to generate Q expressions:
+## 自定义字段
+默认情况下， `FilterSet` 将使用字段名称来生成 Q 表达式：
 ```python
 class BookFilterSchema(FilterSchema):
     name: Optional[str] = None
 ```
-The `name` field will be converted into `Q(name=...)` expression.
+`name` 字段将被转换成 `Q(name=...)` 表达式。
 
-When your database lookups are more complicated than that, you can explicitly specify them in the field definition using a `"q"` kwarg:
+当你的数据库查找比这更复杂时，你可以在字段定义中使用 `"q"` 关键字参数明确指定它们：
 ```python hl_lines="2"
 class BookFilterSchema(FilterSchema):
     name: Optional[str] = Field(None, q='name__icontains') 
 ```
-You can even specify multiple lookup keyword argument names as a list:
+你甚至可以将多个查找关键字参数名称指定为一个列表：
 ```python hl_lines="2 3 4"
 class BookFilterSchema(FilterSchema):
     search: Optional[str] = Field(None, q=['name__icontains',
                                      'author__name__icontains',
                                      'publisher__name__icontains']) 
 ```
-By default, field-level expressions are combined using `"OR"` connector, so with the above setup, a query parameter `?search=foobar` will search for books that have "foobar" in either of their name, author or publisher.
+默认情况下，字段级别的表达式使用 `"OR"` 连接器组合，所以使用上述设置，一个查询参数 `?search=foobar` 将搜索那些在其名称、作者或出版者中任何一个有 "foobar" 的书。
 
 
-## Combining expressions
-By default,
+## 组合表达式
+默认情况下，
 
-* Field-level expressions are joined together using `OR` operator.
-* The fields themselves are joined together using `AND` operator.
+* 字段级别的表达式使用 `OR` 运算符组合在一起。
+* 字段本身使用 `AND` 运算符组合在一起。
 
-So, with the following `FilterSchema`...
+因此，对于以下的 `FilterSchema`...
 ```python
 class BookFilterSchema(FilterSchema):
     search: Optional[str] = Field(None, q=['name__icontains', 'author__name__icontains'])
     popular: Optional[bool] = None
 ```
-...and the following query parameters from the user
+...以及来自用户的以下查询参数
 ```
 http://localhost:8000/api/books?search=harry&popular=true
 ```
-the `FilterSchema` instance will look for popular books that have `harry` in the book's _or_ author's name. 
+`FilterSchema` 实例将寻找在书籍的_或_作者的名字中包含 `harry` 的热门书籍。
 
 
-You can customize this behavior using an `expression_connector` argument in field-level and class-level definition:
+你可以使用字段级别和类级别定义中的 `expression_connector` 参数自定义此行为：
 ```python hl_lines="3 7"
 class BookFilterSchema(FilterSchema):
     active: Optional[bool] = Field(None, q=['is_active', 'publisher__is_active'],
@@ -117,28 +114,28 @@ class BookFilterSchema(FilterSchema):
         expression_connector = 'OR'
 ```
 
-An expression connector can take the values of `"OR"`, `"AND"` and `"XOR"`, but the latter is only [supported](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#xor) in Django starting with 4.1.
+表达式连接器可以取值为 `"OR"`, `"AND"` 和 `"XOR"`, 但后者仅在 Django 4.1 中 [受支持](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#xor) 。
 
-Now, a request with these query parameters 
+现在，具有这些查询参数的请求
 ```
 http://localhost:8000/api/books?name=harry&active=true
 ```
-...shall search for books that have `harry` in their name _or_ are active themselves _and_ are published by active publishers.
+...将寻找在其名字中包含 `harry` 的书籍 _或_ 自身是活跃的并且是由活跃的出版商出版的书籍。
 
 
-## Filtering by Nones
-You can make the `FilterSchema` treat `None` as a valid value that should be filtered against.
+## 通过 Nones 进行过滤
+你可以让 `FilterSchema` 将 `None` 视为应该进行过滤的有效值。
 
-This can be done on a field level with a `ignore_none` kwarg:
+这可以在字段级别通过 `ignore_none` 关键字参数来完成：
 ```python hl_lines="3"
 class BookFilterSchema(FilterSchema):
     name: Optional[str] = Field(None, q='name__icontains')
     tag: Optional[str] = Field(None, q='tag', ignore_none=False)
 ```
 
-This way when no other value for `"tag"` is provided by the user, the filtering will always include a condition `tag=None`.
+这样，当用户没有为 `"tag"` 提供其他值时，过滤将始终包括 `tag=None`条件。
 
-You can also specify this settings for all fields at the same time in the Config:
+你也可以在配置中同时为所有字段指定此设置：
 ```python hl_lines="6"
 class BookFilterSchema(FilterSchema):
     name: Optional[str] = Field(None, q='name__icontains')
@@ -149,9 +146,9 @@ class BookFilterSchema(FilterSchema):
 ```
 
 
-## Custom expressions
-Sometimes you might want to have complex filtering scenarios that cannot be handled by individual Field annotations.
-For such cases you can implement your field filtering logic as a custom method. Simply define a method called `filter_<fieldname>` which takes a filter value and returns a Q expression:
+## 自定义表达式
+有时你可能希望有复杂的过滤场景，这些场景无法通过单个字段注释来处理。
+对于此类情况，你可以将你的字段过滤逻辑实现为自定义方法。只需定义一个名为 `filter_<fieldname>` 的方法，该方法接受一个过滤值并返回一个 Q 表达式：
 
 ```python hl_lines="5"
 class BookFilterSchema(FilterSchema):
@@ -161,9 +158,8 @@ class BookFilterSchema(FilterSchema):
     def filter_popular(self, value: bool) -> Q:
         return Q(view_count__gt=1000) | Q(download_count__gt=100) if value else Q()
 ```
-Such field methods take precedence over what is specified in the `Field()` definition of the corresponding fields.
-
-If that is not enough, you can implement your own custom filtering logic for the entire `FilterSet` class in a `custom_expression` method:
+此类字段方法优先于相应字段的 `Field()` 定义中指定的内容。
+如果这还不够，你可以在 `custom_expression` 方法中为整个 `FilterSet` 类实现你自己的自定义过滤逻辑：
 
 ```python hl_lines="5"
 class BookFilterSchema(FilterSchema):
@@ -182,4 +178,4 @@ class BookFilterSchema(FilterSchema):
             )
         return q
 ```
-The `custom_expression` method takes precedence over any other definitions described earlier, including `filter_<fieldname>` methods.
+`custom_expression` 方法优先于前面描述的任何其他定义，包括 `filter_<fieldname>` 方法。

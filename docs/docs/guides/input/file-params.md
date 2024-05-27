@@ -1,6 +1,6 @@
-# File uploads
+# 文件上传
 
-Handling files are no different from other parameters.
+处理文件与处理其他参数没有区别。
 
 ```python hl_lines="1 2 5"
 from ninja import NinjaAPI, File
@@ -13,7 +13,7 @@ def upload(request, file: UploadedFile = File(...)):
 ```
 
 
-`UploadedFile` is an alias to [Django's UploadFile](https://docs.djangoproject.com/en/stable/ref/files/uploads/#django.core.files.uploadedfile.UploadedFile) and has all the methods and attributes to access the uploaded file:
+`UploadedFile` 是 [Django's UploadFile](https://docs.djangoproject.com/en/stable/ref/files/uploads/#django.core.files.uploadedfile.UploadedFile) 的别名，它具有访问上传文件的所有方法和属性。
 
  - read()
  - multiple_chunks(chunk_size=None)
@@ -23,11 +23,11 @@ def upload(request, file: UploadedFile = File(...)):
  - content_type
  - content_type_extra
  - charset
- - etc.
+ - 等
 
-## Uploading array of files
+## 上传多个文件
 
-To **upload several files** at the same time, just declare a `List` of `UploadedFile`:
+要同时**上传多个文件**，只需声明一个`List` 在 `UploadedFile`中:
 
 
 ```python hl_lines="1 6"
@@ -40,11 +40,10 @@ def upload_many(request, files: List[UploadedFile] = File(...)):
     return [f.name for f in files]
 ```
 
-## Uploading files with extra fields
+## 上传带有额外字段的文件
+注意：HTTP 协议默认情况下不允许您以 `application/json` 格式发送文件（除非您在客户端对其进行某种 JSON 编码）
 
-Note: The HTTP protocol does not allow you to send files in `application/json` format by default (unless you encode it somehow to JSON on client side)
-
-To send files along with some extra attributes, you need to send bodies with `multipart/form-data` encoding. You can do it by simply marking fields with `Form`:
+要发送带有一些额外属性的文件，您需要使用 `multipart/form-data` 编码发送正文。您可以通过简单地将字段标记为 `Form` 来实现：
 
 ```python hl_lines="14"
 from ninja import NinjaAPI, Schema, UploadedFile, Form, File
@@ -65,9 +64,10 @@ def create_user(request, details: Form[UserDetails], file: File[UploadedFile]):
 
 ```
 
-Note: in this case all fields should be send as form fields
+注意：在这种情况下，所有字段都应作为表单字段发送
 
-You can as well send payload in single field as JSON - just remove the Form mark from:
+您也可以将有效负载作为单个字段以 JSON 形式发送 - 只需从以下位置删除 `Form` 标记：
+
 
 ```python
 @api.post('/users')
@@ -76,13 +76,13 @@ def create_user(request, details: UserDetails, file: File[UploadedFile]):
 
 ```
 
-this will expect from the client side to send data as `multipart/form-data with 2 fields:
+这将期望客户端以带有 2 个字段的 `multipart/form-data `发送数据：
   
-  - details: JSON as string
-  - file: file
+  - details: 作为字符串的JSON
+  - file: 文件
 
 
-### List of files with extra info
+### 带有额外信息的文件列表
 
 ```python
 @api.post('/users')
