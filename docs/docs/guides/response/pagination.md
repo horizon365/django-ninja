@@ -1,9 +1,9 @@
-# Pagination
+# 分页
 
-**Django Ninja** comes with a pagination support. This allows you to split large result sets into individual pages.
+**Django Ninja** 带有分页支持。这允许你将大型结果集拆分为单独的页面。
 
 
-To apply pagination to a function - just apply `paginate` decorator:
+要将分页应用于一个函数 - 只需应用 `paginate` 装饰器:
 
 ```python hl_lines="1 4"
 from ninja.pagination import paginate
@@ -15,22 +15,22 @@ def list_users(request):
 ```
 
 
-That's it!
+就是这样！
 
-Now you can query users with `limit` and `offset` GET parameters
+现在你可以使用 `limit` 和 `offset` GET 参数查询用户
 
 ```
 /api/users?limit=10&offset=0
 ```
 
-by default limit is set to `100` (you can change it in your settings.py using `NINJA_PAGINATION_PER_PAGE`)
+默认情况下，限制设置为 `100` (你可以在你的 settings.py 中使用 `NINJA_PAGINATION_PER_PAGE` 来更改它)
 
 
-## Built in Pagination Classes
+## 内置分页类
 
-### LimitOffsetPagination (default)
+### LimitOffsetPagination 限制偏移分页 (默认)
 
-This is the default pagination class (You can change it in your settings.py using `NINJA_PAGINATION_CLASS` path to a class)
+这是默认的分页类 (你可以在你的 settings.py 中使用 `NINJA_PAGINATION_CLASS` 指向一个类的路径来更改它)
 
 ```python hl_lines="1 4"
 from ninja.pagination import paginate, LimitOffsetPagination
@@ -41,18 +41,18 @@ def list_users(request):
     return User.objects.all()
 ```
 
-Example query:
+示例查询:
 ```
 /api/users?limit=10&offset=0
 ```
 
-this class has two input parameters:
+这个类有两个输入参数：
 
- - `limit` - defines a number of queryset on the page (default = 100, change in NINJA_PAGINATION_PER_PAGE)
- - `offset` - set's the page window offset (default: 0, indexing starts with 0)
+ - `limit` - 定义页面上的查询集数量 (default = 100, 可以在 NINJA_PAGINATION_PER_PAGE 中修改)
+ - `offset` - 设置页面窗口偏移量 (default: 0, 索引从 0 开始)
 
 
-### PageNumberPagination
+### PageNumberPagination 页码分页
 ```python hl_lines="1 4"
 from ninja.pagination import paginate, PageNumberPagination
 
@@ -62,16 +62,16 @@ def list_users(request):
     return User.objects.all()
 ```
 
-Example query:
+示例查询:
 ```
 /api/users?page=2
 ```
 
-this class has one parameter `page` and outputs 100 queryset per page by default  (can be changed with settings.py)
+这个类有一个参数 `page` 并且默认每页输出 100 个查询集  (可以通过 settings.py 更改)
 
-Page numbering start with 1
+页面编号从 1 开始。
 
-you can also set custom page_size value individually per view:
+你也可以为每个视图单独设置自定义的页面大小值：
 
 ```python hl_lines="2"
 @api.get("/users")
@@ -81,11 +81,11 @@ def list_users(...
 
 
 
-## Accessing paginator parameters in view function
+## 在视图函数中访问分页参数
 
-If you need access to `Input` parameters used for pagination in your view function - use `pass_parameter` argument
+如果你需要在你的视图函数中访问用于分页的 `Input` 参数 - use `pass_parameter` 参数
 
-In that case input data will be available in `**kwargs`:
+在那种情况下，输入数据将在 `**kwargs` 中可用:
 
 ```python hl_lines="2 4"
 @api.get("/someview")
@@ -96,19 +96,19 @@ def someview(request, **kwargs):
 ```
 
 
-## Creating Custom Pagination Class
+## 创建自定义分页类
 
-To create a custom pagination class you should subclass `ninja.pagination.PaginationBase` and override the `Input` and `Output` schema classes and `paginate_queryset(self, queryset, request, **params)` method:
+要创建自定义分页类，你应该继承 `ninja.pagination.PaginationBase` 并覆盖 `Input` 和 `Output` 模式类以及 `paginate_queryset(self, queryset, request, **params)` 方法:
 
- - The `Input` schema is a Schema class that describes parameters that should be passed to your paginator (f.e. page-number or limit/offset values).
- - The `Output` schema describes schema for page output (f.e. count/next-page/items/etc).
- - The `paginate_queryset` method is passed the initial queryset and should return an iterable object that contains only the data in the requested page. This method accepts the following arguments:
-    - `queryset`: a queryset (or iterable) returned by the api function
-    - `pagination` - the paginator.Input parameters (parsed and validated)
-    - `**params`: kwargs that will contain all the arguments that decorated function received 
+ - `Input` 模式是一个描述应传递给分页器的参数（例如页码或 limit/offset值 ）的模式类。
+ - `Output` 模式描述页面输出的模式（例如计数/下一页/项目等）。
+ - `paginate_queryset` 方法接收初始的查询集，并且应该返回一个仅包含所请求页面中数据的可迭代对象。该方法接受以下参数：
+    - `queryset`: 由 API 函数返回的查询集（或可迭代对象）。
+    - `pagination` -  paginator.Input 参数 (已解析和验证)
+    - `**params`: 关键字参数，将包含装饰函数接收的所有参数。
 
 
-Example:
+示例:
 
 ```python hl_lines="7 11 16 26"
 from ninja.pagination import paginate, PaginationBase
@@ -141,20 +141,20 @@ def list_users(request):
     return User.objects.all()
 ```
 
-Tip: You can access request object from params:
+提示：你可以从参数中获取请求对象：
 
 ```python
 def paginate_queryset(self, queryset, pagination: Input, **params):
     request = params["request"]
 ```
 
-#### Async Pagination
+#### 异步分页
 
-Standard **Django Ninja** pagination classes support async. If you wish to handle async requests with a custom pagination class, you should subclass `ninja.pagination.AsyncPaginationBase` and override the `apaginate_queryset(self, queryset, request, **params)` method.
+标准的 **Django Ninja** 分页类支持异步。 如果你想用自定义分页类处理异步请求，你应该继承 `ninja.pagination.AsyncPaginationBase` 并覆盖 `apaginate_queryset(self, queryset, request, **params)` 方法。
 
-### Output attribute
+### 输出属性
 
-By defult page items are placed to `'items'` attribute. To override this behaviour use `items_attribute`:
+默认情况下页面项被放置在 `'items'` 属性中。 要覆盖此行为，可以使用  `items_attribute`:
 
 ```python hl_lines="4 8"
 class CustomPagination(PaginationBase):
@@ -169,11 +169,11 @@ class CustomPagination(PaginationBase):
 ```
 
 
-## Apply pagination to multiple operations at once
+## 一次对多个操作应用分页
 
-There is often a case when you need to add pagination to all views that returns querysets or list
+经常会有这样的情况，你需要对所有返回查询集或列表的视图添加分页
 
-You can use a builtin router class (`RouterPaginated`) that automatically injects pagination to all operations that defined `response=List[SomeSchema]`:
+你可以使用内置的路由类 (`RouterPaginated`) 它会自动将分页注入到所有定义为 `response=List[SomeSchema]` 的操作中:
 
 ```python hl_lines="1 3 6 10"
 from ninja.pagination import RouterPaginated
@@ -191,9 +191,9 @@ def ohter_items(request):
 
 ```
 
-In this example both operations will have pagination enabled
+在这个例子中，这两个操作都将启用分页。
 
-to apply pagination to main `api` instance use `default_router` argument:
+要将分页应用于主 `api` 实例，可以使用 `default_router` 参数:
 
 
 ```python

@@ -1,10 +1,10 @@
-# Response Schema
+# Response Schema 响应模式
 
-**Django Ninja** allows you to define the schema of your responses both for validation and documentation purposes.
+**Django Ninja** 允许你为验证和文档目的定义响应的模式。
 
-Imagine you need to create an API operation that creates a user. The **input** parameter would be **username+password**, but **output** of this operation should be **id+username** (**without** the password).
+想象一下，你需要创建一个创建用户的 API 操作。 **input** 参数将是 **username+password**, 但这个操作的 **输出** 应该是 **id+username** (**不包含** 密码).
 
-Let's create the input schema:
+让我们创建输入模式：
 
 ```python hl_lines="3 5"
 from ninja import Schema
@@ -22,7 +22,7 @@ def create_user(request, data: UserIn):
     # ... return ?
 ```
 
-Now let's define the output schema, and pass it as a `response` argument to the `@api.post` decorator:
+现在让我们定义输出模式，并将其作为 `response` 参数传递给 `@api.post` 装饰器:
 
 ```python hl_lines="8 9 10 13 18"
 from ninja import Schema
@@ -45,19 +45,19 @@ def create_user(request, data: UserIn):
     return user
 ```
 
-**Django Ninja** will use this `response` schema to:
+**Django Ninja** 将使用 `response` 模式来:
 
-- convert the output data to declared schema
-- validate the data
-- add an OpenAPI schema definition
-- it will be used by the automatic documentation systems
-- and, most importantly, it **will limit the output data** only to the fields only defined in the schema.
+- 将输出数据转换为声明的模式
+- 验证数据
+- 添加一个 OpenAPI 模式定义
+- 它将被自动文档系统使用
+- 并且，最重要的是，它将 **限制输出数据**  为仅在模式中定义的字段。
 
-## Nested objects
+## 嵌套对象
 
-There is also often a need to return responses with some nested/child objects.
+也经常有需要返回带有一些嵌套/子对象的响应。
 
-Imagine we have a `Task` Django model with a `User` ForeignKey:
+想象我们有一个带有 `User` 外键的 `Task` Django 模型:
 
 ```python hl_lines="6"
 from django.db import models
@@ -68,7 +68,7 @@ class Task(models.Model):
     owner = models.ForeignKey("auth.User", null=True, blank=True)
 ```
 
-Now let's output all tasks, and for each task, output some fields about the user.
+现在让我们输出所有任务，并为每个任务输出一些关于用户的字段。
 
 ```python hl_lines="13 16"
 from typing import List
@@ -92,7 +92,7 @@ def tasks(request):
     return list(queryset)
 ```
 
-If you execute this operation, you should get a response like this:
+如果你执行这个操作，你应该得到这样的响应：
 
 ```JSON hl_lines="6 7 8 9 16"
 [
@@ -115,14 +115,12 @@ If you execute this operation, you should get a response like this:
 ]
 ```
 
-## Aliases
+## 别名
 
-Instead of a nested response, you may want to just flatten the response output.
-The Ninja `Schema` object extends Pydantic's `Field(..., alias="")` format to
-work with dotted responses.
+与其使用嵌套响应，您可能希望仅展平响应输出。
+Ninja 的 `Schema` 对象扩展了 Pydantic 的 `Field(..., alias="")` 格式，以处理带点的响应。
 
-Using the models from above, let's make a schema that just includes the task
-owner's first name inline, and also uses `completed` rather than `is_completed`:
+使用上面的模型，让我们创建一个模式，该模式仅内联包含任务所有者的名字，并且还使用 `completed` 而不是 `is_completed`:
 
 ```python hl_lines="1 7-9"
 from ninja import Field, Schema
@@ -131,12 +129,12 @@ from ninja import Field, Schema
 class TaskSchema(Schema):
     id: int
     title: str
-    # The first Field param is the default, use ... for required fields.
+    # 第一个 Field 参数是默认值，对于必填字段使用...。
     completed: bool = Field(..., alias="is_completed")
     owner_first_name: str = Field(None, alias="owner.first_name")
 ```
 
-Aliases also support django template syntax variables access:
+别名也支持 Django 模板语法变量访问：
 
 ```python hl_lines="2"
 class TaskSchema(Schema):
@@ -149,16 +147,13 @@ class TaskSchema(Schema):
     type_display: str = Field(None, alias="get_type_display") # callable will be executed
 ```
 
-## Resolvers
+## 解析器
 
-You can also create calculated fields via resolve methods based on the field
-name.
+您还可以通过基于字段名称的解析方法创建计算字段。
 
-The method must accept a single argument, which will be the object the schema
-is resolving against.
+该方法必须接受一个参数，该参数将是模式要解析的对象。
 
-When creating a resolver as a standard method, `self` gives you access to other
-validated and formatted attributes in the schema.
+当将解析器创建为标准方法时，`self` 使您能够访问模式中的其他经过验证和格式化的属性。
 
 ```python hl_lines="5 7-11"
 class TaskSchema(Schema):
@@ -178,10 +173,9 @@ class TaskSchema(Schema):
         return self.title.lower()
 ```
 
-### Accessing extra context
+### 访问额外上下文
 
-Pydantic v2 allows you to process an extra context that is passed to the serializer. In the following example you can have resolver that gets request object from passed `context` argument:
-
+Pydantic v2 允许您处理传递给序列化器的额外上下文。在以下示例中，您可以有一个解析器，该解析器从传递的 `context` 参数中获取请求对象：
 ```python hl_lines="6"
 class Data(Schema):
     a: int
@@ -193,19 +187,19 @@ class Data(Schema):
         return request.path
 ```
 
-if you use this schema for incoming requests - the `request` object will be automatically passed to context.
+如果您将此模式用于传入请求 - 请求对象将自动传递到上下文。
 
-You can as well pass your own context:
+您也可以传递自己的上下文：
 
 ```python
 data = Data.model_validate({'some': 1}, context={'request': MyRequest()})
 ```
 
-## Returning querysets
+## 返回查询集
 
-In the previous example we specifically converted a queryset into a list (and executed the SQL query during evaluation).
+在上一个示例中，我们专门将查询集转换为列表（并在评估期间执行 SQL 查询）。
 
-You can avoid that and return a queryset as a result, and it will be automatically evaluated to List:
+您可以避免这种情况并返回查询集作为结果，它将自动评估为列表：
 
 ```python hl_lines="3"
 @api.get("/tasks", response=List[TaskSchema])
@@ -213,23 +207,22 @@ def tasks(request):
     return Task.objects.all()
 ```
 
-!!! warning
+!!! 警告
 
-    If your operation is async, this example will not work because the ORM query needs to be called safely.
-
+    如果您的操作是异步的，此示例将不起作用，因为 ORM 查询需要安全地调用。
     ```python hl_lines="2"
     @api.get("/tasks", response=List[TaskSchema])
     async def tasks(request):
         return Task.objects.all()
     ```
 
-    See the [async support](../async-support.md#using-orm) guide for more information.
+    有关更多信息，请参阅 [异步支持](../async-support.md#using-orm) 。
 
-## FileField and ImageField
+## 文件字段和图像字段
 
-**Django Ninja** by default converts files and images (declared with `FileField` or `ImageField`) to `string` URL's.
+**Django Ninja** 默认将文件和图像 (使用 `FileField` 或 `ImageField`声明) 转换成 `字符串`  URL.
 
-An example:
+一个例子：
 
 ```python hl_lines="3"
 class Picture(models.Model):
@@ -237,7 +230,7 @@ class Picture(models.Model):
     image = models.ImageField(upload_to='images')
 ```
 
-If you need to output to response image field, declare a schema for it as follows:
+如果您需要将图像字段输出到响应中，为其声明一个模式如下：
 
 ```python hl_lines="3"
 class PictureSchema(Schema):
@@ -245,7 +238,7 @@ class PictureSchema(Schema):
     image: str
 ```
 
-Once you output this to a response, the URL will be automatically generated for each object:
+一旦您将此输出到响应中，将为每个对象自动生成 URL：
 
 ```JSON
 {
@@ -254,26 +247,27 @@ Once you output this to a response, the URL will be automatically generated for 
 }
 ```
 
-## Multiple Response Schemas
+## 多个响应模式
 
-Sometimes you need to define more than response schemas.
-In case of authentication, for example, you can return:
+有时您需要定义多个响应模式。
+
+例如，在身份验证的情况下，您可以返回：
 
 - **200** successful -> token
 - **401** -> Unauthorized
 - **402** -> Payment required
-- etc..
+- 等等..
 
-In fact, the [OpenAPI specification](https://swagger.io/docs/specification/describing-responses/) allows you to pass multiple response schemas.
+实际上， [OpenAPI 规范](https://swagger.io/docs/specification/describing-responses/) 允许您传递多个响应模式。
 
-You can pass to a `response` argument a dictionary where:
+您可以将一个字典传递给 `response` 参数，其中:
 
-- key is a response code
-- value is a schema for that code
+- 键是响应码
+- 值是该代码的 schema 模式
 
-Also, when you return the result - you have to also pass a status code to tell **Django Ninja** which schema should be used for validation and serialization.
+此外，当您返回结果时 - 您还必须传递一个状态代码以告诉 **Django Ninja** 应该使用哪个模式进行验证和序列化。
 
-An example:
+一个示例:
 
 ```python hl_lines="9 12 14 16"
 class Token(Schema):
@@ -293,15 +287,15 @@ def login(request, payload: Auth):
     return 200, {'token': xxx, ...}
 ```
 
-## Multiple response codes
+## 多种响应代码
 
-In the previous example you saw that we basically repeated the `Message` schema twice:
+在前面的示例中，你看到我们基本上将 `Message` 模式重复了两次：
 
 ```
 ...401: Message, 402: Message}
 ```
 
-To avoid this duplication you can use multiple response codes for a schema:
+为避免这种重复，你可以对一个模式使用多种响应代码：
 
 ```python hl_lines="2 5 8 10"
 ...
@@ -317,7 +311,7 @@ def login(request, payload: Auth):
     return 200, {'token': xxx, ...}
 ```
 
-**Django Ninja** comes with the following HTTP codes:
+**Django Ninja** 带有以下 HTTP 代码：
 
 ```python
 from ninja.responses import codes_1xx
@@ -327,7 +321,7 @@ from ninja.responses import codes_4xx
 from ninja.responses import codes_5xx
 ```
 
-You can also create your own range using a `frozenset`:
+你也可以使用 `frozenset` 创建自己的范围:
 
 ```python
 my_codes = frozenset({416, 418, 425, 429, 451})
@@ -337,10 +331,10 @@ def login(request, payload: Auth):
     ...
 ```
 
-## Empty responses
+## 空响应
 
-Some responses, such as [204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204), have no body.
-To indicate the response body is empty mark `response` argument with `None` instead of Schema:
+有些响应，如 [204 无内容](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)，没有主体。
+要表示响应主体为空，用 `None` 而不是 Schema 模式来标记 `response` 参数 :
 
 ```python hl_lines="1 3"
 @api.post("/no_content", response={204: None})
@@ -348,18 +342,19 @@ def no_content(request):
     return 204, None
 ```
 
-## Error responses
+## 错误响应
 
-Check [Handling errors](../errors.md) for more information.
+有关更多信息，请查看 [处理错误](../errors.md) 。
 
 ## Self-referencing schemes
 
-Sometimes you need to create a schema that has reference to itself, or tree-structure objects.
+- 有时你需要创建一个模式，该模式引用自身或树状结构对象。
 
-To do that you need:
+- 要做到这一点，你需要：
 
-- set a type of your schema in quotes
-- use `update_forward_refs` method to apply self referencing types
+- 将你的模式类型用引号括起来
+
+- 使用 `update_forward_refs` 方法应用自引用类型
 
 ```python hl_lines="3 6"
 class Organization(Schema):
@@ -375,11 +370,10 @@ def list_organizations(request):
     ...
 ```
 
-## Self-referencing schemes from `create_schema()`
+## 从 `create_schema()` 生成的自引用模式
 
-To be able to use the method `update_forward_refs()` from a schema generated via `create_schema()`,
-the "name" of the class needs to be in our namespace. In this case it is very important to pass
-the `name` parameter to `create_schema()`
+为了能够使用通过 `create_schema()` 生成的模式的 `update_forward_refs()` 方法 ,
+类的 "name" 需要在我们的命名空间中。 在这种情况下，将 `name` 参数传递给 `create_schema()` 非常重要。
 
 ```python hl_lines="3"
 UserSchema = create_schema(
@@ -393,29 +387,25 @@ UserSchema = create_schema(
 UserSchema.update_forward_refs()
 ```
 
-## Serializing Outside of Views
+## 在视图之外进行序列化
 
-Serialization of your objects can be done directly in code through the use of
-the `.from_orm()` method on the schema object.
+可以通过在模式对象上使用 `.from_orm()` 方法直接在代码中对你的对象进行序列化。
 
-Consider the following model:
+考虑以下模型：
 
 ```python
 class Person(models.Model):
     name = models.CharField(max_length=50)
 ```
 
-Which can be accessed using this schema:
-
+可以使用以下模式进行访问：
 ```python
 class PersonSchema(Schema):
     name: str
 ```
 
-Direct serialization can be performed using the `.from_orm()` method on the
-schema. Once you have an instance of the schema object, the `.dict()` and
-`.json()` methods allow you to get at both dictionary output and string JSON
-versions.
+可以使用模式上的 `.from_orm()` 方法直接进行序列化。
+一旦你有了模式对象的实例， `.dict()` 和 `.json()` 方法允许你获得字典输出和字符串 JSON 版本。
 
 ```python
 >>> person = Person.objects.get(id=1)
@@ -428,7 +418,7 @@ PersonSchema(id=1, name='Mr. Smith')
 '{"id":1, "name":"Mr. Smith"}'
 ```
 
-Multiple Items: or a queryset (or list)
+多个条目：或查询集（或列表）
 
 ```python
 >>> persons = Person.objects.all()
@@ -436,9 +426,9 @@ Multiple Items: or a queryset (or list)
 [{'id':1, 'name':'Mr. Smith'},{'id': 2, 'name': 'Mrs. Smith'}...]
 ```
 
-## Django HTTP responses
+## Django HTTP 响应
 
-It is also possible to return regular django http responses:
+也可以返回常规的 django http 响应:
 
 ```python
 from django.http import HttpResponse

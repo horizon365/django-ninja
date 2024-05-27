@@ -1,11 +1,11 @@
-# Using create_schema
+# 使用 create_schema
 
-Under the hood, [`ModelSchema`](django-pydantic.md#modelschema) uses the `create_schema` function.
-This is a more advanced (and less safe) method - please use it carefully.
+在底层， [`ModelSchema`](django-pydantic.md#modelschema) 使用了 `create_schema` 函数。
+这是一种更高级（且不太安全）的方法——请谨慎使用。
 
 ## `create_schema`
 
-**Django Ninja** comes with a helper function `create_schema`:
+**Django Ninja** 带有一个辅助函数 `create_schema`:
 
 ```python
 def create_schema(
@@ -20,7 +20,7 @@ def create_schema(
 ```
 
 
-Take this example:
+看这个例子:
 
 ```python hl_lines="2 4"
 from django.contrib.auth.models import User
@@ -43,13 +43,13 @@ UserSchema = create_schema(User)
 
 ```
 
-!!! Warning
-    By default `create_schema` builds a schema with ALL model fields.
-    This can lead to accidental unwanted data exposure (like hashed password, in the above example).
+!!! 警告
+    默认情况下 `create_schema` 使用所有模型字段构建模式。
+    这可能导致意外的不必要数据暴露（如哈希密码，在上述例子中）。
     <br>
-    **Always** use `fields` or `exclude` arguments to explicitly define list of attributes.
+    **始终** 使用 `fields` 或 `exclude` 参数来明确定义属性列表。
 
-### Using `fields`
+### 使用 `fields`
 
 ```python hl_lines="1"
 UserSchema = create_schema(User, fields=['id', 'username'])
@@ -62,7 +62,7 @@ UserSchema = create_schema(User, fields=['id', 'username'])
 
 ```
 
-### Using `exclude`
+### 使用 `exclude`
 
 ```python hl_lines="1 2"
 UserSchema = create_schema(User, exclude=[
@@ -81,9 +81,9 @@ UserSchema = create_schema(User, exclude=[
 #    date_joined: datetime
 ```
 
-### Using `depth`
+### 使用 `depth`
 
-The `depth` argument allows you to introspect the Django model into the Related fields(ForeignKey, OneToOne, ManyToMany).
+`depth` 参数允许你深入检查 Django 模型到相关字段（外键、一对一、多对多）。
 
 ```python hl_lines="1 7"
 UserSchema = create_schema(User, depth=1, fields=['username', 'groups'])
@@ -95,7 +95,7 @@ UserSchema = create_schema(User, depth=1, fields=['username', 'groups'])
 #    groups: List[Group]
 ```
 
-Note here that groups became a `List[Group]` - many2many field introspected 1 level deeper and created schema as well for group:
+注意这里的组变成了 `List[Group]` - 多对多字段深入检查了 1 级并也为组创建了模式：
 
 ```python
 class Group(Schema):

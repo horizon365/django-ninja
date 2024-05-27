@@ -1,13 +1,12 @@
-# Schemas from Django models
+# 来自 Django 模型的 Schemas 模式
 
 
-Schemas are very useful to define your validation rules and responses, but sometimes you need to reflect your database models into schemas and keep changes in sync.
+Schemas 模式对于定义验证规则和响应非常有用，但有时您需要将数据库模型反映到模式中并保持更改同步。
+## ModelSchema 模型模式
 
-## ModelSchema 
+`ModelSchema` 是一个特殊的基类，可以自动从您的模型生成模式。
 
-`ModelSchema` is a special base class that can automatically generate schemas from your models.
-
-All you need is to set `model` and `fields` attributes on your schema `Meta`:
+您所需要做的就是在您的模式 `Meta` 上设置 `model` 和 `fields`:
 
 
 ```python hl_lines="2 5 6 7"
@@ -28,9 +27,9 @@ class UserSchema(ModelSchema):
 #     last_name: str
 ```
 
-### Using ALL model fields
+### 使用所有模型字段
 
-To use all fields from a model - you can pass `__all__` to `fields`:
+要使用模型的所有字段 - 您可以将 `__all__` 传递给 `fields`:
 
 ```python hl_lines="4"
 class UserSchema(ModelSchema):
@@ -38,16 +37,16 @@ class UserSchema(ModelSchema):
         model = User
         fields = "__all__"
 ```
-!!! Warning
-    Using __all__ is not recommended.
+!!! 警告
+    不建议使用 __all__ 。
     <br>
-    This can lead to accidental unwanted data exposure (like hashed password, in the above example).
+    这可能导致意外的不必要数据暴露（例如上述示例中的哈希密码）。
     <br>
-    General advice - use `fields` to explicitly define list of fields that you want to be visible in API.
+    一般建议 - 使用 `fields` 明确定义您希望在 API 中可见的字段列表。
 
-### Excluding model fields
+### 排除模型字段
 
-To use all fields **except** a few, you can use `exclude` configuration:
+要使用 **除** 少数几个之外的所有字段，您可以使用 `exclude` 配置:
 
 ```python hl_lines="4"
 class UserSchema(ModelSchema):
@@ -68,10 +67,9 @@ class UserSchema(ModelSchema):
 
 ```
 
-### Overriding fields
+### 覆盖字段
 
-To change default annotation for some field, or to add a new field, just use annotated attributes as usual. 
-
+要更改某些字段的默认注释，或添加新字段，只需像往常一样使用带注释的属性。
 ```python hl_lines="1 2 3 4 8"
 class GroupSchema(ModelSchema):
     class Meta:
@@ -89,9 +87,9 @@ class UserSchema(ModelSchema):
 ```
 
 
-### Making fields optional
+### 使字段可选
 
-Pretty often for PATCH API operations you need to make all fields of your schema optional. To do that you can use config fields_optional
+对于 PATCH API 操作，通常您需要使模式的所有字段可选。为此，您可以使用配置 fields_optional
 
 ```python hl_lines="5"
 class PatchGroupSchema(ModelSchema):
@@ -101,8 +99,7 @@ class PatchGroupSchema(ModelSchema):
         fields_optional = '__all__'
 ```
 
-also you can define just a few optional fields instead of all:
-
+您也可以只定义几个可选字段而不是所有：
 ```python
      fields_optional = ['description']
 ```
