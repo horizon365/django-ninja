@@ -1,18 +1,17 @@
-# Overriding Pydantic Config
+# 覆盖 Pydantic 配置
 
-There are many customizations available for a **Django Ninja `Schema`**, via the schema's
-[Pydantic `Config` class](https://pydantic-docs.helpmanual.io/usage/model_config/). 
+对于一个 **Django Ninja `Schema` 模式**, 有许多可用的自定义设置，通过模式的
+[Pydantic `Config` 类](https://pydantic-docs.helpmanual.io/usage/model_config/). 
 
-!!! info
-    Under the hood **Django Ninja** uses [Pydantic Models](https://pydantic-docs.helpmanual.io/usage/models/)
-    with all their power and benefits. The alias `Schema` was chosen to avoid confusion in code
-    when using Django models, as Pydantic's model class is called Model by default, and conflicts with
-    Django's Model class.
+!!! 注意
+    在底层 **Django Ninja** 使用 [Pydantic Models 模型](https://pydantic-docs.helpmanual.io/usage/models/)
+    及其所有的特性和优点。 选择别名 `Schema` 是为了在代码中使用 Django 模型时避免混淆，
+    因为 Pydantic 的模型类默认被称为“模型”，与 Django 的“模型”类冲突。
 
-## Example Camel Case mode
+## 示例驼峰命名模式
 
-One interesting `Config` attribute is [`alias_generator`](https://pydantic-docs.helpmanual.io/usage/model_config/#alias-generator).
-Using Pydantic's example in **Django Ninja** can look something like:
+一个有趣的 `Config` 属性是 [`alias_generator 别名生成器`](https://pydantic-docs.helpmanual.io/usage/model_config/#alias-generator).
+在 **Django Ninja** 中使用 Pydantic 的示例可能看起来像这样:
 
 ```python hl_lines="12 13"
 from ninja import Schema
@@ -30,10 +29,10 @@ class CamelModelSchema(Schema):
         alias_generator = to_camel
 ```
 
-!!! note
-    When overriding the schema's `Config`, it is necessary to inherit from the base `Config` class. 
+!!! 注意
+    当覆盖 schema 模式的 `Config`时，有必要从基础 `Config` 类继承。
 
-Keep in mind that when you want modify output for field names (like cammel case) - you need to set as well  `populate_by_name` and `by_alias`
+请记住，当你想要修改字段名称的输出（如驼峰命名）时 - 你还需要设置 `populate_by_name` 和 `by_alias`
 
 ```python hl_lines="6 9"
 class UserSchema(ModelSchema):
@@ -50,7 +49,7 @@ def get_users(request):
 
 ```
 
-results:
+结果:
 
 ```JSON
 [
@@ -67,10 +66,10 @@ results:
 
 ```
 
-## Custom Config from Django Model
+## 来自 Django 模型的自定义配置
 
-When using [`create_schema`](django-pydantic-create-schema.md#create_schema), the resulting
-schema can be used to build another class with a custom config like:
+当使用 [`create_schema`](django-pydantic-create-schema.md#create_schema)时，生成的
+模式可以用于构建另一个具有自定义配置的类，如：
 
 ```python hl_lines="10"
 from django.contrib.auth.models import User

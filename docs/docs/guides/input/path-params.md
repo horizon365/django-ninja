@@ -1,41 +1,41 @@
-# Path parameters
-You can declare path "parameters" with the same syntax used by Python format-strings (which luckily also matches the <a href="https://swagger.io/docs/specification/describing-parameters/#path-parameters" target="_blank">OpenAPI path parameters</a>):
+# 路径参数
+您可以使用与 Python 格式化字符串相同的语法 (幸运的是，这也与 <a href="https://swagger.io/docs/specification/describing-parameters/#path-parameters" target="_blank">OpenAPI 路径参数</a>匹配)来声明路径“参数”：
 
 ```python hl_lines="1 2"
 {!./src/tutorial/path/code01.py!}
 ```
 
-The value of the path parameter `item_id` will be passed to your function as the argument `item_id`.
+路径参数 `item_id` 的值将作为参数 `item_id` 传递给您的函数。
 
-So, if you run this example and go to <a href="http://localhost:8000/api/items/foo" target="_blank">http://localhost:8000/api/items/foo</a>, you will see this response:
+因此，如果您运行此示例并转到 <a href="http://localhost:8000/api/items/foo" target="_blank">http://localhost:8000/api/items/foo</a>, 您将看到此响应：
 
 ```JSON
 {"item_id":"foo"}
 ```
 
 
-### Path parameters with types
-You can declare the type of path parameter in the function using standard Python type annotations:
+### 带类型的路径参数
+您可以在函数中使用标准 Python 类型注解来声明路径参数的类型：
 
 ```python hl_lines="2"
 {!./src/tutorial/path/code02.py!}
 ```
 
-In this case,`item_id` is declared to be an **`int`**. This will give you editor and linter support for error checks, completion, etc.
+在这种情况下，`item_id` 被声明为一个 **`int`**。这将为您提供编辑器和代码检查器对错误检查、代码补全等的支持。
 
-If you run this in your browser with <a href="http://localhost:8000/api/items/3" target="_blank">http://localhost:8000/api/items/3</a>, you will see this response:
+如果您在浏览器中使用 <a href="http://localhost:8000/api/items/3" target="_blank">http://localhost:8000/api/items/3</a>运行此代码，您将看到此响应：
 ```JSON
 {"item_id":3}
 ```
 
-!!! tip
-    Notice that the value your function received (and returned) is **3**, as a Python `int` - not a string `"3"`.
-    So, with just that type declaration, **Django Ninja** gives you automatic request "parsing" and validation.
+!!! 提示
+    请注意，您的函数接收（并返回）的值是 **3**, 作为 Python 的 `int` - 而不是字符串 `"3"`.
+    因此，仅通过该类型声明，**Django Ninja** 就为您提供了自动请求“解析”和验证。
 
 
 
-### Data validation
-On the other hand, if you go to the browser at <a href="http://localhost:8000/api/items/foo" target="_blank">http://localhost:8000/api/items/foo</a> <small>*(`"foo"` is not int)*</small>, you will see an HTTP error like this:
+### 数据验证
+另一方面，如果您在浏览器中访问 <a href="http://localhost:8000/api/items/foo" target="_blank">http://localhost:8000/api/items/foo</a> <small>*(`"foo"` 不是int)*</small>，您将看到如下 HTTP 错误：
 
 ```JSON hl_lines="8"
 {
@@ -53,10 +53,10 @@ On the other hand, if you go to the browser at <a href="http://localhost:8000/ap
 ```
 
 
-### Django Path Converters
+### Django 路径转换器
 
-You can use [Django Path Converters](https://docs.djangoproject.com/en/stable/topics/http/urls/#path-converters)
-to help parse the path:
+您可以使用 [Django 路径转换器](https://docs.djangoproject.com/en/stable/topics/http/urls/#path-converters)
+来帮助解析路径：
 
 ```python hl_lines="1"
 @api.get("/items/{int:item_id}")
@@ -64,13 +64,13 @@ def read_item(request, item_id):
     return {"item_id": item_id}
 ```
 
-In this case,`item_id` will be parsed as an **`int`**. If `item_id` is not a valid `int`, the url will not
-match.  (e.g. if no other path matches, a *404 Not Found* will be returned)
+在这种情况下，`item_id` 将被解析为一个 **`int`**。如果 `item_id` 不是有效的 `int`则该 URL 将不匹配。
+（例如，如果没有其他路径匹配，则会返回一个404 未找到）
 
-!!! tip
-    Notice that, since **Django Ninja** uses a default type of `str` for unannotated parameters, the value the
-    function above received (and returned) is `"3"`, as a Python `str` - not an integer **3**. To receive
-    an `int`, simply declare `item_id` as an `int` type annotation in the function definition as normal:
+!!! 提示
+    请注意，由于 **Django Ninja** 对未注释的参数使用默认的 `str` 类型, 上述函数接收（和返回）的值是 `"3"`, 
+    作为一个 Python `str` - 而不是整数 **3**。 要接收一个 `int`，只需像平常一样在函数定义中简单地将 `item_id` 
+    声明为 `int` 类型注释：
 
     ```python hl_lines="2"
     @api.get("/items/{int:item_id}")
@@ -78,20 +78,20 @@ match.  (e.g. if no other path matches, a *404 Not Found* will be returned)
         return {"item_id": item_id}
     ```
  
-#### Path params with slashes
+#### 带斜线的路径参数
 
-Django's `path` converter allows you to handle path-like parameters:
+Django 的 `path` 转换器允许你处理类似路径的参数：
 
 ```python hl_lines="1"
 @api.get('/dir/{path:value}')
 def someview(request, value: str):
     return value
 ```
-you can query this operation with `/dir/some/path/with-slashes` and your `value` will be equal to `some/path/with-slashes`
+你可以用 `/dir/some/path/with-slashes` 来查询此操作，并且你的 `value` 将等于 `some/path/with-slashes`
 
-### Multiple parameters
+### 多个参数
 
-You can pass as many variables as you want into `path`, just remember to have unique names and don't forget to use the same names in the function arguments.
+你可以向  `path` 传递任意多的变量只要记住要有唯一的名称，并且不要忘记在函数参数中使用相同的名称。
 
 ```python
 @api.get("/events/{year}/{month}/{day}")
@@ -100,18 +100,18 @@ def events(request, year: int, month: int, day: int):
 ```
 
 
-### Using Schema
+### 使用 Schema 模式
 
-You can also use Schema to encapsulate path parameters that depend on each other (and validate them as a group):
+你也可以使用 Schema 模式来封装相互依赖的路径参数（并作为一个组进行验证）：
 
 
 ```python hl_lines="1 2  5 6 7 8 9 10 11 15"
 {!./src/tutorial/path/code010.py!}
 ```
 
-!!! note
-    Notice that here we used a `Path` source hint to let **Django Ninja** know that this schema will be applied to path parameters.
+!!! 注意
+    请注意，这里我们使用了一个  `Path` 源提示，让 **Django Ninja** 知道这个模式将应用于路径参数。
 
-### Documentation
-Now, when you open your browser at <a href="http://localhost:8000/api/docs" target="_blank">http://localhost:8000/api/docs</a>, you will see the automatic, interactive, API documentation.
+### 文档
+现在，当你在浏览器中打开 <a href="http://localhost:8000/api/docs" target="_blank">http://localhost:8000/api/docs</a> 时，你将看到自动的、交互式的 API 文档。
 ![Django Ninja Swagger](../../img/tutorial-path-swagger.png)
