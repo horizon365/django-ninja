@@ -1,8 +1,8 @@
-site_name: Django Ninja
-site_description: Django Ninja - Django REST framework with high performance, easy to learn, fast to code.
+site_name: Django Ninja 中文官方文档
+site_description: Django Ninja - 一个具有高性能、易学、快速编码的 Django REST框架。
 site_url: https://django-ninja.cn
 repo_name: vitalik/django-ninja
-repo_url: https://github.com/horizon365/django-ninja
+repo_url: https://github.com/vitalik/django-ninja
 edit_uri: ""
 extra:
   analytics:
