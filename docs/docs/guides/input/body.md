@@ -5,10 +5,9 @@
 
 要声明一个请求体 **request body**, 你需要使用 **Django Ninja 的 `Schema`**.
 
-!!! 注意⚠️
+!!! 注意
     在底层实现上，**Django Ninja** 使用了 <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> Model 的所有能力和特性。
-
-       选择 `Schema` 作为别名是为了在使用 Django 模型时避免代码混淆，因为 Pydantic 的模型类默认情况下被称为 Model，这与 Django 的Model类冲突。
+    选择 `Schema` 作为别名是为了在使用 Django 模型时避免代码混淆，因为 Pydantic 的模型类默认情况下被称为 Model，这与 Django 的Model类冲突。
     
 
 ## 导入 Schema
@@ -29,7 +28,7 @@
 {!./src/tutorial/body/code01.py!}
 ```
 
-注意: 如果你将一个属性的默认值设置为 **`None`** ，它将在请求体中成为可选的。例如，，上面的模型声明了一个 JSON "`object`" (或 Python `dict`) ，如下所示:
+注意: 如果你将一个属性的默认值设置为 **`None`** ，它将在请求体中成为可选的。例如，上面的模型声明了一个 JSON "`object`" (或 Python `dict`) ，如下所示:
 
 ```JSON
 {
