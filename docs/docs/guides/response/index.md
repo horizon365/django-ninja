@@ -16,7 +16,7 @@ class UserIn(Schema):
 
 @api.post("/users/")
 def create_user(request, data: UserIn):
-    user = User(username=data.username) # User is django auth.User
+    user = User(username=data.username) # User 类来自 django auth.User
     user.set_password(data.password)
     user.save()
     # ... return ?
@@ -83,7 +83,7 @@ class TaskSchema(Schema):
     id: int
     title: str
     is_completed: bool
-    owner: UserSchema = None  # ! None - to mark it as optional
+    owner: UserSchema = None  # ! None - 标记使它非必填
 
 
 @api.get("/tasks", response=List[TaskSchema])
@@ -144,7 +144,7 @@ class TaskSchema(Schema):
 ```python hl_lines="3"
 class TaskSchema(Schema):
     type: str = Field(None)
-    type_display: str = Field(None, alias="get_type_display") # callable will be executed
+    type_display: str = Field(None, alias="get_type_display") # callable 将要被执行
 ```
 
 ## 解析器
@@ -359,10 +359,10 @@ def no_content(request):
 ```python hl_lines="3 6"
 class Organization(Schema):
     title: str
-    part_of: 'Organization' = None     #!! note the type in quotes here !!
+    part_of: 'Organization' = None     #!! 注意这里的类型需要放在引号中！！ !!
 
 
-Organization.update_forward_refs()  # !!! this is important
+Organization.update_forward_refs()  # !!! 这一行很重要
 
 
 @api.get('/organizations', response=List[Organization])
@@ -378,7 +378,7 @@ def list_organizations(request):
 ```python hl_lines="3"
 UserSchema = create_schema(
     User,
-    name='UserSchema',  # !!! this is important for update_forward_refs()
+    name='UserSchema',  # !!! 这对 update_forward_refs() 很重要
     fields=['id', 'username']
     custom_fields=[
         ('manager', 'UserSchema', None),
