@@ -12,6 +12,7 @@ extra_css:
   - extra.css
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme)"
       primary: green
