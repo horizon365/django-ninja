@@ -9,7 +9,7 @@ pip install -U django-ninja
 django-ninja v1 与 Python 3.7 及以上版本兼容。
 
 
-Django ninja 系列 0.x 仍然受支持，但将仅接收安全更新和关键错误修复。
+Django ninja 0.x 系列仍然受支持，但将仅接收安全更新和关键错误修复。
 
 
 # Django Ninja 1.0 中的新特性
@@ -17,6 +17,7 @@ Django ninja 系列 0.x 仍然受支持，但将仅接收安全更新和关键�
 ## 对 Pydantic2 的支持
 
 Pydantic 版本 2 用 Rust 重写，包含了许多改进和特性，如：
+
  - 更安全的类型。
  - 更好的可扩展性。
  - 更好的性能。
@@ -98,7 +99,7 @@ def some_form(request, data: AuthSchema = Form(...)):
 以及在编辑器中的所有自动完成功能。
 
 
-另一方面， **旧语法仍然支持** ，因此你可以轻松地将你的项目移植到更新的 django-ninja 版本而不费吹灰之力。
+另一方面， **旧语法仍然被支持** ，因此你可以轻松地将你的项目移植到最新的 django-ninja 版本而不费吹灰之力。
 
 
 #### + Annotated
@@ -179,11 +180,11 @@ api.add_router('/app5', 'myproject.app5.router')
 from django.views.decorators.cache import cache_page
 
 @api.get("/test")
-@cache_page(5) # <----- will not work
+@cache_page(5) # <----- 将不起作用！
 def test_view(request):
     return {"some": "Complex data"}
 ```
-这个例子不起作用。
+这个例子将不起作用。
 
 现在 django-ninja 引入了一个装饰器 decorate_view，允许注入与 http 响应一起工作的装饰器：
 ```python hl_lines="1 4"
@@ -202,7 +203,7 @@ def test_view(request):
 
 
 #### 不向后兼容的内容
- - resolve_xxx(self, ...) - 支持代 (self) 的解析被弃用，转而支持 pydantic 内置功能。
+ - resolve_xxx(self, ...) - 支持 (self) 的解析被弃用，转而支持 pydantic 内置功能。
  - pydantic v1 不再支持
  - python 3.6 不再支持
 
