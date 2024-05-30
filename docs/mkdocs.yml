@@ -89,7 +89,9 @@ nav:
       - 基于类的操作（cbv）: proposals/cbv.md
       - 提案: proposals/v1.md
   - V1 的新版变化: whatsnew_v1.md
-  - 本站建设: site-build/add-google-adsense-with-mkdocs.md
+  - 本站建设:
+    - site-build/add-google-adsense-with-mkdocs.md
+    - site-build/google-baidu-shou-lu.md
 markdown_extensions:
   - markdown_include.include
   - markdown.extensions.codehilite:
