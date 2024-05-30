@@ -23,6 +23,8 @@
 
 ### 添加网站
 
+打开百度收录网站： [百度搜索资源平台](https://ziyuan.baidu.com/dailysubmit/index)
+
 跟上面的谷歌验证类似，使用 HTML 标签验证。
 
 ### 站点地图
