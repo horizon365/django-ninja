@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 管理命令
 
 管理命令要求 **Django Ninja** 配置在 Django 的`INSTALLED_APPS` 设置中:

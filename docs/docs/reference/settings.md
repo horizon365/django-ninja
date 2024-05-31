@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Django 设置
 
 ::: ninja.conf.Settings

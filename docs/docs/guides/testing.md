@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 测试
 
 **Django Ninja** 与标准的 [django 测试客户端](https://docs.djangoproject.com/en/dev/topics/testing/tools/)完全兼容，但也提供了一个测试客户端，以便于仅测试 API，而无需中间件/URL 解析层，从而使测试运行得更快。

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 覆盖 Pydantic 配置
 
 对于一个 **Django Ninja `Schema` 模式**, 有许多可用的自定义设置，通过模式的

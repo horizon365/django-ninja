@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 视频教程
 
 ## 使用 Django Ninja 实现隐蔽的 REST API

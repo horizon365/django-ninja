@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # URL 的反向解析
 
 在 Django Ninja 模式 (or `Router`) 中的每个方法都会生成一个反向 URL 名称。

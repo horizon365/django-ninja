@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 请求解析器
 
 在大多数情况下，REST API 的默认内容类型是 JSON，但如果你需要处理其他内容类型（如 YAML、XML、CSV）或使用更快的 JSON 解析器，**Django Ninja** 提供了一个 `解析器` 配置。

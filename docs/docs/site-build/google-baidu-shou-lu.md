@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 谷歌/百度收录 mkdocs 网站
 
 在[上篇文章中](add-google-adsense-with-mkdocs.md) 我们介绍了如何通过自定义模板在 mkdocs 中增加 google ads。

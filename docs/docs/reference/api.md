@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # NinjaAPI
 
 ::: ninja.main.NinjaAPI

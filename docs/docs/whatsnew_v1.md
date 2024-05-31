@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 欢迎来到 Django Ninja 1.0
 
 

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 教程 - 第一步
 
 本教程向您展示如何使用 **Django Ninja** 的大部分功能.

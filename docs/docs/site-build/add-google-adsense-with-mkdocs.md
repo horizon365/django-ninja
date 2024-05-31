@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 添加 Google Adsense 到 mkdocs 文档中
 在您的 mkdocs-material 版本中找到原始的 `base.html`：
 

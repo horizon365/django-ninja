@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 来自 Django 模型的 Schemas 模式
 
 

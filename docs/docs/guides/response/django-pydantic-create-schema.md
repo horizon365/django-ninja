@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 使用 create_schema
 
 在底层， [`ModelSchema`](django-pydantic.md#modelschema) 使用了 `create_schema` 函数。

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Django Ninja - 快速的 Django REST 框架
 
 

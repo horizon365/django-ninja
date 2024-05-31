@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 响应渲染器
 
 对于一个 REST API 来说，最常见的响应类型通常是 JSON。

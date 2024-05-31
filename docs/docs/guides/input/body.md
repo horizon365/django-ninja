@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 请求体
 
 请求体通常与“创建”和“更新”操作（POST、PUT、PATCH）一起使用。

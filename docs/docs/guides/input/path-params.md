@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 路径参数
 您可以使用与 Python 格式化字符串相同的语法 (幸运的是，这也与 <a href="https://swagger.io/docs/specification/describing-parameters/#path-parameters" target="_blank">OpenAPI 路径参数</a>匹配)来声明路径“参数”：
 

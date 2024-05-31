@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 发布日志
 
 在 GitHub 上关注并订阅新的发布。

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Response Schema 响应模式
 
 **Django Ninja** 允许你为验证和文档目的定义响应的模式。

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Help / Get Help
 
 ## Do you like Django Ninja?

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 表单数据 Form data
 
 **Django Ninja** 还允许你解析和验证 `request.POST` 数据

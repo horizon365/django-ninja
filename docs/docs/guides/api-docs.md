@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # API 文档
 
 ## OpenAPI 文档
