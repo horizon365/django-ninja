@@ -1,33 +1,35 @@
 ---
 comments: true
 ---
-# Help / Get Help
+# 帮助 / 寻求帮助
 
-## Do you like Django Ninja?
+## 你喜欢 Django Ninja 吗？
 
-If you like this project, there is a tiny thing you can do to let us know that we're moving in the right direction.
+如果你喜欢这个项目，有一件小事你可以做来让我们知道我们正朝着正确的方向前进。
 
-Simply give django-ninja a <a href="https://github.com/horizon365/django-ninja" target="_blank">star on github</a> <a href="https://github.com/vitalik/django-ninja" target="_blank">![github star](img/github-star.png)</a>
+只需在 <a href="https://github.com/vitalik/django-ninja" target="_blank"> 在 github 上给 django-ninja 一个星标 </a> 。 <a href="https://github.com/vitalik/django-ninja" target="_blank">![github star](img/github-star.png)</a>
 
-or share this URL on social media: 
+或者在社交媒体上分享这个 URL：
+
 ```
 https://django-ninja.cn
 ```
-Follow updates on twitter <a href="https://twitter.com/django_ninja">@django_ninja</a>
-
-## Do you want to help us?
-
-Pull requests are always welcome.
-
-You can inspect our docs for typos and spelling mistakes, and create pull requests or <a href="https://github.com/horizon365/django-ninja/issues" target="_blank">open an issue</a>.
-
-If you have any suggestions to improve **Django Ninja**, please create them as <a href="https://github.com/horizon365/django-ninja/issues" target="_blank">issues</a> on GitHub.
 
 
-## Do you need help?
+## 你想帮助我们吗？
 
-Do not hesitate.  Go to <a href="https://github.com/vitalik/django-ninja/issues" target="_blank">GitHub issues</a> and describe your question or problem.  We'll attempt to address them quickly.
+拉取请求总是受欢迎的。
 
-Join the chat at our <a href="https://discord.gg/dgE4SNUDTB" target="_blank">Discord</a> server.
+你可以检查我们的文档中的错别字和拼写错误，并创建拉取请求或打开一个问题。
 
-[Code-on the webdesign and web development company](https://code-on.be/) gives commercial consulting for Django-Ninja. If you are looking for support please contact Code-on and we will be in touch with you soon.
+如果你有任何改进 Django Ninja 的建议，请在 Github 上以问题的形式创建它们。
+
+
+
+## 你需要帮助吗？
+
+不要犹豫。前往 <a href="https://github.com/vitalik/django-ninja/issues" target="_blank">GitHub issues</a> 并描述你的问题或难题。我们会尽快尝试解决它们。
+
+加入交流群 672827055 <a href="https://qm.qq.com/q/e0JkcwEFgs" target="_blank">![QQ](img/qq.svg)</a>
+
+
