@@ -1,4 +1,4 @@
-site_name: Django Ninja 中文官方文档
+site_name: Django Ninja 官方文档
 site_description: Django Ninja - 一个具有高性能、易学、快速编码的 Django REST框架。
 site_url: https://django-ninja.cn
 repo_name: vitalik/django-ninja
@@ -92,6 +92,7 @@ nav:
   - 本站建设:
     - site-build/add-google-adsense-with-mkdocs.md
     - site-build/google-baidu-shou-lu.md
+    - site-build/adding_coment_system.md
 markdown_extensions:
   - markdown_include.include
   - markdown.extensions.codehilite:

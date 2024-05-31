@@ -3,7 +3,7 @@
 
 ![Django Ninja](img/hero.png)
 
-Django Ninja 是一个用于使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
+Django Ninja 是一个使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
 
 主要特点:
 
@@ -43,7 +43,7 @@ django-admin startproject apidemo
 ```
 
 注意：你不必将 Django Ninja 添加到你的已安装应用中，它就可以工作。     
-注：如果打开 docs 时发现很卡顿，则需添加到 installed_apps 可解决。
+
 ## 检查它
 
 打开你的浏览器，在 <a href="http://127.0.0.1:8000/api/add?a=1&b=2" target="_blank">http://127.0.0.1:8000/api/add?a=1&b=2</a>
@@ -52,7 +52,7 @@ django-admin startproject apidemo
 ```JSON
 {"result": 3}
 ```
-你将看到 JSON 响应为：
+现在，你刚刚创建了一个 API，该 API：
 
  - 在 `/api/add` 接收一个 HTTP GET 请求
  - 接收、验证并类型转换 GET 参数 `a` 和 `b`
