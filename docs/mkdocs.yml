@@ -50,6 +50,10 @@ nav:
       - 其它教程:
           - tutorial/other/video.md
           - tutorial/other/crud.md
+  - Django Ninja CRUD:
+      - django-ninja-crud/guides/01-Introduction.md
+#      - django-ninja-crud/guides/02-Installation.md
+#      - django-ninja-crud/guides/04-Examples.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
