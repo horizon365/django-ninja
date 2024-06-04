@@ -15,7 +15,7 @@ django-ninja v1 与 Python 3.7 及以上版本兼容。
 Django ninja 0.x 系列仍然受支持，但将仅接收安全更新和关键错误修复。
 
 
-# Django Ninja 1.0 中的新特性
+✨ Django Ninja 1.0 中的新特性
 
 ## 对 Pydantic2 的支持
 

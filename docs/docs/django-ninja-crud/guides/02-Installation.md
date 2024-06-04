@@ -2,14 +2,14 @@
 comments: true
 ---
 # 如何安装
-# 📝 版本依赖
+## 📝 版本依赖
 
 [![Python versions](https://img.shields.io/pypi/pyversions/django-ninja-crud.svg?color=306998&label=python&logo=python&logoColor=white)](https://github.com/python/cpython)
 [![Django versions](https://img.shields.io/badge/3.2_|_4.1_|_4.2_|_5.0-blue?color=0C4B33&label=django&logo=django&logoColor=white)](https://github.com/django/django)
 [![Django Ninja versions](https://img.shields.io/badge/1.0_|_1.1-blue?color=black&label=django-ninja&logo=fastapi&logoColor=white)](https://github.com/vitalik/django-ninja)
 
 
-# 👀 前提条件
+## 👀 前提条件
 
 在安装 `django-ninja-crud` 包之前，请确保你已安装以下依赖项：
 
@@ -23,7 +23,7 @@ comments: true
   pip install --upgrade django-ninja
   ```
 
-# ⚒️  安装 `django-ninja-crud`
+## ⚒️  安装 `django-ninja-crud`
 
 一旦你安装了先决条件，就可以使用 pip 安装 `django-ninja-crud` :
 
@@ -34,7 +34,7 @@ pip install django-ninja-crud[testing]
 
 如果你在安装过程中遇到任何问题，请 [联系我们](https://github.com/hbakri).
 
-# 💬 下一步?
+## 💬 下一步?
 
 !!! 大功告成
 

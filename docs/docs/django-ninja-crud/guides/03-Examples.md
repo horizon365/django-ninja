@@ -2,7 +2,7 @@
 comments: true
 ---
 # 快速示例
-# 🌞 工作原理
+## 🌞 工作原理
 
 让我们想象一下，你正在为一所大学构建一个系统，并且有一个名为 `Department`（部门）的模型。你大学里的每个部门都有一个独特的标题。
 
@@ -99,7 +99,7 @@ class DepartmentViewSet(viewsets.APIViewSet):
     delete_department = views.DeleteView()
 ```
 
-# ☔️ 基于场景的测试
+## ☔️ 基于场景的测试
 
 Django Ninja CRUD 与 [Django REST Testing](https://github.com/hbakri/django-rest-testing), 无缝集成，并确保对你的 CRUD 端点进行全面覆盖和强大的验证。
 起初，测试框架是这个包的一部分，但后来被提取到它自己的包中，以允许有更多的灵活性，并能与 Django Ninja 以外的其他 Django REST 框架一起使用。

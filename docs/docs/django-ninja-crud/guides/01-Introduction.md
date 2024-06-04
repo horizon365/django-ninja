@@ -6,7 +6,7 @@ Django Ninja CRUD 是一个强大的, [声明式的](https://en.wikipedia.org/wi
 简化了CRUD **CRUD** ([**C**创建, **R**读取, **U**更新, **D**删除](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete))
 接口的开发，并且还使用[Django REST Testing](https://github.com/hbakri/django-rest-testing) 为测试这些API接口提供了一种声明式的基于场景的方法。
 
-# 🍓重新定义声明式 CRUD 视图集  
+## 🍓重新定义声明式 CRUD 视图集  
 
 通过我们的模型视图集踏入 Django CRUD 操作的未来。我们的框架通过声明式视角重新构想端点创建，将复杂过程简化为简洁、可读的代码。基于最佳实践，模型视图集封装了高效和稳健设计的精髓。通过声明式地指定模型和模式，您可以快速生成成熟的 CRUD 操作，让您有自由去应对真正重要的挑战。这就是重新定义网络应用程序开发之旅开始的地方。
 ```python
@@ -33,7 +33,7 @@ class DepartmentViewSet(viewsets.ModelViewSet):
 
 DepartmentViewSet.register_routes(router)
 ```
-# 要解决的问题
+## 要解决的问题
 它允许你将常见端点定义为基于类的视图，并轻松地对其进行定制以符合你的项目约定，还可以轻松创建你自己的自定义视图并与提供的 CRUD 视图一起声明，促进了模块性和可扩展性。
 这个包鼓励关注最重要的事情：**解决实际问题**，而不是在你的整个项目中重复造轮子。
 
@@ -48,7 +48,7 @@ Django Ninja CRUD 演变为解决其局限性, 采用[组合优于继承](https:
 - **继承层次结构内的隐含关系**: 组合解耦视图，减少依赖并提高可重用性。       
 - **新端点缺乏模块性**: 添加自定义端点不再需要子类化整个视图集，使得逐步引入新功能更容易。      
 
-# ✨ 主要特性
+## ✨ 主要特性
 - **纯粹声明式**: 通过声明你想要什么而不是如何去做来定义视图和测试。
 - **无与伦比的模块性**：用所需的 CRUD 视图定制你的视图集，定制每个视图的行为。
 - **基于场景的测试框架**：利用基于场景的测试框架简洁地声明性地定义各种测试用例。
@@ -99,7 +99,7 @@ class TestDepartmentViewSet(testing.viewsets.ModelViewSetTestCase):
 
 
 
-# 💬 下一步?
+## 💬 下一步?
 
 
 !!! 大功告成
