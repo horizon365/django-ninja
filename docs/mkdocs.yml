@@ -42,7 +42,7 @@ theme:
     repo: fontawesome/brands/github-alt
 nav:
   - 介绍: index.md
-  - 动机: motivation.md
+  - 开发动机: motivation.md
   - 教程:
       - "第一步": tutorial/index.md
       - "解析输入": tutorial/step2.md
@@ -50,10 +50,8 @@ nav:
       - 其它教程:
           - tutorial/other/video.md
           - tutorial/other/crud.md
-  - Django Ninja CRUD:
-      - django-ninja-crud/guides/01-Introduction.md
-      - django-ninja-crud/guides/02-Installation.md
-      - django-ninja-crud/guides/03-Examples.md
+          - Django Ninja CRUD 文档: django-ninja-crud/guides/01-Introduction.md
+          - Django Ninja Extra 文档: django-ninja-extra/index.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
@@ -93,6 +91,37 @@ nav:
       - 基于类的操作（cbv）: proposals/cbv.md
       - 提案: proposals/v1.md
   - V1 的新版变化: whatsnew_v1.md
+  - Django Ninja Extra 文档:
+      - 介绍: django-ninja-extra/index.md
+#      - APIController:
+#          - Index: django-ninja-extra/api_controller/index.md
+#          - Controller Routes: django-ninja-extra/api_controller/api_controller_route.md
+#          - Controller Permissions: django-ninja-extra/api_controller/api_controller_permission.md
+#          - Model Controller: django-ninja-extra/api_controller/model_controller.md
+#      - Usage:
+#          - Quick Tutorial: django-ninja-extra/tutorial/index.md
+#          - Authentication: django-ninja-extra/tutorial/authentication.md
+#          - Path Parameter: django-ninja-extra/tutorial/path.md
+#          - Query Request: django-ninja-extra/tutorial/query.md
+#          - Body Request: django-ninja-extra/tutorial/body_request.md
+#          - Form Request: django-ninja-extra/tutorial/form.md
+#          - Schema: django-ninja-extra/tutorial/schema.md
+#          - Pagination: django-ninja-extra/tutorial/pagination.md
+#          - Filtering:
+#              - Ordering: django-ninja-extra/tutorial/ordering.md
+#              - Searching: django-ninja-extra/tutorial/searching.md
+#          - Error Handling: django-ninja-extra/tutorial/custom_exception.md
+#          - Versioning: django-ninja-extra/tutorial/versioning.md
+#          - Throttling: django-ninja-extra/tutorial/throttling.md
+#          - Testing: django-ninja-extra/tutorial/testing.md
+#      - RouteContext: django-ninja-extra/route_context.md
+#      - Settings: django-ninja-extra/settings.md
+#      - Dependency Injection: django-ninja-extra/service_module_injector.md
+#      - Contribution: django-ninja-extra/contribution.md
+  - Django Ninja CRUD 文档:
+      - django-ninja-crud/guides/01-Introduction.md
+      - django-ninja-crud/guides/02-Installation.md
+      - django-ninja-crud/guides/03-Examples.md
   - 本站建设:
     - site-build/add-google-adsense-with-mkdocs.md
     - site-build/google-baidu-shou-lu.md
