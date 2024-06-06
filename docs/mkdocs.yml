@@ -98,18 +98,18 @@ nav:
 #          - Controller Routes: django-ninja-extra/api_controller/api_controller_route.md
 #          - Controller Permissions: django-ninja-extra/api_controller/api_controller_permission.md
 #          - Model Controller: django-ninja-extra/api_controller/model_controller.md
-#      - Usage:
-#          - Quick Tutorial: django-ninja-extra/tutorial/index.md
-#          - Authentication: django-ninja-extra/tutorial/authentication.md
-#          - Path Parameter: django-ninja-extra/tutorial/path.md
-#          - Query Request: django-ninja-extra/tutorial/query.md
-#          - Body Request: django-ninja-extra/tutorial/body_request.md
-#          - Form Request: django-ninja-extra/tutorial/form.md
-#          - Schema: django-ninja-extra/tutorial/schema.md
-#          - Pagination: django-ninja-extra/tutorial/pagination.md
-#          - Filtering:
-#              - Ordering: django-ninja-extra/tutorial/ordering.md
-#              - Searching: django-ninja-extra/tutorial/searching.md
+      - 用法:
+          - 快速教程: django-ninja-extra/tutorial/index.md
+          - 鉴权: django-ninja-extra/tutorial/authentication.md
+          - 路径传参: django-ninja-extra/tutorial/path.md
+          - 查询传参: django-ninja-extra/tutorial/query.md
+          - 请求体: django-ninja-extra/tutorial/body_request.md
+          - 请求表单: django-ninja-extra/tutorial/form.md
+          - Schema: django-ninja-extra/tutorial/schema.md
+          - 分页: django-ninja-extra/tutorial/pagination.md
+          - 过滤:
+              - 排序: django-ninja-extra/tutorial/ordering.md
+              - 检索: django-ninja-extra/tutorial/searching.md
 #          - Error Handling: django-ninja-extra/tutorial/custom_exception.md
 #          - Versioning: django-ninja-extra/tutorial/versioning.md
 #          - Throttling: django-ninja-extra/tutorial/throttling.md
@@ -122,6 +122,12 @@ nav:
       - django-ninja-crud/guides/01-Introduction.md
       - django-ninja-crud/guides/02-Installation.md
       - django-ninja-crud/guides/03-Examples.md
+  - 问题集:
+      - Django Ninja
+      - Django Ninja CRUD
+        - questions/django-ninja-crud/handle_ForeignKey_relations.md
+      - Django Ninja Extra
+
   - 本站建设:
     - site-build/add-google-adsense-with-mkdocs.md
     - site-build/google-baidu-shou-lu.md

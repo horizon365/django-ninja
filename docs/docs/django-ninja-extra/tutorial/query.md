@@ -1,7 +1,9 @@
+---
+comments: true
+---
+Django-Ninja 假定不在路径参数中的函数参数为查询参数。
 
-Django-Ninja assumes function parameters that are not among path parameters as query parameters.
-
-For example:
+例如:
 
 ```python hl_lines="7 10"
 from ninja import constants
@@ -17,10 +19,10 @@ class MyAPIController:
         return self.weapons[offset: offset + limit]
 ```
 
-To query this operation, you use a URL like:
+要查询此操作，你需使用类似这样的 URL:
 ```
     http://localhost:8000/api/weapons?offset=0&limit=10
 ```
 
 !!! info
-    Read [more](https://django-ninja.rest-framework.com/tutorial/query-params/)
+    阅读 [更多相关](https://django-ninja.cn/tutorial/query-params/)

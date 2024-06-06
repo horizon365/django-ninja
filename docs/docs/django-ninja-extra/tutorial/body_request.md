@@ -1,17 +1,20 @@
-# **Request Body**
+---
+comments: true
+---
+# **请求体**
 
-Request bodies are typically used with “create” and “update” operations (POST, PUT, PATCH).
-For example, when creating a resource using POST or PUT, the request body usually contains the representation of the resource to be created.
+请求体通常用于 “创建” 和 “更新” 操作（POST、PUT、PATCH）。
+例如，当使用 POST 或 PUT 创建资源时，请求主体通常包含要创建的资源的表示。
 
-To declare a **request body**, you need to use **Django Ninja `Schema`** or any Pydantic Schema that suits your need.
+要创建一个 **request body**, 你需要使用 **Django Ninja `Schema`** 或任何适合你需求的 Pydantic 模式。
 
-I recommend [Ninja-Schema](https://pypi.org/project/ninja-schema/)
+我推荐 [Ninja-Schema](https://pypi.org/project/ninja-schema/)
 
-## **Create your data model**
+## **创建你的数据模型**
 
-Then you declare your data model as a class that inherits from `Schema`.
+然后你将你的数据模型声明为一个继承自 `Schema` 的类。
 
-Use standard Python types for all the attributes:
+对所有属性使用标准的 Python 类型：
 
 ```Python
 from ninja import Schema, constants
@@ -33,8 +36,8 @@ class MyAPIController:
 
 ```
 
-Note: if you use **`None`** as the default value for an attribute, it will become optional in the request body.
-For example, this model above declares a JSON "`object`" (or Python `dict`) like:
+注意: 如果你使用 **`None`** 作为一个属性的默认值，它在请求主体中将变为可选的。
+例如，上面的这个模型声明了一个类似的 JSON "`对象`" (或 Python `字典`):
 
 ```JSON
 {
@@ -45,7 +48,7 @@ For example, this model above declares a JSON "`object`" (or Python `dict`) like
 }
 ```
 
-...as `description` is optional (with a default value of `None`), this JSON "`object`" would also be valid:
+...因为 `description` 是可选的 (默认值为 `None`), 所以这个 JSON "`对象`" 也将是有效的：
 
 ```JSON
 {

@@ -1,6 +1,8 @@
-
-Route path _parameters_ are declared in python format-strings.
-for example:
+---
+comments: true
+---
+路由路径的 _parameters_ 是以 Python 格式化字符串的形式声明的。
+例如:
 
 ```python hl_lines="7 8"
 from ninja_extra import api_controller, route
@@ -14,7 +16,7 @@ class MyAPIController:
         return {'user_id': user_id}
 ```
 
-The value of the path parameter `user_id` will be passed to your function as the argument `user_id`.
+路径参数 `user_id` 的值将作为参数 `user_id` 传递给你的函数。
 
 !!! info
-    Read [more](https://django-ninja.rest-framework.com/tutorial/path-params/)
+    Read [more](https://django-ninja.cn/tutorial/path-params/)

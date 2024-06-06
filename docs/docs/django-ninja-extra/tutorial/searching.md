@@ -1,19 +1,22 @@
-# **Searching**
+---
+comments: true
+---
+# **检索**
 
-**Django Ninja Extra** provides an intuitive searching model using `searching` decoration from the Django-Ninja-Extra searching module. It expects a Queryset or a List from as a route function result.
+**Django Ninja Extra** 使用来自 Django-Ninja-Extra 搜索模块的　`searching` 装饰器提供了一个直观的搜索模型。 它期望从路由函数结果中得到一个查询集或列表。
 
-> This feature was inspired by the [DRF SearchFilter](https://www.django-rest-framework.org/api-guide/filtering/#searchfilter)
+> 这个特性的灵感来自于 [DRF SearchFilter](https://www.django-rest-framework.org/api-guide/filtering/#searchfilter)
 
-## **Properties**
+## **属性**
 
 `def searching(func_or_searching_class: Any = NOT_SET, **searching_params: Any) -> Callable[..., Any]:`
 
-- func_or_searching_class: Defines a route function or an Searching Class. default: `ninja_extra.searching.Searching`
-- searching_params: extra parameters for initialising Searching Class
+- func_or_searching_class: 定义一个路由函数或一个搜索类。默认值: `ninja_extra.searching.Searching`
+- searching_params: 用于初始化搜索类的额外参数
 
-### Changing Default Searching Class
+### 更改默认搜索类
 
-To change the default searching class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `SEARCHING_CLASS` and value defining path to searching class
+要更改默认搜索类，你需要在　`settings.py`　中添加一个 `NINJA_EXTRA` 变量，其中一个包含键 `SEARCHING_CLASS` 和定义搜索类路径的值
 
 ```python
 # Django project settings.py
@@ -25,21 +28,21 @@ NINJA_EXTRA={
 }
 ```
 
-## **Usage**
+## **用法**
 
-- If you do not specify the `search_fields` parameter, will return the result without change.
-- For example, to search users by username or email:
+- 如果你不指定 `search_fields` 参数，将返回未改变的结果。
+- 例如，要按用户名或电子邮件搜索用户：
   > http://example.com/api/users?search=someuser
-- You can also perform a related lookup on a ForeignKey or ManyToManyField with the lookup API double-underscore notation:
+- 你还可以使用查找 API 双下划线表示法对外键或多对多字段进行相关查找：
   > search_fields = ['username', 'email', 'profile__profession']
-- By default, searches will use case-insensitive partial matches.  The search parameter may contain multiple search terms, which should be whitespace and/or comma separated.  If multiple search terms are used then objects will be returned in the list only if all the provided terms are matched. The search behavior may be restricted by prepending various characters to the `search_fields`.
+- 默认情况下，搜索将使用不区分大小写的部分匹配。搜索参数可以包含多个搜索项，这些项应该用空格和/或逗号分隔。如果使用多个搜索项，那么只有当提供的所有项都匹配时，对象才会在列表中返回。可以通过在 `search_fields`　前添加各种字符来限制搜索行为。
 
-  * '^' Starts-with search.
-  * '=' Exact matches.
-  * '@' Full-text search.  (Currently only supported Django's [PostgreSQL backend](https://docs.djangoproject.com/en/stable/ref/contrib/postgres/search/).)
-  * '$' Regex search.
+  * '^' 以开头进行搜索。
+  * '=' 精确匹配。
+  * '@' 全文搜索。(目前仅支持 Django 的　[PostgreSQL backend](https://docs.djangoproject.com/en/stable/ref/contrib/postgres/search/).)
+  * '$' 正则搜索。
 
-  For example:
+  例如:
 
     > search_fields = ['=username', '=email']
 
@@ -76,9 +79,9 @@ api = NinjaExtraAPI(title='Searching Test')
 api.register_controllers(UserController)
 ```
 
-## Note
+## 注意
 
-> If you use the `paginate` decorator, the `ordering` decorator and the `searching` decorator together, the `paginate` decorator should be above the `ordering` decorator and the `ordering` decorator should be above the `searching` decorator because first the data is filtered, then the data is sorted and then paginated:, for example:
+> 如果你同时使用 `paginate` 装饰器, `ordering` 装饰器和 `searching` 装饰器，那么 `paginate` 应该在 `ordering` 装饰器之上， `ordering` 装饰器应该在 `searching` 装饰器之上。 因为首先对数据进行过滤，然后对数据进行排序，最后进行分页，例如:
 >
 > ```python
 >    @route.get('', response=List[UserSchema])

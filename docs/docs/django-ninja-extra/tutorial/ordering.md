@@ -1,19 +1,22 @@
-# **Ordering**
+---
+comments: true
+---
+# **排序**
 
-**Django Ninja Extra** provides an intuitive ordering model using `ordering` decoration from the Django-Ninja-Extra ordering module. It expects a Queryset or a List from as a route function result.
+**Django Ninja Extra** 使用来自 Django-Ninja-Extra 排序模块的 `ordering` 装饰器提供了一个直观的排序模型。它期望从路由函数结果得到一个查询集或列表。
 
-> This feature was inspired by the [DRF OrderingFilter](https://www.django-rest-framework.org/api-guide/filtering/#orderingfilter)
+> 此功能的灵感来自于 [DRF OrderingFilter](https://www.django-rest-framework.org/api-guide/filtering/#orderingfilter)
 
-## **Properties**
+## **属性**
 
 `def ordering(func_or_ordering_class: Any = NOT_SET, **ordering_params: Any) -> Callable[..., Any]:`
 
-- func_or_ordering_class: Defines a route function or an Ordering Class. default: `ninja_extra.ordering.Ordering`
-- ordering_params: extra parameters for initialising Ordering Class
+- func_or_ordering_class: 定义一个路由函数或一个排序类。默认: `ninja_extra.ordering.Ordering`
+- ordering_params: 用于初始化排序类的额外参数
 
-### Changing Default Ordering Class
+### 更改默认排序类
 
-To change the default ordering class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `ORDERING_CLASS` and value defining path to ordering class
+要更改默认排序类，您需要在 `settings.py`　中添加　`NINJA_EXTRA` 变量 ，其中包含键　`ORDERING_CLASS` 和定义排序类路径的值。
 
 ```python
 # Django project settings.py
@@ -25,14 +28,14 @@ NINJA_EXTRA={
 }
 ```
 
-## **Usage**
+## **用法**
 
-- If you do not specify the `ordering_fields` parameter, all fields from the QuerySet will be used for ordering.
-- For example, to order users by username:
+- 如果您未指定 `ordering_fields` 参数, 则查询集的所有字段都将用于排序。
+- 例如，要按用户名对用户进行排序
   > http://example.com/api/users?ordering=username
-- The client may also specify reverse orderings by prefixing the field name with '-', example:
+- 客户端还可以通过在字段名称前加上 ｀-｀ 来指定反向排序，例如：
   > http://example.com/api/users?ordering=-username
-- Multiple orderings may also be specified:
+- 也可以指定多个排序：
   > http://example.com/api/users?ordering=username,email
 
 ```python
@@ -68,9 +71,9 @@ api = NinjaExtraAPI(title='Ordering Test')
 api.register_controllers(UserController)
 ```
 
-## Note
+## 注意
 
-> If you use the `paginate` decorator and the `ordering` decorator together, the `paginate` decorator should be above the `ordering` decorator because first the data are sorted and then the data are paginated, for example:
+> 如果您同时使用 `paginate` 装饰器和 `ordering` 装饰器,  `paginate` 装饰器应该在 `ordering` 装饰器之上，因为首先对数据进行排序，然后对数据进行分页，例如：
 >
 > ```python
 >    @route.get('', response=List[UserSchema])

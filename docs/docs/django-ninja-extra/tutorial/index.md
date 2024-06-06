@@ -1,19 +1,22 @@
-# **Tutorial / Reference**
+---
+comments: true
+---
+# **教程 / 参考**
 
-This tutorial shows you how to use **Django Ninja Extra** with most of its features. 
-And most especially assumes you know how to use **Django Ninja**
+本教程向您展示如何使用 **Django Ninja Extra** 及其大部分功能。
+特别是假设您知道如何使用 **Django Ninja**
 
 
 !!! info
-    A lot of content here is drawn from Django-Ninja. So a lot would make sense if you understand the Django-Ninja framework first.
+    这里的很多内容都来自 Django-Ninja。因此，如果您首先了解 Django-Ninja 框架，很多内容都会有意义。
 
-## **Installation**
+## **安装**
 
 ```
 pip install django-ninja-extra
 ```
 
-After installation, add `ninja_extra` to your `INSTALLED_APPS`
+安装后，将 `ninja_extra` 添加到 `INSTALLED_APPS` 中
 
 ```Python 
 INSTALLED_APPS = [
@@ -23,20 +26,20 @@ INSTALLED_APPS = [
 ```
 
 
-## **Create a Django project**
+## **创建 Django 项目**
 
-(If you already have an existing Django project, skip to the next step).
+（如果您已经有一个现有的 Django 项目，请跳到下一步）。
 
-Start a new Django project (or use an existing one).
+启动一个新的 Django 项目（或使用现有的项目）。
 
 ```
 django-admin startproject myproject
 ```
 
 
-## **First steps**
+## **第一步**
 
-Let's create a module for our API.  Create an **api.py** file in the same directory location as **urls.py**:
+让我们为我们的 API 创建一个模块。 在与 **urls.py** 相同的目录位置创建一个 **api.py** 文件:
 
 
 `api.py`
@@ -54,7 +57,7 @@ def hello(request):
 
 ```
 
-Now go to **urls.py** and add the following:
+现在转到 **urls.py** 并添加以下内容:
 
 
 ```Python hl_lines="3 7"
@@ -69,7 +72,7 @@ urlpatterns = [
 ```
 
 ## **Defining operation methods**
-"Operation" can be one of the HTTP "methods":
+“操作” 可以是 HTTP “方法”之一：
 
  - GET
  - POST
@@ -78,11 +81,14 @@ urlpatterns = [
  - PATCH
  - ... and more.
 
-These are Django-Ninja defined operations on the API or Django-Ninja router. 
-The same operation is exposed to APIControllers with the `route` class. 
-The `route` class is an extra decorator that converts APIController instance methods to route function or endpoint.
+这些是 Django-Ninja 在 API 或 Django-Ninja 路由器上定义的操作。
 
-On the other hand, the `router` here is a short form of the `ControllerRouter` class,  an adapter class, which is an that only adapts APIController to the Django-Ninja router. It also provides global control of all routes defined in any APIController class.
+相同的操作通过 `route` 类暴露给 APIControllers。
+
+`route` 类是一个额外的装饰器，它将 APIController 实例方法转换为路由函数或端点。
+
+另一方面，这里的 `route` 是 `ControllerRouter` 类的缩写，是一个适配器类，它仅将 APIController 适配到 Django-Ninja 路由器。它还提供对在任何 APIController 类中定义的所有路由的全局控制。
+
 ```Python
 from ninja_extra import (
     api_controller, 
@@ -119,5 +125,5 @@ class MyAPIController:
 
 api.register_controllers(MyAPIController)
 ```
-To have a complete Controller setup, the APIController must be decorated with `ControllerRouter` before it's been registered.
+要完成控制器设置，必须在注册之前使用 `ControllerRouter` 装饰 APIController。
 

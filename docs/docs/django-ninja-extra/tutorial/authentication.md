@@ -1,10 +1,13 @@
-# **Authentication**
+---
+comments: true
+---
+# **鉴权**
 
-**Django Ninja Extra** offers the same API for authorization and authentication as in **Django Ninja**, ensuring consistency and ease of use across both packages.
+**Django Ninja Extra** 在授权和认证方面提供了与 **Django Ninja** 相同的 API, 确保了两个包之间的一致性和易用性。
 
-## **Automatic OpenAPI schema**
+## **自动 OpenAPI 模式**
 
-Here's an example where the client, in order to authenticate, needs to pass a header:
+这里有一个示例，其中客户端为了进行认证，需要传递一个头部：
 
 `Authorization: Bearer supersecret`
 
@@ -27,9 +30,9 @@ class MyController:
 
 ```
 
-## **Global authentication** 
+## **全局鉴权** 
 
-In case you need to secure **all** route methods defined in `api` and APIController, you can pass the `auth` argument to the `NinjaExtraAPI` constructor:
+如果你需要保护在  `api` 和 APIController 中定义的 **所有** 路由方法，你可以将 `auth` 参数传递给 `NinjaExtraAPI` 构造函数:
 
 
 ```Python
@@ -46,15 +49,14 @@ class GlobalAuth(HttpBearer):
 api = NinjaExtraAPI(auth=GlobalAuth())
 
 ```
-Read more on django-ninja [authentication](https://django-ninja.rest-framework.com/tutorial/authentication/)
+在 django-ninja 上阅读更多关于 [鉴权](https://django-ninja.cn/tutorial/authentication/)的信息。
 
-## Asynchronous Auth Classes
+## 异步认证类
 
-Ninja Extra added Asynchronous support for all `Auth` base classes provided by Django Ninja in `ninja_extra.security` package.
-And it maintained similar interface. It is important to noted that when using these asynchronous auth classes, the endpoint handler 
-**must** asynchronous functions.
+Ninja Extra 在 `ninja_extra.security` 包中为 Django Ninja 提供的所有 `Auth` 基类添加了异步支持，
+并且保持了类似的接口。重要的是要注意，当使用这些异步认证类时，端点处理程序 **必须** 是异步函数。
 
-For example, lets re-write the first auth example with `AsyncHttpBearer` class.
+例如，让我们用 `AsyncHttpBearer` 类重写第一个认证示例。
 
 ```Python
 from ninja_extra import api_controller, route
@@ -76,9 +78,9 @@ class MyController:
         return {"token": self.context.request.auth}
 
 ```
-In example above, we changed `HttpBearer` to `AsyncHttpBearer` and changed bearer to `async` endpoint. 
-If `AuthBearer` is to be applied to a `MyController` **auth**, then all route handlers under `MyController` must be asynchronous route handlers.
+在上面的示例中，我们将 `HttpBearer` 改为 `AsyncHttpBearer` 并将 bearer 改成 `async` 端点. 
+如果 `AuthBearer` 要应用于 `MyController` **鉴权**， 那么 `MyController` 下的所有路由处理程序都必须是异步路由处理程序。
 
 
-## **JWT Authentication**
-if you want to use JWT authentication. See [ninja-jwt](https://pypi.org/project/django-ninja-jwt/)
+## **JWT 鉴权**
+如果你想使用 JWT 认证。请参阅 [ninja-jwt](https://pypi.org/project/django-ninja-jwt/)

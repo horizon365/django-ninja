@@ -1,18 +1,21 @@
-# **Pagination**
+---
+comments: true
+---
+# **分页**
 
-**Django Ninja Extra** provides an intuitive pagination model using `paginate` decoration from the Django-Ninja-Extra pagination module. It expects a List or Queryset from as a route function result.
+**Django Ninja Extra** 使用来自 Django-Ninja-Extra 分页模块的　`paginate`　装饰器提供了一个直观的分页模型。它期望从路由函数结果中得到一个列表或查询集。
 
-## **Properties**
+## **属性**
 
 `def paginate(func_or_pgn_class: Any = NOT_SET, **paginator_params: Any) -> Callable[..., Any]:`
 
-- func_or_pgn_class: Defines a route function or a Pagination Class. default: `ninja_extra.pagination.LimitOffsetPagination`
-- paginator_params: extra parameters for initialising Pagination Class
+- func_or_pgn_class: 定义一个路由函数或一个分页类。默认： `ninja_extra.pagination.LimitOffsetPagination`
+- paginator_params: 用于初始化分页类的额外参数
 
-### **Using Ninja LimitOffsetPagination**
-When using `ninja_extra.pagination.LimitOffsetPagination`,
-you should use `NinjaPaginationResponseSchema` as pagination response schema wrapper.
-For example: 
+### **使用 Ninja LimitOffsetPagination**
+当使用 `ninja_extra.pagination.LimitOffsetPagination`　时, 你应该使用 `NinjaPaginationResponseSchema` 作为分页响应模式包装器。
+
+例如: 
 ```python
 from ninja_extra.schemas import NinjaPaginationResponseSchema
 
@@ -25,8 +28,8 @@ def list_items(self):
 ```
     
 
-### **Changing Default Pagination Class**
-To change the default pagination class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `PAGINATION_CLASS` and value defining path to pagination class
+### **更改默认分页类**
+要更改默认分页类，你需要在  `settings.py` 中添加　`NINJA_EXTRA`　变量，带有键 `PAGINATION_CLASS` 以及定义分页类路径的值。
 ```python
 # Django project settings.py
 INSTALLED_APPS = [
@@ -37,7 +40,7 @@ NINJA_EXTRA={
 }
 ```
 
-## **Usage**
+## **用法**
 ```python
 from typing import List
 from ninja_extra.pagination import (
