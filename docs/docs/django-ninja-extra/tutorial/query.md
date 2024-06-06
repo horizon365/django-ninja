@@ -25,4 +25,4 @@ class MyAPIController:
 ```
 
 !!! info
-    阅读 [更多相关](https://django-ninja.cn/tutorial/query-params/)
+    阅读 [更多相关](https://django-ninja.cn/guides/input/query-params/)

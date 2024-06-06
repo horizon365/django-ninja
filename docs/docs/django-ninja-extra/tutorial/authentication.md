@@ -49,7 +49,7 @@ class GlobalAuth(HttpBearer):
 api = NinjaExtraAPI(auth=GlobalAuth())
 
 ```
-在 django-ninja 上阅读更多关于 [鉴权](https://django-ninja.cn/tutorial/authentication/)的信息。
+在 django-ninja 上阅读更多关于 [鉴权](https://django-ninja.cn/guides/authentication/)的信息。
 
 ## 异步认证类
 

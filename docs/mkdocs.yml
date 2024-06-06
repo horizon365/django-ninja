@@ -122,11 +122,11 @@ nav:
       - django-ninja-crud/guides/01-Introduction.md
       - django-ninja-crud/guides/02-Installation.md
       - django-ninja-crud/guides/03-Examples.md
-  - 问题集:
-      - Django Ninja
-      - Django Ninja CRUD
-        - questions/django-ninja-crud/handle_ForeignKey_relations.md
-      - Django Ninja Extra
+#  - 问题集:
+#      - Django Ninja
+#      - Django Ninja CRUD
+#        - questions/django-ninja-crud/handle_ForeignKey_relations.md
+#      - Django Ninja Extra
 
   - 本站建设:
     - site-build/add-google-adsense-with-mkdocs.md

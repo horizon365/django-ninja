@@ -24,4 +24,4 @@ class MyAPIController:
 
 
 !!! 信息
-    关于此的更多信息，访问 [Django-Ninja 表单教程](https://django-ninja.cn/tutorial/form-params/)
+    关于此的更多信息，访问 [Django-Ninja 表单教程](https://django-ninja.cn/guides/input/form-params/)

@@ -19,4 +19,4 @@ class MyAPIController:
 路径参数 `user_id` 的值将作为参数 `user_id` 传递给你的函数。
 
 !!! info
-    Read [more](https://django-ninja.cn/tutorial/path-params/)
+    Read [more](https://django-ninja.cn/guides/input/path-params/)
