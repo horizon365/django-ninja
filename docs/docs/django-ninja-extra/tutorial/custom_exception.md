@@ -1,9 +1,12 @@
-# **Custom Exception**
-**Django-Ninja** provides an intuitive way of handling custom exceptions by registering a function(handler) against an Exception type, just like it's done in a Flask app.
+---
+comments: true
+---
+# **自定义异常**
+**Django-Ninja** 通过针对异常类型注册一个函数 (handler) 来提供处理自定义异常的直观方式，就像在 Flask 应用中所做的那样。
 
-So in that sense, **Django-Ninja-Extra** has an `APIException` exception type which provides similar functionalities, for those use to DRF `APIException`.
+从这个意义上说， **Django-Ninja-Extra** 有一个 `APIException` 异常类型， 它为那些习惯使用 DRF `APIException` 的人提供了类似的功能。
 
-For Example: 
+例如： 
 ```python
 from ninja_extra.exceptions import APIException
 from ninja_extra import api_controller, route, NinjaExtraAPI, status

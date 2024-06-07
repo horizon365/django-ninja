@@ -77,7 +77,7 @@ nav:
       - 处理错误: guides/errors.md
       - 反转资源的 URLS 链接: guides/urls.md
       - 异步支持: guides/async-support.md
-      - 多个 API 版本: guides/versioning.md
+      - API 版本控制: guides/versioning.md
   - 参考:
       - NinjaAPI class: reference/api.md
       - reference/csrf.md
@@ -110,10 +110,10 @@ nav:
           - 过滤:
               - 排序: django-ninja-extra/tutorial/ordering.md
               - 检索: django-ninja-extra/tutorial/searching.md
-#          - Error Handling: django-ninja-extra/tutorial/custom_exception.md
-#          - Versioning: django-ninja-extra/tutorial/versioning.md
-#          - Throttling: django-ninja-extra/tutorial/throttling.md
-#          - Testing: django-ninja-extra/tutorial/testing.md
+          - 错误处理: django-ninja-extra/tutorial/custom_exception.md
+          - API 版本控制: django-ninja-extra/tutorial/versioning.md
+          - 节流: django-ninja-extra/tutorial/throttling.md
+          - 测试: django-ninja-extra/tutorial/testing.md
 #      - RouteContext: django-ninja-extra/route_context.md
 #      - Settings: django-ninja-extra/settings.md
 #      - Dependency Injection: django-ninja-extra/service_module_injector.md

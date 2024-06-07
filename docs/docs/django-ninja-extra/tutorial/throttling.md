@@ -1,26 +1,28 @@
-# **Throttling**
+---
+comments: true
+---
+# **节流*／速率控制*
 
-Throttling can be seen as a permission that determines if a request should be authorized. 
-It indicates a temporary state used to control the rate of requests that clients can make to an API.
+节流可以被视为一种权限，用于确定请求是否应该被授权。
+它表示用于控制客户端对 API 可以发出请求的速率的临时状态。
 
 ```python
 from ninja_extra import NinjaExtraAPI, throttle
 api = NinjaExtraAPI()
 
 @api.get('/users')
-@throttle  # this will apply default throttle classes [UserRateThrottle, AnonRateThrottle]
+@throttle  # 这将应用默认的节流类 [UserRateThrottle, AnonRateThrottle]
 def my_throttled_endpoint(request):
     return 'foo'
 ```
 
-!!! info
-    The above example won't be throttled because the default scope for `UserRateThrottle` and `AnonRateThrottle`
-    is `none`
+!!! 注意
+    上述示例不会被节流，因为　`UserRateThrottle` 和 `AnonRateThrottle`　默认范围是　`none`
 
-## **Multiple Throttling**
-Django-ninja-extra throttle supposes multiple throttles which is useful to impose different
-constraints, which could be burst throttling rate or sustained throttling rates, on an API.
-for example, you might want to limit a user to a maximum of 60 requests per minute, and 1000 requests per day.
+## **多种节流**
+Django-ninja-extra 节流支持多种节流 ，这对于在 API 上施加不同的约束非常有用，
+这些约束可以是突发节流速率或持续节流速率。
+例如，你可能希望将用户限制为每分钟最多 60 个请求，每天最多 1000 个请求。
 
 ```python
 from ninja_extra import NinjaExtraAPI, throttle
@@ -42,8 +44,8 @@ def my_throttled_endpoint(request):
     return 'foo'
 
 ```
-## **Throttling Policy Settings**
-You can set globally default throttling classes and rates in your project `settings.py` by overriding the keys below:
+## **节流策略设置**
+你可以在项目的 `settings.py` 中通过覆盖以下键来全局设置默认的节流类和速率：
 ```python
 # django settings.py
 NINJA_EXTRA = {
@@ -58,7 +60,7 @@ NINJA_EXTRA = {
     'NUM_PROXIES': None
 }
 ```
-The rate descriptions used in `THROTTLE_RATES` may include `second`, `minute`, `hour` or `day` as the throttle period.
+在 `THROTTLE_RATES` 中使用的速率描述可以包括 `second`, `minute`, `hour` 或 `day` 作为节流周期。
 
 ```python
 from ninja_extra import NinjaExtraAPI, throttle
@@ -72,24 +74,24 @@ def my_throttled_endpoint(request):
     return 'foo'
 ```
 
-## **Clients Identification**
-Clients are identified by x-Forwarded-For in HTTP header and REMOTE_ADDR from WSGI variable.
-These are unique identities which identifies clients IP addresses used for throttling.
-`X-Forwarded-For` is preferable over `REMOTE_ADDR` and is used as so.
+## **客户端识别**
+客户端通过 HTTP 头中的 x-Forwarded-For 和 WSGI 变量 REMOTE_ADDR 来识别。
+这些是用于识别用于节流的客户端 IP 地址的独特标识。
+`X-Forwarded-For` 比 `REMOTE_ADDR` 更优先，并被如此使用。
 
-#### **Limit Clients Proxies**
-If you need to strictly identify unique client IP addresses, you'll need to first configure the number of application proxies that the API runs behind by setting the `NUM_PROXIES` setting. This setting should be an integer of zero or more.
-If set to non-zero then the client IP will be identified as being the last IP address in the X-Forwarded-For header, once any application proxy IP addresses have first been excluded. If set to zero, then the REMOTE_ADDR value will always be used as the identifying IP address.
-It is important to understand that if you configure the `NUM_PROXIES` setting, then all clients behind a unique [NAT'd](https://en.wikipedia.org/wiki/Network_address_translation) gateway will be treated as a single client.
+#### **限制客户端代理**
+如果你需要严格识别独特的客户端 IP 地址， 你首先需要通过设置 `NUM_PROXIES` 设置来配置 API 背后运行的应用程序代理的数量。这个设置应该是一个零或更大的整数。
+如果设置为非零，那么一旦首先排除了任何应用程序代理 IP 地址，客户端 IP 将被识别为 X-Forwarded-For 头中的最后一个 IP 地址。如果设置为零，那么 REMOTE_ADDR 值将始终被用作识别 IP 地址。
+重要的是要理解，如果你配置了 `NUM_PROXIES` ， 那么在一个独特的 [网络地址转换（NAT）](https://en.wikipedia.org/wiki/Network_address_translation) 网关后面的所有客户端将被视为一个单一客户端。
 
-!!! info
-    Further context on how the X-Forwarded-For header works, and identifying a remote client IP can be found here.
+!!! 注意
+    关于 X-Forwarded-For 头如何工作以及识别远程客户端 IP 的更多上下文可以在这里找到。
 
-## **Throttling Model Cache setup**
-The throttling models used in django-ninja-extra utilizes Django cache backend. It uses the `default` value of [`LocMemCache`]()
-See Django's [cache documentation](https://docs.djangoproject.com/en/stable/topics/cache/#setting-up-the-cache) for more details.
+## **节流模型缓存设置**
+django-ninja-extra 中使用的节流模型利用 Django 缓存后端。它使用 [`LocMemCache`]() 的 `default` 值。
+有关更多详细信息，请参阅 Django 的 [缓存文档](https://docs.djangoproject.com/en/stable/topics/cache/#setting-up-the-cache) 。
 
-If you dont want to use the default cache defined in throttle model, here is an example on how to define a different cache for a throttling model
+如果你不想使用节流模型中定义的默认缓存，这里有一个示例，说明如何为节流模型定义不同的缓存：
 ```python
 
 from django.core.cache import caches
@@ -99,25 +101,27 @@ from ninja_extra.throttling import AnonRateThrottle
 class CustomAnonRateThrottle(AnonRateThrottle):
     cache = caches['alternate']
 ```
-# **API Reference**
+# **API 参考**
 
-## **AnonRateThrottle**
-`AnonRateThrottle` model is for throttling unauthenticated users using their IP address as key to throttle against.
-It is suitable for restricting rate of requests from an unknown source
+## **匿名速率节流**
+`AnonRateThrottle` 模型用于使用未认证用户的 IP 地址作为键进行节流限制。
 
-Request Permission is determined by:
-- `rate` defined in derived class
-- `anon` scope defined in `THROTTLE_RATES` in `NINJA_EXTRA` settings in `settings.py` 
+它适用于限制来自未知来源的请求速率。
 
-## **UserRateThrottle**
-`UserRateThrottle` model is for throttling authenticated users using user id or pk to generate a key to throttle against.
-Unauthenticated requests will fall back to using the IP address of the incoming request to generate a unique key to throttle against.
+请求权限由以下因素确定：
+- 在派生类中定义的 `rate` 
+- 在 `settings.py` 中的 `NINJA_EXTRA` 设置中的 `THROTTLE_RATES` 定义的 `anon` 范围。
 
-Request Permission is determined by:
-- `rate` defined in derived class
-- `user` scope defined in `THROTTLE_RATES` in `NINJA_EXTRA` settings in `settings.py` 
+## **用户速率节流**
+`UserRateThrottle` 模型用于使用已认证用户的用户 ID 或主键生成一个键来进行节流限制。
+未认证请求将回退到使用传入请求的 IP 地址来生成一个独特的键进行节流限制。
 
-You can use multiple user throttle rates for a `UserRateThrottle` model, for example:
+请求权限由以下因素确定：
+- 在派生类中定义的 `rate`
+- 在 `settings.py` 中的 `NINJA_EXTRA` 设置中的 `THROTTLE_RATES` 定义的 `user` 范围。
+
+
+你可以为 `UserRateThrottle` 模型使用多个用户节流速率，例如：
 ```python
 # example/throttles.py
 from ninja_extra.throttling import UserRateThrottle
@@ -144,11 +148,11 @@ NINJA_EXTRA = {
     }
 }
 ```
-## **DynamicRateThrottle**
-`DynamicRateThrottle` model is for throttling authenticated and unauthenticated users in similar way as `UserRateThrottle`. 
-Its key feature is in the ability to dynamically set `scope` where its used.
-for an example:
-we can defined a scope in settings
+## **动态速率节流**
+`DynamicRateThrottle` 模型用于以与 `UserRateThrottle` 类似的方式对已认证和未认证用户进行节流。
+它的关键特性在于能够动态设置其使用时的 `scope` 。
+例如:
+我们可以在设置中定义一个范围。
 
 ```python
 # django settings.py
@@ -176,13 +180,13 @@ def get_users(request):
 def get_user_by_id(request, id: int):
     return 'foo'
 ```
-Here, we dynamically applied `sustained` rates and `burst` rates to `get_users` and `get_user_by_id` respectively
+在这里，我们分别动态地将 `sustained (持续)` 速率和 `burst (突发)` 速率应用于 `get_users` 和 `get_user_by_id`。
 
 
-!!! info "new in v0.15.8"
-    You can throttle all controller endpoints actions at the controller class level
+!!! 注意 “在 v0.15.8 中新增”
+    你可以在控制器类级别对所有控制器端点操作进行节流。
 
-## **Controller Throttling**
+## **控制器节流**
 
 ```python
 # api.py

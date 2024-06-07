@@ -1,17 +1,19 @@
-# **Testing APIController**
+---
+comments: true
+---
+# **测试 APIController**
 
-**Django Ninja Extra** has a TestClient that provides seamless testing of `ControllerBase` classes with `pytest`
+**Django Ninja Extra** 有一个测试客户端 TestClient，它使用 `pytest` 为 `ControllerBase` 类提供无缝测试。
 
-There are two test clients
+有两个测试客户端：
 
-- `TestClient`: for synchronous route functions
-- `TestAsyncClient`: for asynchronous route functions
+- `TestClient`: 用于同步路由函数。
+- `TestAsyncClient`: 用于异步路由函数。
 
-Both `TestClient` and `TestAsyncClient` inherit from the Django Ninja `TestClient` class which provides the base functionality 
-for making requests to the application, and both of them also have similar methods such as `get`, `post`, `put`, `patch`, `delete`, 
-and `options` for making requests to the application.
+`TestClient` 和 `TestAsyncClient` 都继承自 Django Ninja 的  `TestClient` 该类为向应用程序发出请求提供基本功能，
+并且它们都有类似的方法如 `get`, `post`, `put`, `patch`, `delete` 和 `options`， 用于向应用程序发出请求。
 
-For example, to test a GET request to the `/users` endpoint, you can use the TestClient as follows:
+例如，要测试对 `/users` 端点的 GET 请求, 你可以使用如下 TestClient :
 
 ```python
 import pytest
@@ -32,7 +34,7 @@ class TestMyMathController:
         }
 
 ```
-Similarly, for testing an asynchronous route function, you can use TestClientAsync as follows:
+类似地，对于测试异步路由函数，你可以如下使用 TestAsyncClient：
 
 ```python
 from ninja_extra import api_controller, route
