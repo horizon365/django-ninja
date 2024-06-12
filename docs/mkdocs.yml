@@ -91,6 +91,16 @@ nav:
       - 基于类的操作（cbv）: proposals/cbv.md
       - 提案: proposals/v1.md
   - V1 的新版变化: whatsnew_v1.md
+  - Django Ninja JWT 文档:
+    - Ninja JWT 介绍: django-ninja-jwt/index.md
+    - 入门指南: django-ninja-jwt/getting_started.md
+    - 路由鉴权: django-ninja-jwt/auth_integration.md
+    - 配置: django-ninja-jwt/settings.md
+    - 自定义令牌声明: django-ninja-jwt/customizing_token_claims.md
+    - 手动创建令牌: django-ninja-jwt/creating_tokens_manually.md
+    - 令牌类型: django-ninja-jwt/token_types.md
+    - 黑名单应用: django-ninja-jwt/blacklist_app.md
+    - 提交贡献: django-ninja-jwt/development_and_contributing.md
   - Django Ninja Extra 文档:
       - 介绍: django-ninja-extra/index.md
 #      - APIController:

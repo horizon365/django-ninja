@@ -1,6 +1,5 @@
 
-Sometimes, you may wish to manually create a token for a user. This
-could be done as follows:
+有时，你可能希望为用户手动创建一个令牌。这可以按如下方式进行：
 
 ```python
 from ninja_jwt.tokens import RefreshToken
@@ -14,7 +13,5 @@ def get_tokens_for_user(user):
     }
 ```
 
-The above function `get_tokens_for_user` will return the serialized
-representations of new refresh and access tokens for the given user. In
-general, a token for any subclass of `ninja_jwt.tokens.Token` can be
-created in this way.
+上述函数 `get_tokens_for_user` 将返回给定用户的新刷新令牌和访问令牌的序列化表示。
+一般来说，`ninja_jwt.tokens.Token` 的任何子类的令牌都可以通过这种方式创建。

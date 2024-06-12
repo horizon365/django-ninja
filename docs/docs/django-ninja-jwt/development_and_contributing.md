@@ -1,27 +1,26 @@
 
-To do development work for Ninja JWT, make your own fork on Github,
-clone it locally, make and activate a virtualenv for it, then from
-within the project directory:
+要为 Ninja JWT 进行开发工作，在 Github 上创建自己的分支，
+将其本地克隆，为其创建并激活一个虚拟环境，然后在项目目录内：
 
-After that, install flit
+之后，安装 flit
 
 ```shell
 $(venv) pip install flit
 ```
 
-Install development libraries and pre-commit hooks for code linting and styles
+安装用于代码linting 和风格的开发库和预提交钩子
 
 ```shell
 $(venv) make install
 ```
 
-To run the tests:
+要运行测试：
 
 ```shell
 $(venv) make test
 ```
 
-To run the tests with coverage:
+要带着覆盖率运行测试：
 
 ```shell
 $(venv) make test-cov

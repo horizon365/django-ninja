@@ -1,10 +1,9 @@
 
-Ninja JWT includes an app that provides token blacklist functionality.
-To use this app, include it in your list of installed apps in
-`settings.py`:
+Ninja JWT 包含一个提供令牌黑名单功能的应用程序。
+要使用此应用程序，请将其包含在 `settings.py` 中的已安装应用程序列表中:
 
 ```python
-# Django project settings.py
+# Django 项目 settings.py
 
 ...
 
@@ -15,23 +14,16 @@ INSTALLED_APPS = (
 )
 ```
 
-Also, make sure to run `python manage.py migrate` to run the app\'s
-migrations.
+同时，确保运行 `python manage.py migrate` 以运行该应用程序的迁移。
 
-If the blacklist app is detected in `INSTALLED_APPS`, Ninja JWT will
-add any generated refresh or sliding tokens to a list of outstanding
-tokens. It will also check that any refresh or sliding token does not
-appear in a blacklist of tokens before it considers it as valid.
+如果在 `INSTALLED_APPS` 中检测到黑名单应用程序，Ninja JWT 将把任何生成的刷新令牌或滑动令牌添加到未决令牌列表中。
+它还将在认为任何刷新令牌或滑动令牌有效之前，检查该令牌是否未出现在令牌黑名单中。
 
-The Ninja JWT blacklist app implements its outstanding and blacklisted
-token lists using two models: `OutstandingToken` and `BlacklistedToken`.
-Model admins are defined for both of these models. To add a token to the
-blacklist, find its corresponding `OutstandingToken` record in the admin
-and use the admin again to create a `BlacklistedToken` record that
-points to the `OutstandingToken` record.
+Ninja JWT 黑名单应用程序使用两个模型：`OutstandingToken` 和 `BlacklistedToken` 来实现其未决和黑名单令牌列表。
+为这两个模型都定义了模型管理员。要将令牌添加到黑名单中，在管理员中找到其相应的 `OutstandingToken` 记录，
+然后再次使用管理员创建一个指向 `OutstandingToken` 记录的 `BlacklistedToken` 记录。
 
-Alternatively, you can blacklist a token by creating a `BlacklistMixin`
-subclass instance and calling the instance's `blacklist` method:
+或者，你可以通过创建一个 `BlacklistMixin` 子类实例并调用该实例的 `blacklist` 方法来将令牌列入黑名单：
 
 ```python
 from ninja_jwt.tokens import RefreshToken
@@ -40,11 +32,7 @@ token = RefreshToken(base64_encoded_token_string)
 token.blacklist()
 ```
 
-This will create unique outstanding token and blacklist records for the
-token's `jti` claim or whichever claim is specified by the
-`JTI_CLAIM` setting.
+这将为令牌的 `jti` 声明或由 `JTI_CLAIM` 设置指定的任何声明创建唯一的未决令牌和黑名单记录。
 
-The blacklist app also provides a management command,
-`flushexpiredtokens`, which will delete any tokens from the outstanding
-list and blacklist that have expired. You should set up a cron job on
-your server or hosting platform which runs this command daily.
+黑名单应用程序还提供了一个管理命令 `flushexpiredtokens`，它将从未决列表和黑名单中删除任何已过期的令牌。
+你应该在你的服务器或托管平台上设置一个每日运行此命令的 cron 作业。

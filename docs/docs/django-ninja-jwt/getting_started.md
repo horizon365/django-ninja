@@ -14,7 +14,6 @@ Ninja JWT 能通过 pip 来安装:
     pip install django-ninja-jwt
 
 此外，你需要向你的 Django-Ninja API 注册 `NinjaJWTDefaultController`控制器。
-`NinjaJWTDefaultController` 带有三条路由 `obtain_token（获取令牌）`, `refresh_token（刷新令牌）` and `verify_token（验证令牌）`。
 
 ```python
 from ninja_jwt.controller import NinjaJWTDefaultController
@@ -24,10 +23,9 @@ api = NinjaExtraAPI()
 api.register_controllers(NinjaJWTDefaultController)
 
 ```
-
-The `NinjaJWTDefaultController` comes with three routes `obtain_token`, `refresh_token` and `verify_token`.
-It is a combination of two subclass `TokenVerificationController` and `TokenObtainPairController`.
-If you wish to customize these routes, you can inherit from these controllers and change its implementation
+`NinjaJWTDefaultController` 带有三条路由 `obtain_token（获取令牌）`, `refresh_token（刷新令牌）` and `verify_token（验证令牌）`。
+它是两个子类 `TokenVerificationController（令牌验证控制器）`和 `TokenObtainPairController（令牌获取对控制器）`的组合。
+如果你希望自定义这些路由，你可以从这些控制器继承并更改其实现。
 
 ```python
 from ninja_extra import api_controller
@@ -35,13 +33,12 @@ from ninja_jwt.controller import TokenObtainPairController
 
 @api_controller('token', tags=['Auth'])
 class MyCustomController(TokenObtainPairController):
-    """obtain_token and refresh_token only"
+    """仅获取令牌和刷新令牌"""
 ...
 api.register_controllers(MyCustomController)
 ```
 
-If you wish to use localizations/translations, simply add `ninja_jwt` to
-`INSTALLED_APPS`.
+如果你希望使用本地化/翻译，只需将 `ninja_jwt` 添加到 `INSTALLED_APPS`。
 
 ```python
 INSTALLED_APPS = [
@@ -51,11 +48,10 @@ INSTALLED_APPS = [
 ]
 ```
 
-Usage
+用法
 =====
 
-To verify that Ninja JWT is working, you can use curl to issue a couple
-of test requests:
+为了验证 Ninja JWT 正在工作，你可以使用 curl 发出几个测试请求：
 
 ``` {.sourceCode .bash}
 curl \
@@ -71,8 +67,7 @@ curl \
 }
 ```
 
-You can use the returned access token to prove authentication for a
-protected view:
+你可以使用返回的访问令牌来证明对受保护视图的认证：
 
 ``` {.sourceCode .bash}
 curl \
@@ -80,8 +75,7 @@ curl \
   http://localhost:8000/api/some-protected-view/
 ```
 
-When this short-lived access token expires, you can use the longer-lived
-refresh token to obtain another access token:
+当这个短期访问令牌过期时，你可以使用长期的刷新令牌来获取另一个访问令牌：
 
 ``` {.sourceCode .bash}
 curl \
@@ -97,15 +91,11 @@ curl \
 Cryptographic Dependencies (Optional)
 -------------------------------------
 
-If you are planning on encoding or decoding tokens using certain digital
-signature algorithms (i.e. RSA and ECDSA; visit PyJWT for other algorithms), you will need to install the
-cryptography_ library. This can be installed explicitly, or as a required
-extra in the `django-ninja-jwt` requirement:
+如果你计划使用某些数字签名算法（即 RSA 和 ECDSA；访问 PyJWT 以获取其他算法）来编码或解码令牌，
+你将需要安装加密库 cryptography_ 。这可以明确地安装，或者作为 `django-ninja-jwt` 要求中的一个必填项进行安装：
 
     pip install django-ninja-jwt[crypto]
 
-
-The `django-ninja-jwt[crypto]` format is recommended in requirements
-files in projects using `Ninja JWT`, as a separate `cryptography` requirement
-line may later be mistaken for an unused requirement and removed.
+在使用 `Ninja JWT` 的项目的需求文件中，推荐使用 `django-ninja-jwt[crypto]` 格式，
+因为单独的 `cryptography` 需求行之后可能会被误认为是未使用的需求并被删除。
 [cryptography](https://cryptography.io)
