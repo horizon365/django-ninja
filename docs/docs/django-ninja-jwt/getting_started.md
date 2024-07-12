@@ -99,3 +99,5 @@ Cryptographic Dependencies (Optional)
 在使用 `Ninja JWT` 的项目的需求文件中，推荐使用 `django-ninja-jwt[crypto]` 格式，
 因为单独的 `cryptography` 需求行之后可能会被误认为是未使用的需求并被删除。
 [cryptography](https://cryptography.io)
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

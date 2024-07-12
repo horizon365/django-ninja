@@ -84,3 +84,5 @@ class MyController:
 
 ## **JWT 鉴权**
 如果你想使用 JWT 认证。请参阅 [ninja-jwt](https://pypi.org/project/django-ninja-jwt/)
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

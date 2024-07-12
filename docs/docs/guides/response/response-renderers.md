@@ -109,3 +109,5 @@ class XMLRenderer(BaseRenderer):
 api = NinjaAPI(renderer=XMLRenderer())
 ```
 *(版权说明：这段代码基本上是从 [DRF-xml](https://jpadilla.github.io/django-rest-framework-xml/))复制的*
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -39,3 +39,4 @@ pip install django-ninja-crud[testing]
 !!! 大功告成
 
     继续下一章节 **[快速示例](03-Examples.md)**。 该部分包含如何使用该包及其功能测试的易于理解的示例。这将为你提供对该包工作原理的实际理解。
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

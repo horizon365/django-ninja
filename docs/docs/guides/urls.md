@@ -60,3 +60,5 @@ api_private = NinjaAPI(auth=session_auth, urls_namespace='private_api')
 api_users_url = reverse_lazy("api-2:users")
 private_api_admins_url = reverse_lazy("private_api:admins")
 ```
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

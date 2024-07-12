@@ -182,3 +182,5 @@ class BookFilterSchema(FilterSchema):
         return q
 ```
 `custom_expression` 方法优先于前面描述的任何其他定义，包括 `filter_<fieldname>` 方法。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

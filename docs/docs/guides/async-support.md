@@ -221,3 +221,5 @@ all_blogs = [blog async for blog in Blog.objects.all()]
 ```
 
 在<a href="https://docs.djangoproject.com/en/4.1/releases/4.1/#asynchronous-orm-interface" target="_blank">Django 官方文档</a>中了解更多关于异步 ORM 接口的信息。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

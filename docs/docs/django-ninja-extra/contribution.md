@@ -79,3 +79,5 @@ Please take a moment to review the following guidelines before getting started.
 
 
 Thank you for contributing to NinjaExtra! 🚀
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

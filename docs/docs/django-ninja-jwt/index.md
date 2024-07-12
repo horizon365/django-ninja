@@ -19,3 +19,5 @@ Ninja JWT 为 Django Ninja REST 框架提供了一个 JSON Web 令牌认证后�
 
 该项目从 [SIMPLE JWT](https://github.com/jazzband/djangorestframework-simplejwt) 借用代码来为 Django Ninja REST 框架实现 Json Web 令牌。
 然而，我已将 SIMPLE JWT 许可证包含在 `许可证` 文件夹中。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

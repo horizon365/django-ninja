@@ -305,3 +305,5 @@ service_a.do_something()
 service_b.do_something()
 
 ```
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

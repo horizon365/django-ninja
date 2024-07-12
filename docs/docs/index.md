@@ -118,3 +118,5 @@ def operation(a: Item):
 
 这个项目很大程度上受到了 <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> (由 <a href="https://github.com/tiangolo" target="_blank">Sebastián Ramírez</a>开发)的启发。
 
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

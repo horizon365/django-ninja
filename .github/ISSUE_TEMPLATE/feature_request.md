@@ -12,3 +12,5 @@ A clear and concise description of what the problem is. Ex. I'm always frustrate
 
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen.
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

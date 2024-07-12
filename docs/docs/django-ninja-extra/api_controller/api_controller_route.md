@@ -84,3 +84,5 @@ keyword, allowing for asynchronous operations within the endpoint.
 
 !!! info
     Read more on Django-Ninja [Async Support](https://django-ninja.cn/async-support/#quick-example)
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

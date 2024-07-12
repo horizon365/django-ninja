@@ -52,6 +52,8 @@ nav:
           - tutorial/other/crud.md
           - Django Ninja CRUD 文档: django-ninja-crud/guides/01-Introduction.md
           - Django Ninja Extra 文档: django-ninja-extra/index.md
+  - 联系站长: contact.md
+  - 需要帮助: help.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
@@ -85,7 +87,6 @@ nav:
       - 自定义管理命令: reference/management-commands.md
       - Django 设置: reference/settings.md
       - 发布日志: releases.md
-  - 需要帮助: help.md
   - 规划中的功能:
       - 简介: proposals/index.md
       - 基于类的操作（cbv）: proposals/cbv.md

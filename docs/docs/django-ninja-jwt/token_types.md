@@ -35,3 +35,5 @@ api.register_controllers(NinjaJWTSlidingController)
 
 请注意，如果你正在使用黑名单应用程序， Ninja JWT 将针对每个经过身份验证的请求对所有滑动令牌与黑名单进行验证。
 这将降低经过身份验证的 API 视图的性能。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

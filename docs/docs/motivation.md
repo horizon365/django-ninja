@@ -93,3 +93,5 @@ def tasks_details(request):
 3) [从 Django 模型创建 Schema](guides/response/django-pydantic.md).
 
 4) **Django Ninja**不是使用依赖参数，而是使用 `request` 实例属性 (与常规 Django 视图的方式相同) - 更多细节请参阅[认证](guides/authentication.md).
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

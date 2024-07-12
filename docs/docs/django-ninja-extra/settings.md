@@ -69,3 +69,5 @@ default: `ninja_extra.ordering.Ordering`
 It defines the default searching class used by the `searching` decorator
 function if a searching class is not defined.
 default: `ninja_extra.searching.Searching`
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

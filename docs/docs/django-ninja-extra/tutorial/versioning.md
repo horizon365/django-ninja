@@ -99,3 +99,5 @@ urlpatterns = [
 !!! 注意
     如果你使用不同的 **NinjaExtraAPI** 实例, 你需要定义不同的 `version`s 或不同的 `urls_namespace`。
     这与 **NinjaAPI** 实例相同。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -262,3 +262,5 @@ def delete_employee(request, employee_id: int):
     employee.delete()
     return {"success": True}
 ```
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

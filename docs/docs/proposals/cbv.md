@@ -142,3 +142,5 @@ Python 不支持把 `async` 关键字用于 `__init__`, 所以为了支持异步
 ## 你的想法/提议
 
 请在 [github 问题](https://github.com/vitalik/django-ninja/issues/15) 中给出你对这个提议的想法/喜欢/不喜欢。
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

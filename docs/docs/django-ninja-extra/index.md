@@ -113,3 +113,5 @@ urlpatterns = [
 ## Tutorials
 - [django-ninja - 使用 django-ninja-extra 的权限、控制器和节流！](https://www.youtube.com/watch?v=yQqig-c2dd4) -  学习如何使用 django-ninja-extra 的权限、控制器和节流
 - [BookStore API](https://github.com/eadwinCode/bookstoreapi) - 一个示例项目，展示如何使用 django-ninja-extra 与 ninja 模式和 ninja-jwt
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

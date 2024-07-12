@@ -118,3 +118,5 @@ The `IsAuthenticatedOrReadOnly` permission class allows authenticated users to p
 For unauthenticated users, requests will only be permitted if the method is one of the "safe" methods: GET, HEAD, or OPTIONS. 
 
 This permission is appropriate if you want your API to grant read permissions to anonymous users while restricting write permissions to authenticated users.
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

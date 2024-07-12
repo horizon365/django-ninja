@@ -220,3 +220,5 @@ urlpatterns = [
 太棒了！现在去看看自动生成的文档：
 
 ![Swagger UI 嵌套路由](../img/nested-routers-swagger.png)
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

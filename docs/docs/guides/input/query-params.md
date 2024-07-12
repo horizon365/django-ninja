@@ -110,3 +110,5 @@ http://localhost:8000/api/example?d=<strong>2020-01-01</strong>
 ```
 
 对于更复杂的筛选场景，请参考 [过滤](./filtering.md).
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

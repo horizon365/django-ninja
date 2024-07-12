@@ -468,3 +468,5 @@ These parameters are bundled into the Ninja input schema and resolved during the
 
 Note that when `path` and `query` parameters are defined they are added to ninja schema input as a required field and, not optional. 
 Also, path and query data types must be compatible with Django URL converters.
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

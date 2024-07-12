@@ -137,3 +137,5 @@ In the example above, we used the `service_resolver`, a dependency injection uti
 This gave us access to the request object, which we used to construct a full URL for our store details. 
 By using the `service_resolver` to access the RouteContext, we can easily access the request object, 
 and use it to gather any necessary information during the validation process.
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

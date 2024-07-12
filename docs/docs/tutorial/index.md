@@ -73,3 +73,4 @@ target="_blank">localhost:8000/api/hello</a> 将返回一个简单的 JSON 响�
 !!! 大功告成
 
     继续下一章节 **[解析传入参数](step2.md)**.
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

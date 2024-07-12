@@ -33,3 +33,5 @@ https://django-ninja.cn
 加入交流群 672827055 <a href="https://qm.qq.com/q/e0JkcwEFgs" target="_blank">![QQ](img/qq.svg)</a>
 
 
+
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -171,3 +171,4 @@ class TestDepartmentViewSet(APITestCase):
 ```
 
 通过将 Django Ninja CRUD 的声明式视图与 Django REST 测试的基于场景的测试能力相结合，你可以轻松自信地构建和维护强大、经过良好测试的 RESTful API。
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
