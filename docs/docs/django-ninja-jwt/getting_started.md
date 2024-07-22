@@ -7,8 +7,8 @@
 
 这些是官方支持的 Python 版本和软件包版本。其他版本可能也会起作用。你可以自由修改 tox 配置并看看有哪些可能。
 
-安装
-============
+## 安装
+
 Ninja JWT 能通过 pip 来安装:
 
     pip install django-ninja-jwt
@@ -48,8 +48,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-用法
-=====
+## 用法
 
 为了验证 Ninja JWT 正在工作，你可以使用 curl 发出几个测试请求：
 

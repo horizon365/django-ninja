@@ -101,7 +101,7 @@ from ninja_extra.throttling import AnonRateThrottle
 class CustomAnonRateThrottle(AnonRateThrottle):
     cache = caches['alternate']
 ```
-# **API 参考**
+## **API 参考**
 
 ## **匿名速率节流**
 `AnonRateThrottle` 模型用于使用未认证用户的 IP 地址作为键进行节流限制。
