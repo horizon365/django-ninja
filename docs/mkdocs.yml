@@ -55,6 +55,8 @@ nav:
           - Django Ninja CRUD 文档: django-ninja-crud/index.md
   - 联系站长: contact.md
   - 需要帮助: help.md
+  - 问答集:
+    - coding-qa/django-ninja-testing.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
