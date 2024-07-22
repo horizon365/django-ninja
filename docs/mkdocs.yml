@@ -50,8 +50,9 @@ nav:
       - 其它教程:
           - tutorial/other/video.md
           - tutorial/other/crud.md
-          - Django Ninja CRUD 文档: django-ninja-crud/guides/01-Introduction.md
+          - Django Ninja JWT 文档: django-ninja-jwt/index.md
           - Django Ninja Extra 文档: django-ninja-extra/index.md
+          - Django Ninja CRUD 文档: django-ninja-crud/index.md
   - 联系站长: contact.md
   - 需要帮助: help.md
   - How-to 系列:
@@ -130,9 +131,11 @@ nav:
 #      - Dependency Injection: django-ninja-extra/service_module_injector.md
 #      - Contribution: django-ninja-extra/contribution.md
   - Django Ninja CRUD 文档:
-      - django-ninja-crud/guides/01-Introduction.md
-      - django-ninja-crud/guides/02-Installation.md
-      - django-ninja-crud/guides/03-Examples.md
+      - 主页: django-ninja-crud/index.md
+      - 教程:
+        - 介绍: django-ninja-crud/guides/01-Introduction.md
+        - Django Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
+        - 快速示例: django-ninja-crud/guides/03-Examples.md
 #  - 问题集:
 #      - Django Ninja
 #      - Django Ninja CRUD
