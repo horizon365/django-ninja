@@ -57,6 +57,8 @@ nav:
   - 需要帮助: help.md
   - 问答集:
     - coding-qa/django-ninja-testing.md
+    - coding-qa/django-ninja-token-authentication-with-djoser.md
+    - coding-qa/django-ninja-python-framework-for-rest-api.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
