@@ -60,6 +60,7 @@ nav:
     - coding-qa/django-ninja-token-authentication-with-djoser.md
     - coding-qa/django-ninja-python-framework-for-rest-api.md
     - coding-qa/handle_ForeignKey_relations.md
+    - coding-qa/django-rest-framework-vs-django-ninja-a-high-level-comparison.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md

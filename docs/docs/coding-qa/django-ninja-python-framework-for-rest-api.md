@@ -7,7 +7,7 @@ author: Clement Fernando
 ---
 
 
-Django-Ninja：用于 REST API 的 Python 框架 | 作者：克莱门特·费尔南多
+Django-Ninja：用于 REST API 的 Python 框架
 ===========================================================
 
 

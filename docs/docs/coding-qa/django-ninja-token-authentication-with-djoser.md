@@ -1,4 +1,4 @@
-标题：使用 djoser 进行 Django ninja 令牌身份验证 - Stack Overflow
+# 使用 djoser 进行 Django ninja 令牌身份验证
 
 
 URL 来源：https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser
