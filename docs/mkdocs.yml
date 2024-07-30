@@ -53,6 +53,8 @@ nav:
           - Django Ninja JWT 文档: django-ninja-jwt/index.md
           - Django Ninja Extra 文档: django-ninja-extra/index.md
           - Django Ninja CRUD 文档: django-ninja-crud/index.md
+  - 在线工具:
+      - 996 薪资计算助手: 996-Salary-Calculator/index.html
   - 联系站长: contact.md
   - 需要帮助: help.md
   - 问答集:
