@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# 来自 Django 模型的 Schemas 模式
+# 从 Django models 中生成 Schema
 
 
 Schemas 模式对于定义验证规则和响应非常有用，但有时您需要将数据库模型反映到模式中并保持更改同步。
@@ -106,5 +106,9 @@ class PatchGroupSchema(ModelSchema):
 ```python
      fields_optional = ['description']
 ```
+
+!!! 大功告成
+
+    继续下一章节！ **[动态生成 Schema](django-pydantic-create-schema.md)**
 
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

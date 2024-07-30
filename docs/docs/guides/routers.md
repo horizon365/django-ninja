@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# 路由器
+# 通过路由区分 API
 
 现实世界的应用程序几乎不可能将所有逻辑都放入单个文件中。 
 
@@ -220,5 +220,9 @@ urlpatterns = [
 太棒了！现在去看看自动生成的文档：
 
 ![Swagger UI 嵌套路由](../img/nested-routers-swagger.png)
+
+!!! 大功告成
+
+    继续下一小节 **[鉴权](authentication.md)**
 
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

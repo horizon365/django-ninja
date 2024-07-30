@@ -119,4 +119,8 @@ def events(request, year: int, month: int, day: int):
 现在，当你在浏览器中打开 <a href="http://localhost:8000/api/docs" target="_blank">http://localhost:8000/api/docs</a> 时，你将看到自动的、交互式的 API 文档。
 ![Django Ninja Swagger](../../img/tutorial-path-swagger.png)
 
+!!! 大功告成
+
+    继续下一章节！ **[查询参数](query-params.md)**
+
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

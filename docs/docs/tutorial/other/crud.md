@@ -263,4 +263,16 @@ def delete_employee(request, employee_id: int):
     return {"success": True}
 ```
 
+!!! 大功告成
+
+    本教程到此结束！查看 **[How-to 系列](../../guides/input/operations.md)** 以获取更多信息。
+    
+    Django ninja 周边生态： 
+
+    1. [django-ninja-crud](../../django-ninja-crud/index.md) : 是一个基于django-ninja来简化CRUD接口开发的框架，提供声明式的模型视图集及基于场景的测试方法。
+
+    2. [django-ninja-extra](../../django-ninja-extra/index.md) : 是一个可以让开发者摆脱冗长Django文档，仅用少量代码就能快速构建强大Web应用和现代API接口的工具。
+
+    3. [django-ninja-jwt](../../django-ninja-jwt/index.md) : 为django-ninja提供的JSON Web Token插件，用于实现身份验证等相关功能，是从一个流行的Django Rest Framework插件分支而来。
+
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

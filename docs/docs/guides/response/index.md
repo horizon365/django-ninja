@@ -448,4 +448,8 @@ def some_redirect(request):
     return redirect("/some-path")  # !!!!
 ```
 
+!!! 大功告成
+
+    继续下一章节！ **[调整响应](temporal_response.md)**
+
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

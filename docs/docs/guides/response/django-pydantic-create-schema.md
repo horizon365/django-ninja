@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# 使用 create_schema
+# 动态生成 Schema
 
 在底层， [`ModelSchema`](django-pydantic.md#modelschema) 使用了 `create_schema` 函数。
 这是一种更高级（且不太安全）的方法——请谨慎使用。
@@ -106,5 +106,9 @@ class Group(Schema):
     name: str
     permissions: List[int]
 ```
+
+!!! 大功告成
+
+    继续下一章节！ **[覆盖 Pydantic 配置](config-pydantic.md)**
 
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -205,4 +205,8 @@ api = NinjaAPI(default_router=RouterPaginated())
 @api.get(...
 ```
 
+!!! 大功告成
+
+    继续下一章节！ **[响应渲染](response-renderers.md)**
+
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -116,7 +116,18 @@ def operation(a: Item):
     * Files 文件
 * 自动的、交互式 API 文档
 
-这个项目很大程度上受到了 <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> (由 <a href="https://github.com/tiangolo" target="_blank">Sebastián Ramírez</a>开发)的启发。
+这个项目很大程度上受到了 <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a> 的启发。
 
+!!! 请留步
+    
+    查看 **[教程](tutorial/index.md)** 以快速开始。
+
+    Django ninja 周边生态： 
+
+    1. [django-ninja-crud](django-ninja-crud/index.md) : 是一个基于django-ninja来简化CRUD接口开发的框架，提供声明式的模型视图集及基于场景的测试方法。
+
+    2. [django-ninja-extra](django-ninja-extra/index.md) : 是一个可以让开发者摆脱冗长Django文档，仅用少量代码就能快速构建强大Web应用和现代API接口的工具。
+
+    3. [django-ninja-jwt](django-ninja-jwt/index.md) : 为django-ninja提供的JSON Web Token插件，用于实现身份验证等相关功能，是从一个流行的Django Rest Framework插件分支而来。
 
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

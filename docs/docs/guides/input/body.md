@@ -127,4 +127,8 @@ comments: true
 * 如果参数是一个**单一类型** (如 `int`, `float`, `str`, `bool`等)，它将被解释为 **查询**参数。
 * 如果参数被声明为**Schema** (or Pydantic `BaseModel`)的类型，它将被解释为 **请求体**。
 
+!!! 大功告成
+
+    继续下一章节！ **[表单数据](form-params.md)**
+
 <img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
