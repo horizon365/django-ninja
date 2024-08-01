@@ -77,7 +77,7 @@ Django Rest Framework 拥有庞大且活跃的社区，这转化为大量的教�
 |Learning Curve |	由于功能和配置广泛，学习曲线更陡峭 	|旨在更具直观性，尤其是对于那些熟悉现代 Python 特性的人来说
 |社区和生态系统 |	规模庞大且活跃的社区，拥有丰富的资源和第三方软件包| 不断发展的社区，可能没有 DRF 那样广泛的生态系统|
 
-###  链接和参考
+### 链接和参考
 
 *   Official DRF Documentation: [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/)
 *   DRF Quickstart: [https://www.django-rest-framework.org/tutorial/quickstart/](https://www.django-rest-framework.org/tutorial/quickstart/)

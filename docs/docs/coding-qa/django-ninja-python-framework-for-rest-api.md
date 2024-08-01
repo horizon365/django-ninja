@@ -69,7 +69,7 @@ Django Ninja：4.8K 颗星——首次发布：2020 年 12 月 20 日
 
 Django-Ninja 是基于最受欢迎且明显的 Web 框架 Django 构建的。Django-Ninja 于 2020 年底首次发布，在短短 3 年左右的时间里获得了很高的人气。
 
- **常见项目结构**
+**常见项目结构**
 -----------
 
 
@@ -78,7 +78,7 @@ Django-Ninja 是基于最受欢迎且明显的 Web 框架 Django 构建的。Dja
 
 是的，Django Rest Framework（DRF）也可以做到这一点。但我确实说过“快速开发”对吧？谁会不喜欢简单而有条理的代码呢？这就是使用 Django-Ninja 的美妙之处。
 
- **强大的 ORM**
+**强大的 ORM**
 ------------
 
 

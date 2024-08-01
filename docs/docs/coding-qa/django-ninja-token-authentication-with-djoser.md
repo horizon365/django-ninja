@@ -8,7 +8,7 @@ URL 来源：https://stackoverflow.com/questions/70716976/django-ninja-token-aut
 
 2
 
- 保存此问题。
+保存此问题。
 
 [](https://stackoverflow.com/posts/70716976/timeline)
 
@@ -45,7 +45,7 @@ my repo ([link](https://github.com/arsalanses/ham-radio-logger/blob/master/logs/
 
 Copy link[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ "The current license for this post: CC BY-SA 4.0")
 
- [改进这个问题](https://stackoverflow.com/posts/70716976/edit)
+[改进这个问题](https://stackoverflow.com/posts/70716976/edit)
 
 Follow
 
@@ -69,7 +69,7 @@ Follow
 
 7722 silver badges99 bronze badges
 
-[Add a comment](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.")  | [](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Expand to show all comments on this post")
+[Add a comment](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.") |[](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Expand to show all comments on this post")
 
 1 Answer 1
 ----------
@@ -85,7 +85,7 @@ Follow
 
 6
 
- 保存答案。
+保存答案。
 
 [](https://stackoverflow.com/posts/70720995/timeline)
 
@@ -120,7 +120,7 @@ Follow
 
 Copy link[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ "The current license for this post: CC BY-SA 4.0")
 
- [改进这个回答](https://stackoverflow.com/posts/70720995/edit)
+[改进这个回答](https://stackoverflow.com/posts/70720995/edit)
 
 Follow
 
@@ -140,11 +140,11 @@ Follow
 
 * 谢谢这段代码示例！你是如何生成编码后的令牌的呢？你会将这些令牌存储在存储中吗？
 
-  – [netcyrax](https://stackoverflow.com/users/2456568/netcyrax "1,089 reputation")
+  –[netcyrax](https://stackoverflow.com/users/2456568/netcyrax "1,089 reputation")
 
   [  
   有评论于 2023 年 7 月 18 日 9:29 发表](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser#comment135243481_70720995)
 
-[Add a comment](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.")  | [](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Expand to show all comments on this post")
+[Add a comment](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.") |[](https://stackoverflow.com/questions/70716976/django-ninja-token-authentication-with-djoser# "Expand to show all comments on this post")
 
 @media (prefers-color-scheme: dark) { body { color: #fff !important; background-color: #272727 !important; } } body { overflow-y: hidden; }

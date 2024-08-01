@@ -1,166 +1,172 @@
-# **Controller**
-Ninja-Extra APIController is responsible for handling incoming requests and returning responses to the client.
+**Controller**
+==============
 
-In Ninja-Extra, there are major components to creating a controller model
+  
+Ninja-Extra API 控制器负责处理传入的请求并向客户端返回响应。
 
-- ControllerBase
-- APIController Decorator
+  
+在 Ninja-Extra 中，创建控制器模型有几个主要组成部分
 
-## ControllerBase
+*   ControllerBase
+*   APIController 装饰器
 
-The `ControllerBase` class is the base class for all controllers in Django Ninja Extra. 
-It provides the core functionality for handling requests, validating input, and returning responses in a class-based approach.
+ControllerBase
+--------------
 
-The class includes properties and methods that are common to all controllers, such as the `request` object, `permission_classes`, and `response` object which are part of the `RouteContext`. 
-The request object contains information about the incoming request, such as headers, query parameters, and body data. 
-The permission_classes property is used to define the permissions required to access the controller's routes, 
-while the response object is used to construct the final response that is returned to the client.
+  
+`ControllerBase` 类是 Django Ninja Extra 中所有控制器的基类。它提供了以类为基础的方法来处理请求、验证输入和返回响应的核心功能。
 
-In addition to the core properties, the `ControllerBase` class also includes a number of utility methods that can be used to handle common tasks such as object permission checking (`check_object_permission`), creating quick responses (`create_response`), and fetching data from database (`get_object_or_exception`). 
-These methods can be overridden in subclasses to provide custom behavior.
+  
+该类包括所有控制器共有的属性和方法，例如 `request` 对象、 `permission_classes` 和 `response` 对象，它们是 `RouteContext` 的一部分。请求对象包含有关传入请求的信息，例如标头、查询参数和正文数据。permission_classes 属性用于定义访问控制器路由所需的权限，而响应对象用于构建最终返回到客户端的响应。
 
-The ControllerBase class also includes a **dependency injection** system that allows for easy access to other services and objects within the application, such as the repository services etc.
+  
+除了核心属性外， `ControllerBase` 类还包含一些实用方法，可用于处理常见任务，如对象权限检查（ `check_object_permission` ）、创建快速响应（ `create_response` ）和从数据库获取数据（ `get_object_or_exception` ）。这些方法可以在子类中重写，以提供自定义行为。
 
-```python
-from ninja_extra import ControllerBase, api_controller
+  
+控制器基类还包括一个依赖注入系统，该系统允许轻松访问应用程序中的其他服务和对象，例如存储库服务等。
 
-@api_controller('/users')
-class UserControllerBase(ControllerBase):
-    ...
-```
+    from ninja_extra import ControllerBase, api_controller
+    
+    @api_controller('/users')
+    class UserControllerBase(ControllerBase):
+        ...
+    
 
-## APIController Decorator
-The `api_controller` decorator is used to define a class-based controller in Django Ninja Extra. 
-It is applied to a ControllerBase class and takes several arguments to configure the routes and functionality of the controller.
+APIController 装饰器
+------------------
 
-The first argument, `prefix_or_class`, is either a prefix string for grouping all routes registered under the controller or the class object that the decorator is applied on.
+  
+`api_controller` 装饰器用于在 Django Ninja Extra 中定义基于类的控制器。它应用于 ControllerBase 类，并接受多个参数来配置控制器的路由和功能。
 
-The second argument, `auth`, is a list of all Django Ninja Auth classes that should be applied to the controller's routes.
+  
+第一个参数， `prefix_or_class` ，要么是分组控制器下注册的所有路由的前缀字符串，要么是装饰器应用的类对象。
 
-The third argument, `tags`, is a list of strings for OPENAPI tags purposes.
+  
+第二个参数, `auth` , 是一个应应用于控制器路由的所有 Django Ninja Auth 类的列表。
 
-The fourth argument, `permissions`, is a list of all permissions that should be applied to the controller's routes.
+  
+第三个参数, `tags` , 是一个用于 OPENAPI 标签目的的字符串列表。
 
-The fifth argument, `auto_import`, defaults to true, which automatically adds your controller to auto import list.
+  
+第四个参数, `permissions` , 是一个应应用于控制器路由的所有权限的列表。
+
+  
+第五个参数， `auto_import` ，默认值为 true，它会自动将你的控制器添加到自动导入列表中。
 
 for example:
 
-```python
-import typing
-from ninja_extra import api_controller, ControllerBase, permissions, route
-from django.contrib.auth.models import User
-from ninja.security import APIKeyQuery
-from ninja import ModelSchema
+    import typing
+    from ninja_extra import api_controller, ControllerBase, permissions, route
+    from django.contrib.auth.models import User
+    from ninja.security import APIKeyQuery
+    from ninja import ModelSchema
+    
+    
+    class UserSchema(ModelSchema):
+        class Config:
+            model = User
+            model_fields = ['username', 'email', 'first_name']
+    
+    
+    @api_controller('users/', auth=[APIKeyQuery()], permissions=[permissions.IsAuthenticated])
+    class UsersController(ControllerBase):
+        @route.get('', response={200: typing.List[UserSchema]})
+        def get_users(self):
+            # Logic to handle GET request to the /users endpoint
+            users = User.objects.all()
+            return users
+    
+        @route.post('create/', response={200: UserSchema})
+        def create_user(self, payload: UserSchema):
+            # Logic to handle POST request to the /users endpoint
+            new_user = User.objects.create(
+                username=payload.username,
+                email=payload.email,
+                first_name=payload.first_name,
+            )
+            new_user.set_password('password')
+            return new_user
+    
 
+  
+在上述代码中，我们使用 `api_controller` 装饰器定义了一个名为 `UsersController` 的控制器。装饰器应用于类，并接受两个参数，URL 端点 `/users` 和 `auth` 以及 `permission` 类。 `get_users` 和 `create_user` 是处理 GET `/users` 和 POST `/users/create` 传入请求的路由函数。
 
-class UserSchema(ModelSchema):
-    class Config:
-        model = User
-        model_fields = ['username', 'email', 'first_name']
+  
+!!!info 从 ControllerBase 类继承可以为你提供更多的 IDE 智能感知支持。
 
+Quick Example
+-------------
 
-@api_controller('users/', auth=[APIKeyQuery()], permissions=[permissions.IsAuthenticated])
-class UsersController(ControllerBase):
-    @route.get('', response={200: typing.List[UserSchema]})
-    def get_users(self):
-        # Logic to handle GET request to the /users endpoint
-        users = User.objects.all()
-        return users
+  
+让我们创建一个 APIController 来正确管理 Django 用户模型
 
-    @route.post('create/', response={200: UserSchema})
-    def create_user(self, payload: UserSchema):
-        # Logic to handle POST request to the /users endpoint
-        new_user = User.objects.create(
-            username=payload.username,
-            email=payload.email,
-            first_name=payload.first_name,
-        )
-        new_user.set_password('password')
-        return new_user
+    import uuid
+    from ninja import ModelSchema
+    from ninja_extra import (
+        http_get, http_post, http_generic, http_delete,
+        api_controller, status, ControllerBase, pagination
+    )
+    from ninja_extra.controllers.response import Detail
+    from django.contrib.auth import get_user_model
+    
+    
+    class UserSchema(ModelSchema):
+        class Config:
+            model = get_user_model()
+            model_fields = ['username', 'email', 'first_name']
+    
+    
+    @api_controller('/users')
+    class UsersController(ControllerBase):
+        user_model = get_user_model()
+    
+        @http_post()
+        def create_user(self, user: UserSchema):
+            # just simulating created user
+            return dict(id=uuid.uuid4())
+    
+        @http_generic('/{int:user_id}', methods=['put', 'patch'], response=UserSchema)
+        def update_user(self, user_id: int):
+            """ Django Ninja will serialize Django ORM model to schema provided as `response`"""
+            user = self.get_object_or_exception(self.user_model, id=user_id)
+            return user
+    
+        @http_delete('/{int:user_id}', response=Detail(status_code=status.HTTP_204_NO_CONTENT))
+        def delete_user(self, user_id: int):
+            user = self.get_object_or_exception(self.user_model, id=user_id)
+            user.delete()
+            return self.create_response('', status_code=status.HTTP_204_NO_CONTENT)
+    
+        @http_get("", response=pagination.PaginatedResponseSchema[UserSchema])
+        @pagination.paginate(pagination.PageNumberPaginationExtra, page_size=50)
+        def list_user(self):
+            return self.user_model.objects.all()
+    
+        @http_get('/{user_id}', response=UserSchema)
+        def get_user_by_id(self, user_id: int):
+            user = self.get_object_or_exception(self.user_model, id=user_id)
+            return user
+    
 
-```
+  
+在上面的示例中， `UsersController` 类定义了几个与不同 HTTP 方法相对应的方法，例如 `create_user` 、 `update_user` 、 `delete_user` 、 `list_user` 和 `get_user_by_id` 。这些方法分别使用 `http_post` 、 `http_generic` 、 `http_delete` 、 `http_get` 装饰器进行了装饰。
 
-In the above code, we have defined a controller called `UsersController` using the `api_controller` decorator. 
-The decorator is applied to the class and takes two arguments, the URL endpoint `/users` and `auth` and `permission` classes. 
-And `get_users` and `create_user` are route function that handles GET `/users` and POST `/users/create` incoming request.
+  
+`create_user` 方法使用 `http_post` 装饰器，并接受一个类型为 `UserSchema` 的用户参数，该参数是一个 `ModelSchema` ，用于验证和序列化输入数据。该方法用于在系统中创建一个新用户，并返回用户的 `ID` 。
 
+  
+`update_user` 方法使用 `http_generic` 修饰符，并接受一个 `user_id` 类型为 int 的参数。修饰符被配置为处理 `PUT` 和 `PATCH` 方法，并提供一个 `UserSchema` 类型的响应参数，用于序列化用户对象。
 
-!!!info
-    Inheriting from ControllerBase class gives you more IDE intellisense support.
+  
+`delete_user` 方法使用 `http_delete` 修饰符，并接受一个 `user_id` 类型为 int 的参数和一个 `user_id` 类型为 Detail 的响应参数，成功时将返回一个 204 状态码，带有空主体。
 
-## Quick Example
+  
+`list_user` 方法使用 `http_get` 装饰器，并使用 `pagination.paginate` 装饰器进行装饰，该装饰器使用 `PageNumberPaginationExtra` 类以每页 50 个结果的方式对方法的结果进行分页。它还提供了一个 `pagination.PaginatedResponseSchema[UserSchema]` 类型的响应参数，该参数将用于对方法返回的用户列表进行序列化和分页。
 
-Let's create an APIController to properly manage Django user model
+  
+`get_user_by_id` 方法使用 `http_get` 装饰器，并接受一个 `user_id` 类型为 int 的参数和一个 `user_id` 类型为 UserSchema 的响应参数，该参数将用于序列化用户对象。
 
-```python
-import uuid
-from ninja import ModelSchema
-from ninja_extra import (
-    http_get, http_post, http_generic, http_delete,
-    api_controller, status, ControllerBase, pagination
-)
-from ninja_extra.controllers.response import Detail
-from django.contrib.auth import get_user_model
-
-
-class UserSchema(ModelSchema):
-    class Config:
-        model = get_user_model()
-        model_fields = ['username', 'email', 'first_name']
-
-
-@api_controller('/users')
-class UsersController(ControllerBase):
-    user_model = get_user_model()
-
-    @http_post()
-    def create_user(self, user: UserSchema):
-        # just simulating created user
-        return dict(id=uuid.uuid4())
-
-    @http_generic('/{int:user_id}', methods=['put', 'patch'], response=UserSchema)
-    def update_user(self, user_id: int):
-        """ Django Ninja will serialize Django ORM model to schema provided as `response`"""
-        user = self.get_object_or_exception(self.user_model, id=user_id)
-        return user
-
-    @http_delete('/{int:user_id}', response=Detail(status_code=status.HTTP_204_NO_CONTENT))
-    def delete_user(self, user_id: int):
-        user = self.get_object_or_exception(self.user_model, id=user_id)
-        user.delete()
-        return self.create_response('', status_code=status.HTTP_204_NO_CONTENT)
-
-    @http_get("", response=pagination.PaginatedResponseSchema[UserSchema])
-    @pagination.paginate(pagination.PageNumberPaginationExtra, page_size=50)
-    def list_user(self):
-        return self.user_model.objects.all()
-
-    @http_get('/{user_id}', response=UserSchema)
-    def get_user_by_id(self, user_id: int):
-        user = self.get_object_or_exception(self.user_model, id=user_id)
-        return user
-```
-
-In the example above, the `UsersController` class defines several methods that correspond to different HTTP methods, 
-such as `create_user`, `update_user`, `delete_user`, `list_user` and `get_user_by_id`. 
-These methods are decorated with `http_post`, `http_generic`, `http_delete`, `http_get` decorators respectively.
-
-The `create_user` method uses `http_post` decorator and accepts a user argument of type `UserSchema`, 
-which is a `ModelSchema` that is used to validate and serialize the input data. 
-The method is used to create a new user in the system and return an `ID` of the user.
-
-The `update_user` method uses `http_generic` decorator and accepts a `user_id` argument of type int. 
-The decorator is configured to handle both `PUT` and `PATCH` methods and 
-provides a response argument of type `UserSchema` which will be used to serialize the user object.
-
-The `delete_user` method uses `http_delete` decorator and accepts a `user_id` argument of type int and a response argument of type 
-Detail which will be used to return a 204 status code with an empty body on success.
-
-The `list_user` method uses `http_get` decorator and decorated with `pagination.paginate` decorator that paginate the results of the method using `PageNumberPaginationExtra` class with page_size=50. 
-It also provides a response argument of type `pagination.PaginatedResponseSchema[UserSchema]` which will be used to serialize and paginate the list of users returned by the method.
-
-The `get_user_by_id` method uses `http_get` decorator and accepts a `user_id` argument of type int and a response argument of type UserSchema which will be used to serialize the user object.
-
-The UsersController also use `self.get_object_or_exception(self.user_model, id=user_id)` which is a helper method that will raise an exception if the user object is not found.
+  
+用户控制器还使用了 `self.get_object_or_exception(self.user_model, id=user_id)` ，这是一个辅助方法，如果找不到用户对象，它将引发异常。
 
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

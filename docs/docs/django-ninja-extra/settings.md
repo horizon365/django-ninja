@@ -1,73 +1,73 @@
-# **Settings**
+**设置**
+=======
 
-Django-Ninja-Extra has some settings that can be overridden by adding a `NINJA_EXTRA` field in Django `settings.py` with some key-value pair as shown below:
+  
+Django-Ninja-Extra 有一些设置可以通过在 Django `settings.py` 中添加一个 `NINJA_EXTRA` 字段并添加一些键值对来覆盖，如下所示：
 
-```python
-# Django project settings.py
+    # Django project settings.py
+    
+    
+    NINJA_EXTRA = {
+        'PAGINATION_CLASS':"ninja_extra.pagination.PageNumberPaginationExtra",
+        'PAGINATION_PER_PAGE': 100,
+        'INJECTOR_MODULES': [],
+        'THROTTLE_CLASSES': [
+            "ninja_extra.throttling.AnonRateThrottle",
+            "ninja_extra.throttling.UserRateThrottle",
+        ],
+        'THROTTLE_RATES': {
+            'user': '1000/day',
+            'anon': '100/day',
+        },
+        'NUM_PROXIES': None,
+        'ORDERING_CLASS':"ninja_extra.ordering.Ordering",
+        'SEARCHING_CLASS':"ninja_extra.searching.Search",
+    }
+    
 
+  
+你可以覆盖你不需要的东西。没有必要覆盖所有东西。
 
-NINJA_EXTRA = {
-    'PAGINATION_CLASS':"ninja_extra.pagination.PageNumberPaginationExtra",
-    'PAGINATION_PER_PAGE': 100,
-    'INJECTOR_MODULES': [],
-    'THROTTLE_CLASSES': [
-        "ninja_extra.throttling.AnonRateThrottle",
-        "ninja_extra.throttling.UserRateThrottle",
-    ],
-    'THROTTLE_RATES': {
-        'user': '1000/day',
-        'anon': '100/day',
-    },
-    'NUM_PROXIES': None,
-    'ORDERING_CLASS':"ninja_extra.ordering.Ordering",
-    'SEARCHING_CLASS':"ninja_extra.searching.Search",
-}
-```
+`PAGINATION_CLASS`
+------------------
 
-You can override what you don't need. It is not necessary need to override everything.
+  
+它定义了 `paginate` 装饰器函数使用的默认分页器类，如果没有定义分页器类的话。默认： `ninja_extra.pagination.LimitOffsetPagination`
 
-## `PAGINATION_CLASS`
+`PAGINATION_PER_PAGE`
+---------------------
 
-It defines the default paginator class used by the `paginate` decorator
-function if a paginator class is not defined.
-default: `ninja_extra.pagination.LimitOffsetPagination`
+  
+它定义了在实例化时传递给 `PAGINATION_CLASS` 的默认页面大小。默认值： `100`
 
-## `PAGINATION_PER_PAGE`
+`INJECTOR_MODULES`
+------------------
 
-It defines the default page size that is passed to the `PAGINATION_CLASS` during instantiation.
-default: `100`
+  
+它包含一个字符串列表，该列表定义了注入器 `Module` 的路径。默认值： `[]`
 
-## `INJECTOR_MODULES`
+`THROTTLE_CLASSES`
+------------------
 
-It contains a list of strings that defines the path to injector `Module`.
-default: `[]`
+  
+它包含一个字符串列表，用于定义路径默认节流类。默认： `[ "ninja_extra.throttling.AnonRateThrottle", "ninja_extra.throttling.UserRateThrottle", ]`
 
-## `THROTTLE_CLASSES`
+`THROTTLE_RATES`
+----------------
 
-It contains a list of strings that defines the path default throttling classes.
-default: `[
-    "ninja_extra.throttling.AnonRateThrottle",
-    "ninja_extra.throttling.UserRateThrottle",
-]`
+  
+它包含一个键值对，其中包含应用于不同 `THROTTLING_CLASSES` 的不同节流率。默认： `{ 'user': '1000/day', 'anon': '100/day', }`
 
-## `THROTTLE_RATES`
+`ORDERING_CLASS`
+----------------
 
-It contains a key-value pair of different throttling rates which are applies to different `THROTTLING_CLASSES`.
-default: `{
-    'user': '1000/day',
-    'anon': '100/day',
-}`
+  
+它定义了 `ordering` 装饰器函数使用的默认排序类，如果没有定义排序类的话。默认： `ninja_extra.ordering.Ordering`
 
-## `ORDERING_CLASS`
+`SEARCHING_CLASS`
+-----------------
 
-It defines the default ordering class used by the `ordering` decorator
-function if a ordering class is not defined.
-default: `ninja_extra.ordering.Ordering`
-
-## `SEARCHING_CLASS`
-
-It defines the default searching class used by the `searching` decorator
-function if a searching class is not defined.
-default: `ninja_extra.searching.Searching`
+  
+它定义了 `searching` 装饰器函数使用的默认搜索类，如果没有定义搜索类的话。默认： `ninja_extra.searching.Searching`
 
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

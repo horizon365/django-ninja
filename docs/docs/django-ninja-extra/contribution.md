@@ -1,83 +1,94 @@
-# **Contribution Guidelines**
+**贡献指南**
+=========
 
-Thank you for considering contributing to NinjaExtra! Your contributions help make the project better for everyone. 
-Please take a moment to review the following guidelines before getting started.
-
-## Setting up the Development Environment
-
-1. **Fork the repository:** Fork the NinjaExtra repository on GitHub and clone it locally.
-
-2. **Virtual Environment:** Create and activate a virtual environment for the project.
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/macOS
-   ```
-
-   ```bash
-   python -m venv venv
-   .\venv\Scripts\activate  # Windows
-   ```
-
-3. **Install `flit`:** Ensure you have `flit` installed globally.
-
-   ```bash
-   pip install flit
-   ```
-
-4. **Install Dependencies:** Install development libraries and pre-commit hooks.
-
-   ```bash
-   make install-full
-   ```
-
-### **Code Style and Formatting**
-
-- **Formatting:** To format your code and ensure consistency, run:
-
-  ```bash
-  make fmt
-  ```
   
-- **Linting:** NinjaExtra uses `mypy` and `ruff` for linting. Run the following command to check code linting:
+感谢您考虑为 NinjaExtra 做出贡献！您的贡献使每个人都能让项目变得更好。在开始之前，请花一点时间回顾以下指南。
 
-  ```bash
-  make lint
-  ```
+  
+设置开发环境
+---------
+
+1.    
+    分叉仓库：在 GitHub 上分叉 NinjaExtra 仓库，并在本地克隆它。
+    
+2.    
+    虚拟环境：为项目创建并激活一个虚拟环境。
+    
+        python -m venv venv
+        source venv/bin/activate  # Linux/macOS
+        
+    
+        python -m venv venv
+        .\venv\Scripts\activate  # Windows
+        
+    
+3.    
+    安装 `flit` ：确保全局安装了 `flit` 。
+    
+        pip install flit
+        
+    
+4.    
+    安装依赖项：安装开发库和预提交挂钩。
+    
+        make install-full
+        
+    
+
+### **  
+代码风格和格式**
+
+*     
+    格式化：要格式化代码并确保一致性，请运行：
+    
+        make fmt
+        
+    
+*     
+    语法检查：NinjaExtra 使用 `mypy` 和 `ruff` 进行语法检查。运行以下命令检查代码语法：
+    
+        make lint
+        
+    
 
 ### **Testing**
 
-- **Unit Tests:** We use `pytest` for unit testing. Run the test suite:
+*     
+    单元测试：我们使用 `pytest` 进行单元测试。运行测试套件：
+    
+        make test
+        
+    
+*     
+    测试覆盖：为了检查测试覆盖：
+    
+        make test-cov
+        
+    
 
-  ```bash
-  make test
-  ```
+### **  
+提交拉取请求**
 
-- **Test Coverage:** To check test coverage:
+1.    
+    分支：为你的功能或错误修复创建一个新分支。
+    
+        git checkout -b feature-branch
+        
+    
+2.    
+    提交消息：遵循提交消息的常规提交规范。
+    
+3.    
+    推送更改：将你的分支推送到你分叉的存储库。
+    
+        git push origin feature-branch
+        
+    
+4.    
+    拉取请求：针对 NinjaExtra 存储库的 `master` 分支打开一个拉取请求。为你的更改提供清晰明了的标题和描述。
+    
 
-  ```bash
-  make test-cov
-  ```
-
-### **Submitting a Pull Request**
-
-1. **Branch:** Create a new branch for your feature or bug fix.
-
-   ```bash
-   git checkout -b feature-branch
-   ```
-
-2. **Commit Messages:** Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for your commit messages.
-
-3. **Push Changes:** Push your branch to your forked repository.
-
-   ```bash
-   git push origin feature-branch
-   ```
-
-4. **Pull Request:** Open a pull request against the `master` branch of the NinjaExtra repository. Provide a clear and descriptive title and description for your changes.
-
-
-Thank you for contributing to NinjaExtra! 🚀
+  
+感谢你为 NinjaExtra 做出贡献！🚀
 
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

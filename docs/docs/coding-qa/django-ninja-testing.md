@@ -7,14 +7,14 @@ URL 来源：https://stackoverflow.com/questions/76531474/django-ninja-testing
 [Django Ninja Testing](https://stackoverflow.com/questions/76531474/django-ninja-testing)
 =========================================================================================
 
- [提问](https://stackoverflow.com/questions/ask)
+[提问](https://stackoverflow.com/questions/ask)
 
 
 提问于 1 年前 1 个月
 
- 修改 4 个月前
+修改 4 个月前
 
- 浏览 2k 次
+浏览 2k 次
 
 4
 
@@ -158,7 +158,7 @@ Update:
 
 [Share](https://stackoverflow.com/a/77486156 "Short permalink to this answer")
 
- [改进这个回答](https://stackoverflow.com/posts/77486156/edit)
+[改进这个回答](https://stackoverflow.com/posts/77486156/edit)
 
 Follow
 
@@ -191,7 +191,7 @@ Follow
 
 [Share](https://stackoverflow.com/a/76651551 "Short permalink to this answer")
 
- [改进这个回答](https://stackoverflow.com/posts/76651551/edit)
+[改进这个回答](https://stackoverflow.com/posts/76651551/edit)
 
 Follow
 
@@ -253,7 +253,7 @@ Follow
 
 [Share](https://stackoverflow.com/a/78178060 "Short permalink to this answer")
 
- [改进这个回答](https://stackoverflow.com/posts/78178060/edit)
+[改进这个回答](https://stackoverflow.com/posts/78178060/edit)
 
 Follow
 

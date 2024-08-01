@@ -113,11 +113,11 @@ nav:
     - 提交贡献: django-ninja-jwt/development_and_contributing.md
   - Django Ninja Extra 文档:
       - 介绍: django-ninja-extra/index.md
-#      - APIController:
-#          - Index: django-ninja-extra/api_controller/index.md
-#          - Controller Routes: django-ninja-extra/api_controller/api_controller_route.md
-#          - Controller Permissions: django-ninja-extra/api_controller/api_controller_permission.md
-#          - Model Controller: django-ninja-extra/api_controller/model_controller.md
+      - APIController:
+          - 介绍: django-ninja-extra/api_controller/index.md
+          - API 控制器路由装饰器: django-ninja-extra/api_controller/api_controller_route.md
+          - API 控制器权限: django-ninja-extra/api_controller/api_controller_permission.md
+          - 模型控制器: django-ninja-extra/api_controller/model_controller.md
       - 用法:
           - 快速教程: django-ninja-extra/tutorial/index.md
           - 鉴权: django-ninja-extra/tutorial/authentication.md
@@ -134,21 +134,16 @@ nav:
           - API 版本控制: django-ninja-extra/tutorial/versioning.md
           - 节流: django-ninja-extra/tutorial/throttling.md
           - 测试: django-ninja-extra/tutorial/testing.md
-#      - RouteContext: django-ninja-extra/route_context.md
-#      - Settings: django-ninja-extra/settings.md
-#      - Dependency Injection: django-ninja-extra/service_module_injector.md
-#      - Contribution: django-ninja-extra/contribution.md
+      - RouteContext 路由上下文: django-ninja-extra/route_context.md
+      - 设置: django-ninja-extra/settings.md
+      - 依赖注入: django-ninja-extra/service_module_injector.md
+      - 贡献指南: django-ninja-extra/contribution.md
   - Django Ninja CRUD 文档:
       - 主页: django-ninja-crud/index.md
       - 教程:
         - 介绍: django-ninja-crud/guides/01-Introduction.md
         - Django Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
         - 快速示例: django-ninja-crud/guides/03-Examples.md
-#  - 问题集:
-#      - Django Ninja
-#      - Django Ninja CRUD
-#        - questions/django-ninja-crud/handle_ForeignKey_relations.md
-#      - Django Ninja Extra
 
   - 本站建设:
     - site-build/add-google-adsense-with-mkdocs.md
