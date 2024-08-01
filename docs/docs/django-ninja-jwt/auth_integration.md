@@ -73,4 +73,8 @@ class MyController:
 !!! 警告
     异步功能仅在 Django 版本 > 3.0 时可用。
 
+!!! 大功告成
+
+    继续下一章节 **[配置](settings.md)**.
+
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

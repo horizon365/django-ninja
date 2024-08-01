@@ -2,6 +2,29 @@
 comments: true
 ---
 
+
+## 你喜欢 Django Ninja 吗？
+
+如果你喜欢这个项目，有一件小事你可以做来让我们知道我们正朝着正确的方向前进。
+
+只需在 <a href="https://github.com/vitalik/django-ninja" target="_blank"> 在 github 上给 django-ninja 一个星标 </a> 。 <a href="https://github.com/vitalik/django-ninja" target="_blank">![github star](img/github-star.png)</a>
+
+或者在社交媒体上分享这个 URL：
+
+```
+https://django-ninja.cn
+```
+
+## 加入中国区社群
+
+### QQ 
+加入交流群 672827055 <a href="https://qm.qq.com/q/e0JkcwEFgs" target="_blank">![QQ](img/qq.svg)</a>
+
+### 微信
+由于人数限制，添加我后，我拉你进群。
+![webchat](img/webchat.JPG)
+
+
 # 联系站长
 本站翻译全部手工翻译，付出了大量的时间与精力，只为提供最准确，最优质的使用体验。
 除去开发成本外，目前站点的域名和服务器成本也由我个人承担，所以站点的长期存在与更新，

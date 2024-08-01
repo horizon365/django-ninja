@@ -16,4 +16,8 @@ def get_tokens_for_user(user):
 上述函数 `get_tokens_for_user` 将返回给定用户的新刷新令牌和访问令牌的序列化表示。
 一般来说，`ninja_jwt.tokens.Token` 的任何子类的令牌都可以通过这种方式创建。
 
+!!! 大功告成
+
+    继续下一章节 **[令牌类型](token_types.md)**.
+
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

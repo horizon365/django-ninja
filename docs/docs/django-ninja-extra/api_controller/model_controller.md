@@ -276,8 +276,7 @@
   
 通过在 `model_config` 中将 `async_routes` 参数设置为 `True` ， `ModelController` 根据配置在 `ModelAsyncEndpointFactory` 和 `ModelEndpointFactory` 之间动态切换，以生成异步或同步端点。
 
-### **  
-模型控制器和模型服务一起**
+### **模型控制器和模型服务一起**
 
   
 如果需要，也可以将控制器和模型服务合并在一起：

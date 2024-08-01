@@ -99,4 +99,8 @@ Cryptographic Dependencies (Optional)
 因为单独的 `cryptography` 需求行之后可能会被误认为是未使用的需求并被删除。
 [cryptography](https://cryptography.io)
 
+!!! 大功告成
+
+    继续下一章节 **[路由鉴权](auth_integration.md)**.
+
 <img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

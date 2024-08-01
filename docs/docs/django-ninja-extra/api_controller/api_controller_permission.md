@@ -16,8 +16,7 @@
   
 一种稍微不那么严格的权限风格是允许经过身份验证的用户完全访问，而允许未经身份验证的用户只读访问。这对应于 Django Ninja Extra 中的 `IsAuthenticatedOrReadOnly` 类。
 
-### **  
-对象级权限的限制**
+### **对象级权限的限制**
 
   
 在处理请求时，将自动为路由函数的权限列表中指定的所有权限调用 `has_permission` 方法。但是，由于 `has_object_permission` 需要对象进行权限验证，因此不会触发。因此，在控制器中使用 `get_object_or_exception` 或 `get_object_or_none` 方法检索对象时，将调用 `has_object_permission` 权限方法。
