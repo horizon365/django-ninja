@@ -212,4 +212,4 @@ def test_view(request):
 
 顺便说一句 - 如果你喜欢这个项目并且还没有给它一个 Github 星标 - 请这样做！[github star](img/github-star.png)
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

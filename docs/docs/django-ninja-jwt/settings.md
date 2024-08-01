@@ -204,4 +204,4 @@ JWK_URL 用于动态解析验证令牌签名所需的公钥。
 
 用于存储滑动令牌刷新周期的到期时间的声明名称。更多信息在下面的“滑动令牌”部分。
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

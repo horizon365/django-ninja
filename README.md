@@ -108,4 +108,4 @@ You will see the automatic interactive API documentation (provided by <a href="h
 
 [配置 vercel](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

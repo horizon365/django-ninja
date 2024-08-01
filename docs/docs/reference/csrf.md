@@ -82,4 +82,4 @@ def get_csrf_token(request):
 虽然与跨站请求伪造没有直接关系，但 CORS (跨源资源共享) 在您在不同于前端使用的站点上定义跨站请求伪造 Cookie 时可能会有所帮助，因为这在默认情况下是不被 [同源策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)允许的。
 然后您可以查看 [django-cors-headers README](https://github.com/adamchainz/django-cors-headers#readme)。
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

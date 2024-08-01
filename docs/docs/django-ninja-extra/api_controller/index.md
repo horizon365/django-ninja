@@ -163,4 +163,4 @@ The `get_user_by_id` method uses `http_get` decorator and accepts a `user_id` ar
 
 The UsersController also use `self.get_object_or_exception(self.user_model, id=user_id)` which is a helper method that will raise an exception if the user object is not found.
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

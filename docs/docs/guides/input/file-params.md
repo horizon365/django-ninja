@@ -96,4 +96,4 @@ def create_user(request, details: Form[UserDetails], files: File[list[UploadedFi
 
     继续下一章节！ **[请求解析体](request-parsers.md)**
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -24,4 +24,4 @@ comments: true
 
 如果想了解翻译进度，或者参与翻译，请访问 [仓库地址](https://github.com/vitalik/django-ninja) 。 👏 
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -53,4 +53,4 @@ def me(request):
 !!! 大功告成
 
     本教程到此结束！查看 **[其他教程](other/crud.md)** 或 **[How-to 系列](../guides/input/operations.md)** 以获取更多信息。
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

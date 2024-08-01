@@ -15,4 +15,4 @@ comments: true
 ## 【BugBytes】Django-Ninja 官方入门教程
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=593071906&bvid=BV18q4y1y7By&cid=480312150&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

@@ -119,4 +119,4 @@ For unauthenticated users, requests will only be permitted if the method is one 
 
 This permission is appropriate if you want your API to grant read permissions to anonymous users while restricting write permissions to authenticated users.
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

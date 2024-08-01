@@ -26,23 +26,23 @@ NINJA_EXTRA = {
 
 You can override what you don't need. It is not necessary need to override everything.
 
-# `PAGINATION_CLASS`
+## `PAGINATION_CLASS`
 
 It defines the default paginator class used by the `paginate` decorator
 function if a paginator class is not defined.
 default: `ninja_extra.pagination.LimitOffsetPagination`
 
-# `PAGINATION_PER_PAGE`
+## `PAGINATION_PER_PAGE`
 
 It defines the default page size that is passed to the `PAGINATION_CLASS` during instantiation.
 default: `100`
 
-# `INJECTOR_MODULES`
+## `INJECTOR_MODULES`
 
 It contains a list of strings that defines the path to injector `Module`.
 default: `[]`
 
-# `THROTTLE_CLASSES`
+## `THROTTLE_CLASSES`
 
 It contains a list of strings that defines the path default throttling classes.
 default: `[
@@ -50,7 +50,7 @@ default: `[
     "ninja_extra.throttling.UserRateThrottle",
 ]`
 
-# `THROTTLE_RATES`
+## `THROTTLE_RATES`
 
 It contains a key-value pair of different throttling rates which are applies to different `THROTTLING_CLASSES`.
 default: `{
@@ -58,16 +58,16 @@ default: `{
     'anon': '100/day',
 }`
 
-# `ORDERING_CLASS`
+## `ORDERING_CLASS`
 
 It defines the default ordering class used by the `ordering` decorator
 function if a ordering class is not defined.
 default: `ninja_extra.ordering.Ordering`
 
-# `SEARCHING_CLASS`
+## `SEARCHING_CLASS`
 
 It defines the default searching class used by the `searching` decorator
 function if a searching class is not defined.
 default: `ninja_extra.searching.Searching`
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

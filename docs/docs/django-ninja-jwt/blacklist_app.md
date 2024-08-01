@@ -37,4 +37,4 @@ token.blacklist()
 黑名单应用程序还提供了一个管理命令 `flushexpiredtokens`，它将从未决列表和黑名单中删除任何已过期的令牌。
 你应该在你的服务器或托管平台上设置一个每日运行此命令的 cron 作业。
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">

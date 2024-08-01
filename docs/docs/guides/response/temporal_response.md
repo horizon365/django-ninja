@@ -45,4 +45,4 @@ def feed_cookiemonster(request: HttpRequest, response: HttpResponse):
 
     继续下一章节！ **[从 Django models 中生成 Schema](django-pydantic.md)**
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
