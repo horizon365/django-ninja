@@ -138,16 +138,9 @@ nav:
         - 快速示例: django-ninja-crud/guides/03-Examples.md
   - 在线工具:
       - 996 薪资计算助手: 996-Salary-Calculator/index.html
-  - 问答集:
-    - coding-qa/django-ninja-testing.md
-    - coding-qa/django-ninja-token-authentication-with-djoser.md
-    - coding-qa/django-ninja-python-framework-for-rest-api.md
-    - coding-qa/handle_ForeignKey_relations.md
-    - coding-qa/django-rest-framework-vs-django-ninja-a-high-level-comparison.md
-  - 本站建设:
-    - site-build/add-google-adsense-with-mkdocs.md
-    - site-build/google-baidu-shou-lu.md
-    - site-build/adding_coment_system.md
+  - 问答集: coding-qa/index.md
+  - 本站建设: site-build/index.md
+
 markdown_extensions:
   - markdown_include.include
   - markdown.extensions.codehilite:

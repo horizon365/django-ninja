@@ -1,4 +1,4 @@
-Title: Django Ninja 试水
+Title: 开始试用 Django Ninja
 
 
 URL 来源：https://stackoverflow.com/questions/76531474/django-ninja-testing

@@ -1,0 +1,3 @@
+- [添加 Google Adsense 到 mkdocs 文档中](add-google-adsense-with-mkdocs.md)
+- [谷歌/百度收录 mkdocs 网站](google-baidu-shou-lu.md)
+- [增加依托于 github issue 的免费评论系统](adding_coment_system.md)
