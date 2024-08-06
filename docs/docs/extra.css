@@ -1,6 +1,7 @@
 .doc-module code {
   white-space: nowrap;
 }
+/*toc 下方广告*/
 .slider {
   margin-top: 20px;
   width: 100%;
@@ -28,4 +29,7 @@
   33% { transform: translateX(-33.333%); }
   66% { transform: translateX(-66.666%); }
 }
-
+.footer-content {
+  display: flex;
+  align-items: flex-start; /* 确保它们在垂直方向上对齐 */
+}

@@ -10,6 +10,8 @@ extra:
     property: G-XG4G24K86Y
 extra_css:
   - extra.css
+extra_javascript:
+  - https://vercount.one/js
 theme:
   name: material
   custom_dir: overrides
