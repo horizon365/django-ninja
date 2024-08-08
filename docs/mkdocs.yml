@@ -40,13 +40,27 @@ theme:
     - navigation.expand
     - search.highlight
     - search.suggest
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - navigation.tabs
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - toc.follow
   icon:
     repo: fontawesome/brands/github-alt
 nav:
   - 介绍: index.md
   - 开发动机: motivation.md
   - 教程:
-      - "第一步": tutorial/index.md
+      - "入门": tutorial/index.md
       - "解析输入": tutorial/step2.md
       - "处理响应": tutorial/step3.md
       - 其它教程:
@@ -55,8 +69,6 @@ nav:
           - Django Ninja JWT 文档: django-ninja-jwt/index.md
           - Django Ninja Extra 文档: django-ninja-extra/index.md
           - Django Ninja CRUD 文档: django-ninja-crud/index.md
-  - 联系站长: contact.md
-#  - 需要帮助: help.md
   - How-to 系列:
       - 解析传参:
           - guides/input/operations.md
@@ -83,18 +95,19 @@ nav:
       - 反转资源的 URLS 链接: guides/urls.md
       - 异步支持: guides/async-support.md
       - API 版本控制: guides/versioning.md
-  - 参考:
-      - NinjaAPI class: reference/api.md
-      - reference/csrf.md
-      - 操作参数: reference/operations-parameters.md
-      - 自定义管理命令: reference/management-commands.md
-      - Django 设置: reference/settings.md
-      - 发布日志: releases.md
-  - 规划中的功能:
-      - 简介: proposals/index.md
-      - 基于类的操作（cbv）: proposals/cbv.md
-      - 提案: proposals/v1.md
-  - V1 的新版变化: whatsnew_v1.md
+  - 其它:
+    - 参考:
+        - NinjaAPI class: reference/api.md
+        - reference/csrf.md
+        - 操作参数: reference/operations-parameters.md
+        - 自定义管理命令: reference/management-commands.md
+        - Django 设置: reference/settings.md
+        - 发布日志: releases.md
+    - 规划中的功能:
+        - 简介: proposals/index.md
+        - 基于类的操作（cbv）: proposals/cbv.md
+        - 提案: proposals/v1.md
+    - V1 的新版变化: whatsnew_v1.md
   - Django Ninja JWT 文档:
     - Ninja JWT 介绍: django-ninja-jwt/index.md
     - 入门指南: django-ninja-jwt/getting_started.md
@@ -139,9 +152,16 @@ nav:
         - Django Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
         - 快速示例: django-ninja-crud/guides/03-Examples.md
   - 在线工具:
-      - 996 薪资计算助手: 996-Salary-Calculator/index.html
-  - 问答集: coding-qa/index.md
-  - 本站建设: site-build/index.md
+    - 996 薪资计算助手: online-tools/index.md
+  - 问答集:
+    - 开始试用 Django Ninja: coding-qa/django-ninja-testing.md
+    - 使用 djoser 进行 Django ninja 令牌身份验证: coding-qa/django-ninja-token-authentication-with-djoser.md
+    - Django-Ninja：用于 REST API 的 Python 框架: coding-qa/django-ninja-python-framework-for-rest-api.md
+    - 如何处理外键字段: coding-qa/handle_ForeignKey_relations.md
+    - Django Rest Framework 与 Django-Ninja：高级别比较: coding-qa/django-rest-framework-vs-django-ninja-a-high-level-comparison.md
+  - 关于本站:
+    - 联系站长: contact.md
+    - 本站建设: site-build/index.md
 
 markdown_extensions:
   - markdown_include.include
