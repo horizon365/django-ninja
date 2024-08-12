@@ -108,49 +108,49 @@ nav:
         - 基于类的操作（cbv）: proposals/cbv.md
         - 提案: proposals/v1.md
     - V1 的新版变化: whatsnew_v1.md
-  - Django Ninja JWT 文档:
+  - Ninja JWT 文档:
     - Ninja JWT 介绍: django-ninja-jwt/index.md
-    - 入门指南: django-ninja-jwt/getting_started.md
-    - 路由鉴权: django-ninja-jwt/auth_integration.md
-    - 配置: django-ninja-jwt/settings.md
-    - 自定义令牌声明: django-ninja-jwt/customizing_token_claims.md
-    - 手动创建令牌: django-ninja-jwt/creating_tokens_manually.md
-    - 令牌类型: django-ninja-jwt/token_types.md
-    - 黑名单应用: django-ninja-jwt/blacklist_app.md
-    - 提交贡献: django-ninja-jwt/development_and_contributing.md
-  - Django Ninja Extra 文档:
-      - 介绍: django-ninja-extra/index.md
-      - APIController:
-          - 介绍: django-ninja-extra/api_controller/index.md
-          - API 控制器路由装饰器: django-ninja-extra/api_controller/api_controller_route.md
-          - API 控制器权限: django-ninja-extra/api_controller/api_controller_permission.md
-          - 模型控制器: django-ninja-extra/api_controller/model_controller.md
-      - 用法:
-          - 快速教程: django-ninja-extra/tutorial/index.md
-          - 鉴权: django-ninja-extra/tutorial/authentication.md
-          - 路径传参: django-ninja-extra/tutorial/path.md
-          - 查询传参: django-ninja-extra/tutorial/query.md
-          - 请求体: django-ninja-extra/tutorial/body_request.md
-          - 请求表单: django-ninja-extra/tutorial/form.md
-          - Schema: django-ninja-extra/tutorial/schema.md
-          - 分页: django-ninja-extra/tutorial/pagination.md
-          - 过滤:
-              - 排序: django-ninja-extra/tutorial/ordering.md
-              - 检索: django-ninja-extra/tutorial/searching.md
-          - 错误处理: django-ninja-extra/tutorial/custom_exception.md
-          - API 版本控制: django-ninja-extra/tutorial/versioning.md
-          - 节流: django-ninja-extra/tutorial/throttling.md
-          - 测试: django-ninja-extra/tutorial/testing.md
-      - RouteContext 路由上下文: django-ninja-extra/route_context.md
-      - 设置: django-ninja-extra/settings.md
-      - 依赖注入: django-ninja-extra/service_module_injector.md
-      - 贡献指南: django-ninja-extra/contribution.md
-  - Django Ninja CRUD 文档:
-      - 主页: django-ninja-crud/index.md
-      - 教程:
-        - 介绍: django-ninja-crud/guides/01-Introduction.md
-        - Django Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
-        - 快速示例: django-ninja-crud/guides/03-Examples.md
+    - Ninja JWT 入门指南: django-ninja-jwt/getting_started.md
+    - Ninja JWT 路由鉴权: django-ninja-jwt/auth_integration.md
+    - Ninja JWT 配置: django-ninja-jwt/settings.md
+    - Ninja JWT 自定义令牌声明: django-ninja-jwt/customizing_token_claims.md
+    - Ninja JWT 手动创建令牌: django-ninja-jwt/creating_tokens_manually.md
+    - Ninja JWT 令牌类型: django-ninja-jwt/token_types.md
+    - Ninja JWT 黑名单应用: django-ninja-jwt/blacklist_app.md
+    - Ninja JWT 提交贡献: django-ninja-jwt/development_and_contributing.md
+  - Ninja Extra 文档:
+      - Ninja Extra 文档: django-ninja-extra/index.md
+      - Ninja Extra APIController:
+          - Ninja Extra 介绍: django-ninja-extra/api_controller/index.md
+          - Ninja Extra API 控制器路由装饰器: django-ninja-extra/api_controller/api_controller_route.md
+          - Ninja Extra API 控制器权限: django-ninja-extra/api_controller/api_controller_permission.md
+          - Ninja Extra 模型控制器: django-ninja-extra/api_controller/model_controller.md
+      - Ninja Extra 用法:
+          - Ninja Extra 快速教程: django-ninja-extra/tutorial/index.md
+          - Ninja Extra 鉴权: django-ninja-extra/tutorial/authentication.md
+          - Ninja Extra 路径传参: django-ninja-extra/tutorial/path.md
+          - Ninja Extra 查询传参: django-ninja-extra/tutorial/query.md
+          - Ninja Extra 请求体: django-ninja-extra/tutorial/body_request.md
+          - Ninja Extra 请求表单: django-ninja-extra/tutorial/form.md
+          - Ninja Extra Schema: django-ninja-extra/tutorial/schema.md
+          - Ninja Extra 分页: django-ninja-extra/tutorial/pagination.md
+          - Ninja Extra 过滤:
+              - Ninja Extra 排序: django-ninja-extra/tutorial/ordering.md
+              - Ninja Extra 检索: django-ninja-extra/tutorial/searching.md
+          - Ninja Extra 错误处理: django-ninja-extra/tutorial/custom_exception.md
+          - Ninja Extra API 版本控制: django-ninja-extra/tutorial/versioning.md
+          - Ninja Extra 节流: django-ninja-extra/tutorial/throttling.md
+          - Ninja Extra 测试: django-ninja-extra/tutorial/testing.md
+      - Ninja Extra RouteContext 路由上下文: django-ninja-extra/route_context.md
+      - Ninja Extra 设置: django-ninja-extra/settings.md
+      - Ninja Extra 依赖注入: django-ninja-extra/service_module_injector.md
+      - Ninja Extra 贡献指南: django-ninja-extra/contribution.md
+  - Ninja CRUD 文档:
+      - Django Ninja CRUD 文档: django-ninja-crud/index.md
+      - Ninja CRUD 教程:
+        - Ninja CRUD 介绍: django-ninja-crud/guides/01-Introduction.md
+        - Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
+        - Ninja CRUD 快速示例: django-ninja-crud/guides/03-Examples.md
   - 在线工具:
     - 996 薪资计算助手: online-tools/index.md
   - 问答集:

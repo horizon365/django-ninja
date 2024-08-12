@@ -6,7 +6,7 @@
 [![Codecov](https://img.shields.io/codecov/c/gh/eadwinCode/django-ninja-extra)](https://codecov.io/gh/eadwinCode/django-ninja-extra)
 [![Downloads](https://pepy.tech/badge/django-ninja-extra)](https://pepy.tech/project/django-ninja-extra)
 
-# Django Ninja Extra
+# Django Ninja Extra 文档
 
 **Django Ninja Extra** 提供了一种 **基于类** 的方法以及额外的功能，这将使用 [**Django Ninja**](https://django-ninja.cn) 加速您的 RESTful API 开发。
 
