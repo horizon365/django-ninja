@@ -17,12 +17,24 @@ https://django-ninja.cn
 
 ## 加入中国区社群
 
+作为一位过来人也是希望大家少走一些弯路，如果你不想再体验一次学习时找不到资料，没人解答问题，坚持几天便放弃的感受的话，在这里我给大家分享一些 Django Ninja 的学习资源，希望能给你前进的路上带来帮助。
+
 ### QQ 
 加入交流群 672827055 <a href="https://qm.qq.com/q/e0JkcwEFgs" target="_blank">![QQ](img/qq.svg)</a>
 
 ### 微信
 由于人数限制，添加我后，我拉你进群。
 ![webchat](img/webchat.JPG)
+
+### 尝试做个全栈
+做了 8年后端，学习前端只花了 3 个月。
+
+会了前端，便离自由开发者更近了一步，接口联调时更有底气。
+
+下面这个教程是我觉得全网最有温度的 vue 3 教学视频。
+
+合集·Learn Vue 3: Step by Step【中英字幕】共10小节 <a href="https://space.bilibili.com/434866279/channel/series" target="_blank"> ![Learn Vue 3: Step by Step【中英字幕】](img/learn%20vue.jpg) </a>
+[合集·Learn Vue 3: Step by Step【中英字幕】共10小节](https://space.bilibili.com/434866279/channel/series)
 
 
 # 联系站长
