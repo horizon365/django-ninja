@@ -12,6 +12,42 @@ extra_css:
   - extra.css
 extra_javascript:
   - https://vercount.one/js
+### Example Configuration ###
+
+# Custom Homepage Elements
+home_cover_image: img/hero.png # This path starts at your root mkdocs directory.
+home_tagline: Django Ninja - 快速的 Django REST 框架
+home_description: |
+  Django Ninja 是一个无缝集成 Django， 使用 Python 3.6+ 类型提示构建 API 的网络框架。
+
+# Gradient Color
+home_gradient_hsla: hsla(0deg,47%,55%,1) # Default Green: hsla(160deg,47%,55%,1)
+
+# Custom Homepage Button(s)
+home_button1_name: 教程                   # Comment this parameter out to remove the button.
+home_button1_url: tutorial/                       # This path starts at your root mkdocs directory.
+home_button1_theme: md-button md-button--primary # Options: "md-button", "md-button md-button--primary"
+home_button1_icon: people                        # Options: "people", "gear", "image"
+home_button1_blurb: |                            # Short description of this button / section.
+  本教程向您展示如何使用 Django Ninja 的大部分功能。本教程假定您至少了解 Django 框架的一些基础知识，例如如何创建项目并运行它。
+
+home_button2_name: How-to 系列   # Comment this parameter out to remove the button.
+home_button2_url: guides/input/operations/    # This path starts at your root mkdocs directory.
+home_button2_theme: md-button # Options: "md-button", "md-button md-button--primary"
+home_button2_icon: gear       # Options: "people", "gear", "image"
+home_button2_blurb: |         # Short description of this button / section.
+  包括如何解析传参，处理响应，自定义路由，鉴权，自定义 API 文档，对异步的支持等等。
+
+home_button3_name: 了解更多   # Comment this parameter out to remove the button.
+home_button3_url: ./#_1    # This path starts at your root mkdocs directory.
+home_button3_theme: md-button # Options: "md-button", "md-button md-button--primary"
+home_button3_icon: image      # Options: "people", "gear", "image"
+home_button3_blurb: |         # Short description of this button / section.
+  Django Ninja 的开发的动机，基准测试，如何上手，快速示例和交互式 API 文档等。
+
+# Homepage Code Execution
+home_execute_js: | # Javascript to execute when accessing the homepage
+  console.log("This is an example!");
 theme:
   name: material
   custom_dir: overrides
