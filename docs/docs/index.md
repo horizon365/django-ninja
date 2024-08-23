@@ -1,10 +1,8 @@
 ---
+title: Django Ninja - 快速的 Django REST 框架
+template: home.html
 comments: true
 ---
-# Django Ninja - 快速的 Django REST 框架
-
-
-![Django Ninja](img/hero.png)
 
 Django Ninja 是一个使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
 
@@ -129,5 +127,3 @@ def operation(a: Item):
     2. [django-ninja-extra](django-ninja-extra/index.md) : 是一个可以让开发者摆脱冗长Django文档，仅用少量代码就能快速构建强大Web应用和现代API接口的工具。
 
     3. [django-ninja-jwt](django-ninja-jwt/index.md) : 为django-ninja提供的JSON Web Token插件，用于实现身份验证等相关功能，是从一个流行的Django Rest Framework插件分支而来。
-
-<img style="object-fit: cover; object-position: 50% 50%;" alt="relax image for django-ninja.cn" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/825/47.jpg">
