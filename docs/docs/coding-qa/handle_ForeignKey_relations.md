@@ -113,5 +113,5 @@ class ArticleViewSet(viewsets.APIViewSet):
 
 如有疑问，请留言，或者页面右上角加群讨论。
 
-<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://picsum.photos/634/47.jpg">
+<img style="object-fit: cover; object-position: 50% 50%;" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" alt="relax for django-ninja" src="https://picsum.photos/825/47.jpg">
 
