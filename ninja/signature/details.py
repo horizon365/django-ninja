@@ -169,7 +169,7 @@ class ViewSignature:
 
             base_cls = param_cls._model
             model_cls = type(cls_name, (base_cls,), attrs)
-            # TODO: https://pydantic-docs.helpmanual.io/usage/models/#dynamic-model-creation - check if anything special in create_model method that I did not use
+            # TODO: https://pydantic.com.cn/usage/models/#dynamic-model-creation - check if anything special in create_model method that I did not use
             result.append(model_cls)
         return result
 

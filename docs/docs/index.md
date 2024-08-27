@@ -9,7 +9,7 @@ Django Ninja 是一个使用 Django 和 Python 3.6+ 类型提示构建 API 的�
 主要特点:
 
  - **简单易懂**: 设计为易于使用和符合直觉。
- - **快速执行**: 多亏了 **<a href="https://pydantic-docs.helpmanual.io" target="_blank">Pydantic</a>** 和 **<a href="guides/async-support/">异步支持</a>**，具有非常高的性能。
+ - **快速执行**: 多亏了 **<a href="https://pydantic.com.cn" target="_blank">Pydantic</a>** 和 **<a href="guides/async-support/">异步支持</a>**，具有非常高的性能。
  - **快速编程**: Django Ninja 是一个用于使用 Django 和 Python 3.6+ 类型提示构建 API 的网络框架。
  - **基于标准**: 基于标准: **OpenAPI** (以前称为 Swagger) 和 **JSON 模式**。
  - **对 Django 友好**: （显然）与 Django 核心和对象关系映射有良好的集成。

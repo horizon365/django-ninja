@@ -4,16 +4,16 @@ comments: true
 # 覆盖 Pydantic 配置
 
 对于一个 **Django Ninja `Schema` 模式**, 有许多可用的自定义设置，通过模式的
-[Pydantic `Config` 类](https://pydantic-docs.helpmanual.io/usage/model_config/). 
+[Pydantic `Config` 类](https://pydantic.com.cn/usage/model_config/). 
 
 !!! 注意
-    在底层 **Django Ninja** 使用 [Pydantic Models 模型](https://pydantic-docs.helpmanual.io/usage/models/)
+    在底层 **Django Ninja** 使用 [Pydantic Models 模型](https://pydantic.com.cn/usage/models/)
     及其所有的特性和优点。 选择别名 `Schema` 是为了在代码中使用 Django 模型时避免混淆，
     因为 Pydantic 的模型类默认被称为“模型”，与 Django 的“模型”类冲突。
 
 ## 示例驼峰命名模式
 
-一个有趣的 `Config` 属性是 [`alias_generator 别名生成器`](https://pydantic-docs.helpmanual.io/usage/model_config/#alias-generator).
+一个有趣的 `Config` 属性是 [`alias_generator 别名生成器`](https://pydantic.com.cn/usage/model_config/#alias-generator).
 在 **Django Ninja** 中使用 Pydantic 的示例可能看起来像这样:
 
 ```python hl_lines="12 13"

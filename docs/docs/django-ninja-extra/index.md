@@ -15,7 +15,7 @@
 全部的 **Django-Ninja** 特性 :
 
 - **简单**: 设计为易于使用和符合直觉。
-- **快速的执行速度**: 多亏了 **<a href="https://pydantic-docs.helpmanual.io" target="_blank">Pydantic</a>** 和 **<a href="/async-support/">async 异步支持</a>， 具有非常高的性能。**
+- **快速的执行速度**: 多亏了 **<a href="https://pydantic.com.cn" target="_blank">Pydantic</a>** 和 **<a href="/async-support/">async 异步支持</a>， 具有非常高的性能。**
 - **快速的编码**: 类型提示和自动文档让你只需专注于业务逻辑。
 - **基于标准**: 基于标准: **OpenAPI** (以前称为 Swagger) 和 **JSON 模式**。
 - **对 Django 友好**: （显然）与 Django 核心和 ORM 有良好的集成。

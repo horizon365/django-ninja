@@ -27,7 +27,7 @@ Pydantic 版本 2 用 Rust 重写，包含了许多改进和特性，如：
 
 根据我们的测试，平均项目可以平均获得约 10%的性能提升，而在某些边缘解析/序列化情况下可以给你带来 4 倍的提升。
 另一方面，它引入了破坏性变化，pydantic 1 和 2 不是非常兼容 - 但我们尽力使这个过渡尽可能容易。
-所以如果你使用了 'Schema' 类，迁移到 ninja v1 应该很容易。否则，请遵循  [pydantic 迁移指南](https://docs.pydantic.dev/latest/migration/)
+所以如果你使用了 'Schema' 类，迁移到 ninja v1 应该很容易。否则，请遵循  [pydantic 迁移指南](https://pydantic.com.cn/migration/)
 
 
 一些 pydantic2 提供的新特性

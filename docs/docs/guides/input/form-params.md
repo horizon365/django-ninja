@@ -52,7 +52,7 @@ username: Form[str]
 
 可选的表单字段经常以空值发送。这个值被解释为空字符串，因此对于诸如 `int` 或 `bool` 等字段可能无法通过验证。
 
-如 Pydantic 文档所述，可以通过使用[作为类型的泛型类](https://pydantic-docs.helpmanual.io/usage/types/#generic-classes-as-types) 来解决这个问题。
+如 Pydantic 文档所述，可以通过使用[作为类型的泛型类](https://pydantic.com.cn/usage/types/#generic-classes-as-types) 来解决这个问题。
 
 ```python hl_lines="15 16 23-25"
 {!./src/tutorial/form/code03.py!}
