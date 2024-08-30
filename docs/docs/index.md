@@ -120,10 +120,12 @@ def operation(a: Item):
     
     查看 **[教程](tutorial/index.md)** 以快速开始。
 
-    Django ninja 周边生态： 
+    Django ninja 周边生态:
 
-    1. [django-ninja-crud](django-ninja-crud/index.md) : 是一个基于django-ninja来简化CRUD接口开发的框架，提供声明式的模型视图集及基于场景的测试方法。
+    1. [django-ninja](index.md) : 是一个基于django的框架，取出 django 的精华，搭配 pydantic 的威力，是安全和便捷交叉点的最优选择。
 
-    2. [django-ninja-extra](django-ninja-extra/index.md) : 是一个可以让开发者摆脱冗长Django文档，仅用少量代码就能快速构建强大Web应用和现代API接口的工具。
+    2. [django-ninja-crud](django-ninja-crud/index.md) : 是一个基于django-ninja来简化CRUD接口开发的框架，提供声明式的模型视图集及基于场景的测试方法。
 
-    3. [django-ninja-jwt](django-ninja-jwt/index.md) : 为django-ninja提供的JSON Web Token插件，用于实现身份验证等相关功能，是从一个流行的Django Rest Framework插件分支而来。
+    3. [django-ninja-extra](django-ninja-extra/index.md) : 是一个可以让开发者摆脱冗长Django文档，仅用少量代码就能快速构建强大Web应用和现代API接口的工具。
+
+    4. [django-ninja-jwt](django-ninja-jwt/index.md) : 为django-ninja提供的JSON Web Token插件，用于实现身份验证等相关功能，是从一个流行的Django Rest Framework插件分支而来。
