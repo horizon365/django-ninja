@@ -46,7 +46,7 @@ def add_custom_loc_to_sitemap(sitemap_path, custom_urls):
 
 # 使用示例
 if __name__ == "__main__":
-    sitemap_path = '../docs/site/sitemap.xml'  # MkDocs 生成的 sitemap.xml 的路径
+    sitemap_path = 'docs/site/sitemap.xml'  # MkDocs 生成的 sitemap.xml 的路径
     custom_urls = [
         'https://django-ninja.cn/online-tools/py312run/console.html',
         'https://django-ninja.cn/online-tools/996-Salary-Calculator/',

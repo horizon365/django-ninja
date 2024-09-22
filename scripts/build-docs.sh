@@ -6,4 +6,5 @@ pip install -r docs/requirements.txt
 
 cd docs
 PYTHONPATH=../ mkdocs build
-python modify_sitemap.py
+cd ..
+python scripts/modify_sitemap.py
