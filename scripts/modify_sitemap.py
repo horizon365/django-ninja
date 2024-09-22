@@ -1,3 +1,4 @@
+# coding=utf-8
 import xml.etree.ElementTree as ET
 import os
 from datetime import date
