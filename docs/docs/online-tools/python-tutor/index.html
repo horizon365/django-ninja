@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Pyodide Console</title>
+    <title>Python菜鸟福音 执行步骤拆解可视化：在线中文可离线操作版</title>
+    <meta name="description" content="Python菜鸟福音Python Tutor: 一个拆解Python 执行步骤的可视化网站，能够把代码运行的过程一步一步可视化展现出来，方便新手了解代码每一步的运行状态、帮助新手学习编程语言或者能对排查起到很大的帮助。全中文展示。非常适合新手支持离线和脱机操作。Pad 和 手机上可用。">
+    <meta name="keywords" content="Python教练, 执行步骤步骤拆解, 离线, 脱机">
     <style>
         /* 设置iframe全屏 */
         html, body {
@@ -24,6 +26,8 @@
 </head>
 <body>
     <!-- iframe嵌入页面 -->
-    <iframe src="https://jhkuajing.com/pytutor/visualize.html#mode=display" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
+    <iframe src="https://jhkuajing.com/pytutor/visualize.html#code=def%20listSum(numbers)%3A%0A%20%20if%20not%20numbers%3A%0A%20%20%20%20return%200%0A%20%20else%3A%0A%20%20%20%20(f,%20rest)%20%3D%20numbers%0A%20%20%20%20return%20f%20%2B%20listSum(rest)%0A%0AmyList%20%3D%20(1,%20(2,%20(3,%20None)))%0Atotal%20%3D%20listSum(myList)&py=3
+" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
 </body>
 </html>
+
