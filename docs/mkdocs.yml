@@ -11,7 +11,7 @@ extra:
 extra_css:
   - extra.css
 extra_javascript:
-  - https://vercount.one/js
+  - https://cn.vercount.one/js
 ### Example Configuration ###
 
 # Custom Homepage Elements
