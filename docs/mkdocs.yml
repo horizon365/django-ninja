@@ -188,6 +188,8 @@ nav:
         - Ninja CRUD 如何安装: django-ninja-crud/guides/02-Installation.md
         - Ninja CRUD 快速示例: django-ninja-crud/guides/03-Examples.md
   - Pydantic 文档: https://pydantic.com.cn/
+  - Logfire 文档: https://pydantic.com.cn/logfire/
+  - Starlette 文档: https://pydantic.com.cn/starlette/
   - 在线工具:
     - 996 薪资计算助手: online-tools/index.md
   - 问答集:
