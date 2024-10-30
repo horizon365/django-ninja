@@ -1,7 +1,7 @@
 Django Ninja CRUD 文档
 =======================
 
-![Django Ninja CRUD](https://raw.githubusercontent.com/hbakri/django-ninja-crud/main/docs/assets/images/django-ninja-crud-cover.png)
+![Django Ninja CRUD](../img/django-ninja-crud-cover.JPG)
 
 
 Django Ninja CRUD 是一个强大的、声明式的、但又有点固执己见的框架，它简化了使用 Django Ninja 开发 CRUD（创建、读取、更新、删除）端点的过程，并且还提供了一种声明式的基于场景的方法，用于使用 Django REST Testing（这个包的小弟）测试这些端点🐣。它允许您将常见的端点定义为基于类的视图，并轻松地根据项目的约定对其进行自定义，还可以轻松创建自己的自定义视图，并与提供的 CRUD 视图一起声明，从而促进了模块化和可扩展性。这个包提倡专注于最重要的事情：解决实际问题，而不是在整个项目中重新发明轮子。
