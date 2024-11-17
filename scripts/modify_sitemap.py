@@ -51,7 +51,8 @@ if __name__ == "__main__":
     custom_urls = [
         'https://django-ninja.cn/online-tools/py312run/console.html',
         'https://django-ninja.cn/online-tools/996-Salary-Calculator/',
-        'https://django-ninja.cn/online-tools/python-tutor/'
+        'https://django-ninja.cn/online-tools/python-tutor/',
+        'https://pingti.ren/'
     ]
 
     if os.path.exists(sitemap_path):
