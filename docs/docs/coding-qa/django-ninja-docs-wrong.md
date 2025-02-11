@@ -3,7 +3,7 @@ django ninja 的 docs页面的怪问题：不同的两个 endpoint 会同时打�
 
 最近有群友反馈了一个问题：在docs页面，点击两个中的任何一个，都会同时打开。其他的API不会有这样的表现。
 
-![django-ninja-docs-wrong](img/docs-wrong.png)
+![django-ninja-docs-wrong](/img/docs-wrong.png)
 
 
 最终定位到原因：函数名或者路径重复了。也就是在编写 view 视图时候拷贝了一个函数，后面忘记修改了名字。
