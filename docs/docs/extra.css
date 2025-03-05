@@ -2,15 +2,18 @@
   white-space: nowrap;
 }
 /*toc 下方广告*/
-.slider {
+.adsbygoogle {
+  display: block;
   margin-top: 20px;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  min-width: 218px;
+  max-width: 276px;
+  min-height: 200px;
 }
+
+.sidebar .adsbygoogle {
+  width: 300px; /* 适用于固定宽度的侧边栏 */
+}
+
 
 .slides {
   display: flex;
