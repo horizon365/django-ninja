@@ -63,7 +63,7 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)" 
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: green
       toggle:
@@ -198,6 +198,8 @@ nav:
     - Django-Ninja：用于 REST API 的 Python 框架: coding-qa/django-ninja-python-framework-for-rest-api.md
     - 如何处理外键字段: coding-qa/handle_ForeignKey_relations.md
     - Django Rest Framework 与 Django-Ninja：高级别比较: coding-qa/django-rest-framework-vs-django-ninja-a-high-level-comparison.md
+    - Django ninja jwt 试用: coding-qa/django-ninja-jwt-starting.md
+    - 如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: coding-qa/django-ninja-jwt-tusd-hooks-auth.md
   - 关于本站:
     - 联系站长: contact.md
     - 本站建设: site-build/index.md
