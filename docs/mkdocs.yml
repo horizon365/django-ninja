@@ -200,6 +200,8 @@ nav:
     - Django Rest Framework 与 Django-Ninja：高级别比较: coding-qa/django-rest-framework-vs-django-ninja-a-high-level-comparison.md
     - Django ninja jwt 试用: coding-qa/django-ninja-jwt-starting.md
     - 如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: coding-qa/django-ninja-jwt-tusd-hooks-auth.md
+    - 自定义api一级路径后，如何使用export_openapi_schema导出schema文件: coding-qa/customize-api-path-and-export-openapi-schema.md
+    - django-ninja中导出 openapi schema为中文: coding-qa/export-openapi-scheme-with-chinese.md
   - 关于本站:
     - 联系站长: contact.md
     - 本站建设: site-build/index.md
