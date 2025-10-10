@@ -2,7 +2,7 @@
 set -x
 set -e
 
-pip install -r docs/requirements.txt
+pip3 install -r docs/requirements.txt
 
 cd docs
 PYTHONPATH=../ mkdocs build

@@ -29,5 +29,5 @@ test-cov: ## Run tests with coverage
 
 .PHONY: docs
 docs: ## Serve documentation locally
-	pip install -r docs/requirements.txt
+	pip3 install -r docs/requirements.txt
 	cd docs && mkdocs serve -a localhost:8090
