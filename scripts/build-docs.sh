@@ -2,7 +2,7 @@
 set -x
 set -e
 
-pip3 install -r docs/requirements.txt
+pip3 install --break-system-packages -r docs/requirements.txt
 
 cd docs
 PYTHONPATH=../ python3 -m mkdocs build
