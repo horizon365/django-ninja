@@ -21,7 +21,7 @@ home_description: |
   Django Ninja 是一个无缝集成 Django， 使用 Python 3.6+ 类型提示构建 API 的网络框架。
 
 # Gradient Color
-home_gradient_hsla: hsla(0deg,47%,55%,1) # Default Green: hsla(160deg,47%,55%,1)
+home_gradient_hsla: "hsla(0deg,47%,55%,1) # Default Green: hsla(160deg,47%,55%,1)"
 
 # Custom Homepage Button(s)
 home_button1_name: 教程                   # Comment this parameter out to remove the button.
@@ -80,10 +80,6 @@ theme:
     - content.code.annotate
     - content.code.copy
     - navigation.tabs
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.preview
-    - navigation.instant.progress
     - navigation.path
     - navigation.sections
     - navigation.top
@@ -219,6 +215,898 @@ markdown_extensions:
   - pymdownx.superfences
 plugins:
   - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      languages:
+        - locale: zh
+          default: true
+          name: 简体中文
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: "Django Ninja documentation"
+          site_description: "Django Ninja - A fast, easy-to-use, high-performance Django REST framework"
+          nav_translations:
+            介绍: Introduction
+            开发动机: Motivation
+            教程: Tutorial
+            入门: Getting Started
+            解析输入: Parsing Input
+            处理响应: Handling Response
+            其它教程: Other Tutorials
+            Django Ninja JWT 文档: Django Ninja JWT Docs
+            Django Ninja Extra 文档: Django Ninja Extra Docs
+            Django Ninja CRUD 文档: Django Ninja CRUD Docs
+            How-to 系列: How-to Guides
+            解析传参: Parsing Parameters
+            定义新 Schema: Define New Schema
+            调整响应: Adjusting Response
+            从 Django models 中生成 Schema: Generate Schema from Django Models
+            动态生成 Schema: Dynamically Generate Schema
+            覆盖 Pydantic 配置: Override Pydantic Config
+            分页: Pagination
+            响应渲染: Response Rendering
+            通过路由来区分你的 API : Organize Your API with Routers
+            鉴权: Authentication
+            测试: Testing
+            API 文档: API Documentation
+            处理错误: Error Handling
+            反转资源的 URLS 链接: Reverse URL Links
+            异步支持: Async Support
+            API 版本控制: API Versioning
+            其它: Other
+            参考: Reference
+            操作参数: Operations Parameters
+            自定义管理命令: Custom Management Commands
+            Django 设置: Django Settings
+            发布日志: Release Notes
+            规划中的功能: Planned Features
+            简介: Introduction
+            基于类的操作（cbv）: Class-based Operations (CBV)
+            提案: Proposals
+            V1 的新版变化: What's New in V1
+            Ninja JWT 文档: Ninja JWT Docs
+            Ninja JWT 介绍: Ninja JWT Introduction
+            Ninja JWT 入门指南: Ninja JWT Getting Started
+            Ninja JWT 路由鉴权: Ninja JWT Route Auth
+            Ninja JWT 配置: Ninja JWT Configuration
+            Ninja JWT 自定义令牌声明: Ninja JWT Custom Token Claims
+            Ninja JWT 手动创建令牌: Ninja JWT Manual Token Creation
+            Ninja JWT 令牌类型: Ninja JWT Token Types
+            Ninja JWT 黑名单应用: Ninja JWT Blacklist App
+            Ninja JWT 提交贡献: Ninja JWT Contributing
+            Ninja Extra 文档: Ninja Extra Docs
+            Ninja Extra APIController: Ninja Extra APIController
+            Ninja Extra 介绍: Ninja Extra Introduction
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API Controller Route Decorator
+            Ninja Extra API 控制器权限: Ninja Extra API Controller Permissions
+            Ninja Extra 模型控制器: Ninja Extra Model Controller
+            Ninja Extra 用法: Ninja Extra Usage
+            Ninja Extra 快速教程: Ninja Extra Quick Tutorial
+            Ninja Extra 鉴权: Ninja Extra Authentication
+            Ninja Extra 路径传参: Ninja Extra Path Parameters
+            Ninja Extra 查询传参: Ninja Extra Query Parameters
+            Ninja Extra 请求体: Ninja Extra Request Body
+            Ninja Extra 请求表单: Ninja Extra Request Form
+            Ninja Extra 分页: Ninja Extra Pagination
+            Ninja Extra 过滤: Ninja Extra Filtering
+            Ninja Extra 排序: Ninja Extra Ordering
+            Ninja Extra 检索: Ninja Extra Searching
+            Ninja Extra 错误处理: Ninja Extra Error Handling
+            Ninja Extra API 版本控制: Ninja Extra API Versioning
+            Ninja Extra 节流: Ninja Extra Throttling
+            Ninja Extra 测试: Ninja Extra Testing
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra Settings
+            Ninja Extra 依赖注入: Ninja Extra Dependency Injection
+            Ninja Extra 贡献指南: Ninja Extra Contributing
+            Ninja CRUD 文档: Ninja CRUD Docs
+            Django Ninja CRUD 文档: Django Ninja CRUD Documentation
+            Ninja CRUD 教程: Ninja CRUD Tutorial
+            Ninja CRUD 介绍: Ninja CRUD Introduction
+            Ninja CRUD 如何安装: Ninja CRUD Installation
+            Ninja CRUD 快速示例: Ninja CRUD Quick Examples
+            Pydantic 文档: Pydantic Docs
+            Logfire 文档: Logfire Docs
+            Starlette 文档: Starlette Docs
+            在线工具: Online Tools
+            996 薪资计算助手: 996 Salary Calculator
+            问答集: Q&A
+            开始试用 Django Ninja: Trying Django Ninja
+            使用 djoser 进行 Django ninja 令牌身份验证: Django Ninja Token Auth with djoser
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python Framework for REST API"
+            如何处理外键字段: How to Handle ForeignKey Fields
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: High-level Comparison"
+            Django ninja jwt 试用: Django Ninja JWT Trial
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: Using django-ninja-jwt with tusd HTTP Hooks for Auth
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Custom API Path with export_openapi_schema
+            django-ninja中导出 openapi schema为中文: Export OpenAPI Schema in Chinese
+            关于本站: About
+            联系站长: Contact
+            本站建设: Site Building
+        - locale: ru
+          name: Russian
+          build: true
+          site_name: "Документация Django Ninja"
+          site_description: "Django Ninja - быстрый и простой в использовании Django REST framework"
+          nav_translations:
+            介绍: Введение
+            开发动机: Мотивация
+            教程: Руководство
+            入门: Начало работы
+            解析输入: Разбор входных данных
+            处理响应: Обработка ответов
+            其它教程: Другие руководства
+            Django Ninja JWT 文档: Документация Django Ninja JWT
+            Django Ninja Extra 文档: Документация Django Ninja Extra
+            Django Ninja CRUD 文档: Документация Django Ninja CRUD
+            How-to 系列: Практические руководства
+            解析传参: Разбор параметров
+            定义新 Schema: Определение новой Schema
+            调整响应: Настройка ответов
+            从 Django models 中生成 Schema: Генерация Schema из Django моделей
+            动态生成 Schema: Динамическая генерация Schema
+            覆盖 Pydantic 配置: Переопределение конфигурации Pydantic
+            分页: Пагинация
+            响应渲染: Рендеринг ответов
+            通过路由来区分你的 API : Разделение API через роутеры
+            鉴权: Аутентификация
+            测试: Тестирование
+            API 文档: Документация API
+            处理错误: Обработка ошибок
+            反转资源的 URLS 链接: Обратные ссылки URL
+            异步支持: Поддержка асинхронности
+            API 版本控制: Версионирование API
+            其它: Другое
+            参考: Справочник
+            操作参数: Параметры операций
+            自定义管理命令: Пользовательские команды управления
+            Django 设置: Настройки Django
+            发布日志: Журнал релизов
+            规划中的功能: Запланированные функции
+            简介: Введение
+            基于类的操作（cbv）: Классовые операции (CBV)
+            提案: Предложения
+            V1 的新版变化: Что нового в V1
+            Ninja JWT 文档: Документация Ninja JWT
+            Ninja JWT 介绍: Введение в Ninja JWT
+            Ninja JWT 入门指南: Руководство по началу работы с Ninja JWT
+            Ninja JWT 路由鉴权: Аутентификация маршрутов Ninja JWT
+            Ninja JWT 配置: Конфигурация Ninja JWT
+            Ninja JWT 自定义令牌声明: Пользовательские утверждения токена Ninja JWT
+            Ninja JWT 手动创建令牌: Ручное создание токена Ninja JWT
+            Ninja JWT 令牌类型: Типы токенов Ninja JWT
+            Ninja JWT 黑名单应用: Приложение чёрного списка Ninja JWT
+            Ninja JWT 提交贡献: Вклад в Ninja JWT
+            Ninja Extra 文档: Документация Ninja Extra
+            Ninja Extra 介绍: Введение в Ninja Extra
+            Ninja Extra API 控制器路由装饰器: Декоратор маршрута API контроллера Ninja Extra
+            Ninja Extra API 控制器权限: Разрешения API контроллера Ninja Extra
+            Ninja Extra 模型控制器: Контроллер моделей Ninja Extra
+            Ninja Extra 用法: Использование Ninja Extra
+            Ninja Extra 快速教程: Быстрый учебник по Ninja Extra
+            Ninja Extra 鉴权: Аутентификация Ninja Extra
+            Ninja Extra 路径传参: Параметры пути Ninja Extra
+            Ninja Extra 查询传参: Параметры запроса Ninja Extra
+            Ninja Extra 请求体: Тело запроса Ninja Extra
+            Ninja Extra 请求表单: Форма запроса Ninja Extra
+            Ninja Extra 分页: Пагинация Ninja Extra
+            Ninja Extra 过滤: Фильтрация Ninja Extra
+            Ninja Extra 排序: Сортировка Ninja Extra
+            Ninja Extra 检索: Поиск Ninja Extra
+            Ninja Extra 错误处理: Обработка ошибок Ninja Extra
+            Ninja Extra API 版本控制: Версионирование API Ninja Extra
+            Ninja Extra 节流: Ограничение частоты Ninja Extra
+            Ninja Extra 测试: Тестирование Ninja Extra
+            Ninja Extra RouteContext 路由上下文: Контекст маршрута Ninja Extra RouteContext
+            Ninja Extra 设置: Настройки Ninja Extra
+            Ninja Extra 依赖注入: Внедрение зависимостей Ninja Extra
+            Ninja Extra 贡献指南: Руководство по вкладу Ninja Extra
+            Ninja CRUD 文档: Документация Ninja CRUD
+            Django Ninja CRUD 文档: Документация Django Ninja CRUD
+            Ninja CRUD 教程: Учебник Ninja CRUD
+            Ninja CRUD 介绍: Введение в Ninja CRUD
+            Ninja CRUD 如何安装: Установка Ninja CRUD
+            Ninja CRUD 快速示例: Быстрые примеры Ninja CRUD
+            Pydantic 文档: Документация Pydantic
+            Logfire 文档: Документация Logfire
+            Starlette 文档: Документация Starlette
+            在线工具: Онлайн-инструменты
+            996 薪资计算助手: Калькулятор зарплаты 996
+            问答集: Вопросы и ответы
+            开始试用 Django Ninja: Начало работы с Django Ninja
+            使用 djoser 进行 Django ninja 令牌身份验证: Аутентификация токенов Django Ninja с djoser
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python фреймворк для REST API"
+            如何处理外键字段: Как обрабатывать поля внешнего ключа
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Сравнение высокого уровня"
+            Django ninja jwt 试用: Пробный запуск Django Ninja JWT
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Пользовательский путь API с export_openapi_schema
+            django-ninja中导出 openapi schema为中文: Экспорт OpenAPI Schema на китайском
+            关于本站: О сайте
+            联系站长: Связаться с автором
+            本站建设: Создание сайта
+        - locale: hi
+          name: हिन्दी
+          build: true
+          site_name: "Django Ninja दस्तावेज़"
+          site_description: "Django Ninja - एक तेज़, उपयोग में आसान Django REST फ्रेमवर्क"
+          nav_translations:
+            介绍: परिचय
+            开发动机: प्रेरणा
+            教程: ट्यूटोरियल
+            入门: शुरू करें
+            解析输入: इनपुट पार्सिंग
+            处理响应: प्रतिक्रिया प्रसंस्करण
+            其它教程: अन्य ट्यूटोरियल
+            Django Ninja JWT 文档: Django Ninja JWT दस्तावेज़
+            Django Ninja Extra 文档: Django Ninja Extra दस्तावेज़
+            Django Ninja CRUD 文档: Django Ninja CRUD दस्तावेज़
+            How-to 系列: How-to गाइड
+            解析传参: पैरामीटर पार्सिंग
+            定义新 Schema: नई Schema परिभाषित करें
+            调整响应: प्रतिक्रिया समायोजन
+            从 Django models 中生成 Schema: Django मॉडल से Schema उत्पन्न करें
+            动态生成 Schema: गतिशील Schema उत्पन्न करें
+            覆盖 Pydantic 配置: Pydantic कॉन्फ़िगरेशन ओवरराइड करें
+            分页: पेजिनेशन
+            响应渲染: प्रतिक्रिया रेंडरिंग
+            通过路由来区分你的 API : राउटर से API व्यवस्थित करें
+            鉴权: प्रमाणीकरण
+            测试: परीक्षण
+            API 文档: API दस्तावेज़
+            处理错误: त्रुटि प्रबंधन
+            反转资源的 URLS 链接: URL रिवर्स लिंक
+            异步支持: अतुल्यकालिक समर्थन
+            API 版本控制: API संस्करण नियंत्रण
+            其它: अन्य
+            参考: संदर्भ
+            操作参数: ऑपरेशन पैरामीटर
+            自定义管理命令: कस्टम प्रबंधन आदेश
+            Django 设置: Django सेटिंग्स
+            发布日志: रिलीज़ नोट्स
+            规划中的功能: योजित सुविधाएँ
+            简介: परिचय
+            基于类的操作（cbv）: क्लास-आधारित ऑपरेशन (CBV)
+            提案: प्रस्ताव
+            V1 的新版变化: V1 में नया क्या है
+            Ninja JWT 文档: Ninja JWT दस्तावेज़
+            Ninja JWT 介绍: Ninja JWT परिचय
+            Ninja JWT 入门指南: Ninja JWT आरंभ मार्गदर्शिका
+            Ninja JWT 路由鉴权: Ninja JWT रूट प्रमाणीकरण
+            Ninja JWT 配置: Ninja JWT कॉन्फ़िगरेशन
+            Ninja JWT 自定义令牌声明: Ninja JWT कस्टम टोकन क्लेम
+            Ninja JWT 手动创建令牌: Ninja JWT हस्तचालित टोकन निर्माण
+            Ninja JWT 令牌类型: Ninja JWT टोकन प्रकार
+            Ninja JWT 黑名单应用: Ninja JWT ब्लैकलिस्ट ऐप
+            Ninja JWT 提交贡献: Ninja JWT योगदान
+            Ninja Extra 文档: Ninja Extra दस्तावेज़
+            Ninja Extra 介绍: Ninja Extra परिचय
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API नियंत्रक रूट डेकोरेटर
+            Ninja Extra API 控制器权限: Ninja Extra API नियंत्रक अनुमतियाँ
+            Ninja Extra 模型控制器: Ninja Extra मॉडल नियंत्रक
+            Ninja Extra 用法: Ninja Extra उपयोग
+            Ninja Extra 快速教程: Ninja Extra त्वरित ट्यूटोरियल
+            Ninja Extra 鉴权: Ninja Extra प्रमाणीकरण
+            Ninja Extra 路径传参: Ninja Extra पथ पैरामीटर
+            Ninja Extra 查询传参: Ninja Extra क्वेरी पैरामीटर
+            Ninja Extra 请求体: Ninja Extra अनुरोध बॉडी
+            Ninja Extra 请求表单: Ninja Extra अनुरोध फॉर्म
+            Ninja Extra 分页: Ninja Extra पेजिनेशन
+            Ninja Extra 过滤: Ninja Extra फ़िल्टरिंग
+            Ninja Extra 排序: Ninja Extra क्रमबद्ध
+            Ninja Extra 检索: Ninja Extra खोज
+            Ninja Extra 错误处理: Ninja Extra त्रुटि प्रबंधन
+            Ninja Extra API 版本控制: Ninja Extra API संस्करण नियंत्रण
+            Ninja Extra 节流: Ninja Extra थ्रॉटलिंग
+            Ninja Extra 测试: Ninja Extra परीक्षण
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra सेटिंग्स
+            Ninja Extra 依赖注入: Ninja Extra डिपेंडेंसी इंजेक्शन
+            Ninja Extra 贡献指南: Ninja Extra योगदान मार्गदर्शिका
+            Ninja CRUD 文档: Ninja CRUD दस्तावेज़
+            Django Ninja CRUD 文档: Django Ninja CRUD दस्तावेज़
+            Ninja CRUD 教程: Ninja CRUD ट्यूटोरियल
+            Ninja CRUD 介绍: Ninja CRUD परिचय
+            Ninja CRUD 如何安装: Ninja CRUD स्थापना
+            Ninja CRUD 快速示例: Ninja CRUD त्वरित उदाहरण
+            Pydantic 文档: Pydantic दस्तावेज़
+            Logfire 文档: Logfire दस्तावेज़
+            Starlette 文档: Starlette दस्तावेज़
+            在线工具: ऑनलाइन उपकरण
+            996 薪资计算助手: 996 वेतन कैलकुलेटर
+            问答集: प्रश्नोत्तर
+            开始试用 Django Ninja: Django Ninja आज़माएँ
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API के लिए Python फ्रेमवर्क"
+            如何处理外键字段: ForeignKey फ़ील्ड कैसे संभालें
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: उच्च-स्तरीय तुलना"
+            关于本站: साइट के बारे में
+            联系站长: संपर्क करें
+            本站建设: साइट निर्माण
+        - locale: id
+          name: Indonesia
+          build: true
+          site_name: "Dokumentasi Django Ninja"
+          site_description: "Django Ninja - Django REST framework yang cepat dan mudah digunakan"
+          nav_translations:
+            介绍: Pengenalan
+            开发动机: Motivasi
+            教程: Tutorial
+            入门: Memulai
+            解析输入: Parsing Input
+            处理响应: Menangani Response
+            其它教程: Tutorial Lainnya
+            Django Ninja JWT 文档: Dokumentasi Django Ninja JWT
+            Django Ninja Extra 文档: Dokumentasi Django Ninja Extra
+            Django Ninja CRUD 文档: Dokumentasi Django Ninja CRUD
+            How-to 系列: Panduan How-to
+            解析传参: Parsing Parameter
+            定义新 Schema: Mendefinisikan Schema Baru
+            调整响应: Menyesuaikan Response
+            从 Django models 中生成 Schema: Hasilkan Schema dari Model Django
+            动态生成 Schema: Hasilkan Schema Dinamis
+            覆盖 Pydantic 配置: Timpa Konfigurasi Pydantic
+            分页: Paginasi
+            响应渲染: Rendering Response
+            通过路由来区分你的 API : Atur API dengan Router
+            鉴权: Otentikasi
+            测试: Pengujian
+            API 文档: Dokumentasi API
+            处理错误: Penanganan Error
+            反转资源的 URLS 链接: Tautan URL Terbalik
+            异步支持: Dukungan Async
+            API 版本控制: Versioning API
+            其它: Lainnya
+            参考: Referensi
+            操作参数: Parameter Operasi
+            自定义管理命令: Perintah Manajemen Kustom
+            Django 设置: Pengaturan Django
+            发布日志: Catatan Rilis
+            规划中的功能: Fitur yang Direncanakan
+            简介: Pengenalan
+            基于类的操作（cbv）: Operasi Berbasis Kelas (CBV)
+            提案: Proposal
+            V1 的新版变化: Apa Baru di V1
+            Ninja JWT 文档: Dokumentasi Ninja JWT
+            Ninja JWT 介绍: Pengenalan Ninja JWT
+            Ninja JWT 入门指南: Panduan Memulai Ninja JWT
+            Ninja JWT 路由鉴权: Otentikasi Rute Ninja JWT
+            Ninja JWT 配置: Konfigurasi Ninja JWT
+            Ninja JWT 自定义令牌声明: Klaim Token Kustom Ninja JWT
+            Ninja JWT 手动创建令牌: Pembuatan Token Manual Ninja JWT
+            Ninja JWT 令牌类型: Tipe Token Ninja JWT
+            Ninja JWT 黑名单应用: Aplikasi Blacklist Ninja JWT
+            Ninja JWT 提交贡献: Kontribusi Ninja JWT
+            Ninja Extra 文档: Dokumentasi Ninja Extra
+            Ninja Extra 介绍: Pengenalan Ninja Extra
+            Ninja Extra API 控制器路由装饰器: Dekorator Rute API Controller Ninja Extra
+            Ninja Extra API 控制器权限: Izin API Controller Ninja Extra
+            Ninja Extra 模型控制器: Model Controller Ninja Extra
+            Ninja Extra 用法: Penggunaan Ninja Extra
+            Ninja Extra 快速教程: Tutorial Cepat Ninja Extra
+            Ninja Extra 鉴权: Otentikasi Ninja Extra
+            Ninja Extra 路径传参: Parameter Path Ninja Extra
+            Ninja Extra 查询传参: Parameter Query Ninja Extra
+            Ninja Extra 请求体: Body Request Ninja Extra
+            Ninja Extra 请求表单: Form Request Ninja Extra
+            Ninja Extra 分页: Paginasi Ninja Extra
+            Ninja Extra 过滤: Filter Ninja Extra
+            Ninja Extra 排序: Pengurutan Ninja Extra
+            Ninja Extra 检索: Pencarian Ninja Extra
+            Ninja Extra 错误处理: Penanganan Error Ninja Extra
+            Ninja Extra API 版本控制: Versioning API Ninja Extra
+            Ninja Extra 节流: Throttling Ninja Extra
+            Ninja Extra 测试: Pengujian Ninja Extra
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Pengaturan Ninja Extra
+            Ninja Extra 依赖注入: Dependency Injection Ninja Extra
+            Ninja Extra 贡献指南: Panduan Kontribusi Ninja Extra
+            Ninja CRUD 文档: Dokumentasi Ninja CRUD
+            Django Ninja CRUD 文档: Dokumentasi Django Ninja CRUD
+            Ninja CRUD 教程: Tutorial Ninja CRUD
+            Ninja CRUD 介绍: Pengenalan Ninja CRUD
+            Ninja CRUD 如何安装: Instalasi Ninja CRUD
+            Ninja CRUD 快速示例: Contoh Cepat Ninja CRUD
+            Pydantic 文档: Dokumentasi Pydantic
+            Logfire 文档: Dokumentasi Logfire
+            Starlette 文档: Dokumentasi Starlette
+            在线工具: Alat Online
+            996 薪资计算助手: Kalkulator Gaji 996
+            问答集: Tanya Jawab
+            开始试用 Django Ninja: Mencoba Django Ninja
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Framework Python untuk REST API"
+            如何处理外键字段: Cara Menangani Field ForeignKey
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Perbandingan Tingkat Tinggi"
+            关于本站: Tentang Situs
+            联系站长: Hubungi
+            本站建设: Pembangunan Situs
+        - locale: de
+          name: Deutsch
+          build: true
+          site_name: "Django Ninja Dokumentation"
+          site_description: "Django Ninja - Ein schnelles, einfach zu bedienendes Django REST Framework"
+          nav_translations:
+            介绍: Einführung
+            开发动机: Motivation
+            教程: Tutorial
+            入门: Erste Schritte
+            解析输入: Eingaben parsen
+            处理响应: Antworten verarbeiten
+            其它教程: Weitere Tutorials
+            Django Ninja JWT 文档: Django Ninja JWT Doku
+            Django Ninja Extra 文档: Django Ninja Extra Doku
+            Django Ninja CRUD 文档: Django Ninja CRUD Doku
+            How-to 系列: How-to Anleitungen
+            解析传参: Parameter parsen
+            定义新 Schema: Neue Schema definieren
+            调整响应: Antworten anpassen
+            从 Django models 中生成 Schema: Schema aus Django-Modellen generieren
+            动态生成 Schema: Schema dynamisch generieren
+            覆盖 Pydantic 配置: Pydantic-Konfiguration überschreiben
+            分页: Paginierung
+            响应渲染: Antwort-Rendering
+            通过路由来区分你的 API : API mit Routern organisieren
+            鉴权: Authentifizierung
+            测试: Testen
+            API 文档: API-Dokumentation
+            处理错误: Fehlerbehandlung
+            反转资源的 URLS 链接: URL-Rückverweise
+            异步支持: Async-Unterstützung
+            API 版本控制: API-Versionierung
+            其它: Sonstiges
+            参考: Referenz
+            操作参数: Operationsparameter
+            自定义管理命令: Eigene Verwaltungsbefehle
+            Django 设置: Django-Einstellungen
+            发布日志: Versionshinweise
+            规划中的功能: Geplante Funktionen
+            简介: Einführung
+            基于类的操作（cbv）: Klassenbasierte Operationen (CBV)
+            提案: Vorschläge
+            V1 的新版变化: Neu in V1
+            Ninja JWT 文档: Ninja JWT Doku
+            Ninja JWT 介绍: Ninja JWT Einführung
+            Ninja JWT 入门指南: Ninja JWT Erste Schritte
+            Ninja JWT 路由鉴权: Ninja JWT Route Auth
+            Ninja JWT 配置: Ninja JWT Konfiguration
+            Ninja JWT 自定义令牌声明: Ninja JWT Custom Token Claims
+            Ninja JWT 手动创建令牌: Ninja JWT Token manuell erstellen
+            Ninja JWT 令牌类型: Ninja JWT Token-Typen
+            Ninja JWT 黑名单应用: Ninja JWT Blacklist-App
+            Ninja JWT 提交贡献: Ninja JWT Beitrag
+            Ninja Extra 文档: Ninja Extra Doku
+            Ninja Extra 介绍: Ninja Extra Einführung
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API Controller Route Decorator
+            Ninja Extra API 控制器权限: Ninja Extra API Controller Berechtigungen
+            Ninja Extra 模型控制器: Ninja Extra Model Controller
+            Ninja Extra 用法: Ninja Extra Verwendung
+            Ninja Extra 快速教程: Ninja Extra Schnellstart
+            Ninja Extra 鉴权: Ninja Extra Authentifizierung
+            Ninja Extra 路径传参: Ninja Extra Path-Parameter
+            Ninja Extra 查询传参: Ninja Extra Query-Parameter
+            Ninja Extra 请求体: Ninja Extra Request Body
+            Ninja Extra 请求表单: Ninja Extra Request Form
+            Ninja Extra 分页: Ninja Extra Paginierung
+            Ninja Extra 过滤: Ninja Extra Filterung
+            Ninja Extra 排序: Ninja Extra Sortierung
+            Ninja Extra 检索: Ninja Extra Suche
+            Ninja Extra 错误处理: Ninja Extra Fehlerbehandlung
+            Ninja Extra API 版本控制: Ninja Extra API-Versionierung
+            Ninja Extra 节流: Ninja Extra Throttling
+            Ninja Extra 测试: Ninja Extra Testen
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra Einstellungen
+            Ninja Extra 依赖注入: Ninja Extra Dependency Injection
+            Ninja Extra 贡献指南: Ninja Extra Beitragsleitfaden
+            Ninja CRUD 文档: Ninja CRUD Doku
+            Django Ninja CRUD 文档: Django Ninja CRUD Doku
+            Ninja CRUD 教程: Ninja CRUD Tutorial
+            Ninja CRUD 介绍: Ninja CRUD Einführung
+            Ninja CRUD 如何安装: Ninja CRUD Installation
+            Ninja CRUD 快速示例: Ninja CRUD Schnellbeispiele
+            Pydantic 文档: Pydantic Doku
+            Logfire 文档: Logfire Doku
+            Starlette 文档: Starlette Doku
+            在线工具: Online-Werkzeuge
+            996 薪资计算助手: 996 Gehaltsrechner
+            问答集: FAQ
+            开始试用 Django Ninja: Django Ninja ausprobieren
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python-Framework für REST API"
+            如何处理外键字段: ForeignKey-Felder behandeln
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: High-Level-Vergleich"
+            关于本站: Über diese Site
+            联系站长: Kontakt
+            本站建设: Site-Erstellung
+        - locale: nl
+          name: Nederlands
+          build: true
+          site_name: "Django Ninja documentatie"
+          site_description: "Django Ninja - Een snel en gebruiksvriendelijk Django REST framework"
+          nav_translations:
+            介绍: Introductie
+            开发动机: Motivatie
+            教程: Tutorial
+            入门: Aan de slag
+            解析输入: Invoer parsen
+            处理响应: Reacties verwerken
+            其它教程: Andere tutorials
+            Django Ninja JWT 文档: Django Ninja JWT Docs
+            Django Ninja Extra 文档: Django Ninja Extra Docs
+            Django Ninja CRUD 文档: Django Ninja CRUD Docs
+            How-to 系列: How-to handleidingen
+            解析传参: Parameters parsen
+            定义新 Schema: Nieuw Schema definiëren
+            调整响应: Reacties aanpassen
+            从 Django models 中生成 Schema: Schema genereren uit Django-modellen
+            动态生成 Schema: Schema dynamisch genereren
+            覆盖 Pydantic 配置: Pydantic-configuratie overschrijven
+            分页: Paginering
+            响应渲染: Reactie-rendering
+            通过路由来区分你的 API : API ordenen met routers
+            鉴权: Authenticatie
+            测试: Testen
+            API 文档: API-documentatie
+            处理错误: Foutafhandeling
+            反转资源的 URLS 链接: URL terugverwijzingen
+            异步支持: Async-ondersteuning
+            API 版本控制: API-versionering
+            其它: Overig
+            参考: Referentie
+            操作参数: Operatieparameters
+            自定义管理命令: Aangepaste beheeropdrachten
+            Django 设置: Django-instellingen
+            发布日志: Release-opmerkingen
+            规划中的功能: Geplande functies
+            简介: Introductie
+            基于类的操作（cbv）: Klassen-gebaseerde operaties (CBV)
+            提案: Voorstellen
+            V1 的新版变化: Nieuw in V1
+            Ninja JWT 文档: Ninja JWT Docs
+            Ninja JWT 介绍: Ninja JWT Introductie
+            Ninja JWT 入门指南: Ninja JWT Aan de slag
+            Ninja JWT 路由鉴权: Ninja JWT Route Auth
+            Ninja JWT 配置: Ninja JWT Configuratie
+            Ninja JWT 自定义令牌声明: Ninja JWT Custom Token Claims
+            Ninja JWT 手动创建令牌: Ninja JWT Token handmatig maken
+            Ninja JWT 令牌类型: Ninja JWT Token-typen
+            Ninja JWT 黑名单应用: Ninja JWT Blacklist-app
+            Ninja JWT 提交贡献: Ninja JWT Bijdrage
+            Ninja Extra 文档: Ninja Extra Docs
+            Ninja Extra 介绍: Ninja Extra Introductie
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API Controller Route Decorator
+            Ninja Extra API 控制器权限: Ninja Extra API Controller Permissies
+            Ninja Extra 模型控制器: Ninja Extra Model Controller
+            Ninja Extra 用法: Ninja Extra Gebruik
+            Ninja Extra 快速教程: Ninja Extra Snelstart
+            Ninja Extra 鉴权: Ninja Extra Authenticatie
+            Ninja Extra 路径传参: Ninja Extra Path-parameters
+            Ninja Extra 查询传参: Ninja Extra Query-parameters
+            Ninja Extra 请求体: Ninja Extra Request Body
+            Ninja Extra 请求表单: Ninja Extra Request Form
+            Ninja Extra 分页: Ninja Extra Paginering
+            Ninja Extra 过滤: Ninja Extra Filteren
+            Ninja Extra 排序: Ninja Extra Sorteren
+            Ninja Extra 检索: Ninja Extra Zoeken
+            Ninja Extra 错误处理: Ninja Extra Foutafhandeling
+            Ninja Extra API 版本控制: Ninja Extra API-versionering
+            Ninja Extra 节流: Ninja Extra Throttling
+            Ninja Extra 测试: Ninja Extra Testen
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra Instellingen
+            Ninja Extra 依赖注入: Ninja Extra Dependency Injection
+            Ninja Extra 贡献指南: Ninja Extra Bijdrageregids
+            Ninja CRUD 文档: Ninja CRUD Docs
+            Django Ninja CRUD 文档: Django Ninja CRUD Docs
+            Ninja CRUD 教程: Ninja CRUD Tutorial
+            Ninja CRUD 介绍: Ninja CRUD Introductie
+            Ninja CRUD 如何安装: Ninja CRUD Installatie
+            Ninja CRUD 快速示例: Ninja CRUD Snelle voorbeelden
+            Pydantic 文档: Pydantic Docs
+            Logfire 文档: Logfire Docs
+            Starlette 文档: Starlette Docs
+            在线工具: Online tools
+            996 薪资计算助手: 996 Salariscalculator
+            问答集: FAQ
+            开始试用 Django Ninja: Django Ninja uitproberen
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python-framework voor REST API"
+            如何处理外键字段: ForeignKey-velden verwerken
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Vergelijking op hoog niveau"
+            关于本站: Over deze site
+            联系站长: Contact
+            本站建设: Site-bouw
+        - locale: ko
+          name: 한국어
+          build: true
+          site_name: "Django Ninja 문서"
+          site_description: "Django Ninja - 빠르고 사용하기 쉬운 Django REST 프레임워크"
+          nav_translations:
+            介绍: 소개
+            开发动机: 동기
+            教程: 튜토리얼
+            入门: 시작하기
+            解析输入: 입력 파싱
+            处理响应: 응답 처리
+            其它教程: 기타 튜토리얼
+            Django Ninja JWT 文档: Django Ninja JWT 문서
+            Django Ninja Extra 文档: Django Ninja Extra 문서
+            Django Ninja CRUD 文档: Django Ninja CRUD 문서
+            How-to 系列: How-to 가이드
+            解析传参: 매개변수 파싱
+            定义新 Schema: 새 Schema 정의
+            调整响应: 응답 조정
+            从 Django models 中生成 Schema: Django 모델에서 Schema 생성
+            动态生成 Schema: 동적 Schema 생성
+            覆盖 Pydantic 配置: Pydantic 구성 재정의
+            分页: 페이지네이션
+            响应渲染: 응답 렌더링
+            通过路由来区分你的 API : 라우터로 API 구성
+            鉴权: 인증
+            测试: 테스트
+            API 文档: API 문서
+            处理错误: 오류 처리
+            反转资源的 URLS 链接: URL 역방향 링크
+            异步支持: 비동기 지원
+            API 版本控制: API 버전 관리
+            其它: 기타
+            参考: 참조
+            操作参数: 작업 매개변수
+            自定义管理命令: 사용자 정의 관리 명령
+            Django 设置: Django 설정
+            发布日志: 릴리스 노트
+            规划中的功能: 계획된 기능
+            简介: 소개
+            基于类的操作（cbv）: 클래스 기반 작업 (CBV)
+            提案: 제안
+            V1 的新版变化: V1의 새로운 기능
+            Ninja JWT 文档: Ninja JWT 문서
+            Ninja JWT 介绍: Ninja JWT 소개
+            Ninja JWT 入门指南: Ninja JWT 시작 가이드
+            Ninja JWT 路由鉴权: Ninja JWT 라우트 인증
+            Ninja JWT 配置: Ninja JWT 구성
+            Ninja JWT 自定义令牌声明: Ninja JWT 사용자 정의 토큰 클레임
+            Ninja JWT 手动创建令牌: Ninja JWT 수동 토큰 생성
+            Ninja JWT 令牌类型: Ninja JWT 토큰 유형
+            Ninja JWT 黑名单应用: Ninja JWT 블랙리스트 앱
+            Ninja JWT 提交贡献: Ninja JWT 기여
+            Ninja Extra 文档: Ninja Extra 문서
+            Ninja Extra 介绍: Ninja Extra 소개
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API 컨트롤러 라우트 데코레이터
+            Ninja Extra API 控制器权限: Ninja Extra API 컨트롤러 권한
+            Ninja Extra 模型控制器: Ninja Extra 모델 컨트롤러
+            Ninja Extra 用法: Ninja Extra 사용법
+            Ninja Extra 快速教程: Ninja Extra 빠른 튜토리얼
+            Ninja Extra 鉴权: Ninja Extra 인증
+            Ninja Extra 路径传参: Ninja Extra 경로 매개변수
+            Ninja Extra 查询传参: Ninja Extra 쿼리 매개변수
+            Ninja Extra 请求体: Ninja Extra 요청 본문
+            Ninja Extra 请求表单: Ninja Extra 요청 폼
+            Ninja Extra 分页: Ninja Extra 페이지네이션
+            Ninja Extra 过滤: Ninja Extra 필터링
+            Ninja Extra 排序: Ninja Extra 정렬
+            Ninja Extra 检索: Ninja Extra 검색
+            Ninja Extra 错误处理: Ninja Extra 오류 처리
+            Ninja Extra API 版本控制: Ninja Extra API 버전 관리
+            Ninja Extra 节流: Ninja Extra 스로틀링
+            Ninja Extra 测试: Ninja Extra 테스트
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra 설정
+            Ninja Extra 依赖注入: Ninja Extra 의존성 주입
+            Ninja Extra 贡献指南: Ninja Extra 기여 가이드
+            Ninja CRUD 文档: Ninja CRUD 문서
+            Django Ninja CRUD 文档: Django Ninja CRUD 문서
+            Ninja CRUD 教程: Ninja CRUD 튜토리얼
+            Ninja CRUD 介绍: Ninja CRUD 소개
+            Ninja CRUD 如何安装: Ninja CRUD 설치
+            Ninja CRUD 快速示例: Ninja CRUD 빠른 예제
+            Pydantic 文档: Pydantic 문서
+            Logfire 文档: Logfire 문서
+            Starlette 文档: Starlette 문서
+            在线工具: 온라인 도구
+            996 薪资计算助手: 996 급여 계산기
+            问答集: Q&A
+            开始试用 Django Ninja: Django Ninja 체험
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API용 Python 프레임워크"
+            如何处理外键字段: ForeignKey 필드 처리 방법
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: 상위 수준 비교"
+            关于本站: 사이트 소개
+            联系站长: 문의하기
+            本站建设: 사이트 구축
+        - locale: ja
+          name: 日本語
+          build: true
+          site_name: "Django Ninja ドキュメント"
+          site_description: "Django Ninja - 高速で使いやすい Django REST フレームワーク"
+          nav_translations:
+            介绍: はじめに
+            开发动机: 開発の動機
+            教程: チュートリアル
+            入门: スタートガイド
+            解析输入: 入力のパース
+            处理响应: レスポンスの処理
+            其它教程: その他のチュートリアル
+            Django Ninja JWT 文档: Django Ninja JWT ドキュメント
+            Django Ninja Extra 文档: Django Ninja Extra ドキュメント
+            Django Ninja CRUD 文档: Django Ninja CRUD ドキュメント
+            How-to 系列: How-to ガイド
+            解析传参: パラメータのパース
+            定义新 Schema: 新しい Schema の定義
+            调整响应: レスポンスの調整
+            从 Django models 中生成 Schema: Django モデルから Schema を生成
+            动态生成 Schema: 動的な Schema 生成
+            覆盖 Pydantic 配置: Pydantic 設定の上書き
+            分页: ページネーション
+            响应渲染: レスポンスレンダリング
+            通过路由来区分你的 API : ルーターで API を整理
+            鉴权: 認証
+            测试: テスト
+            API 文档: API ドキュメント
+            处理错误: エラー処理
+            反转资源的 URLS 链接: URL の逆引きリンク
+            异步支持: 非同期サポート
+            API 版本控制: API バージョニング
+            其它: その他
+            参考: リファレンス
+            操作参数: 操作パラメータ
+            自定义管理命令: カスタム管理コマンド
+            Django 设置: Django 設定
+            发布日志: リリースノート
+            规划中的功能: 計画中の機能
+            简介: 概要
+            基于类的操作（cbv）: クラスベースの操作 (CBV)
+            提案: 提案
+            V1 的新版变化: V1 の新機能
+            Ninja JWT 文档: Ninja JWT ドキュメント
+            Ninja JWT 介绍: Ninja JWT の紹介
+            Ninja JWT 入门指南: Ninja JWT スタートガイド
+            Ninja JWT 路由鉴权: Ninja JWT ルート認証
+            Ninja JWT 配置: Ninja JWT 設定
+            Ninja JWT 自定义令牌声明: Ninja JWT カスタムトークンクレーム
+            Ninja JWT 手动创建令牌: Ninja JWT 手動トークン作成
+            Ninja JWT 令牌类型: Ninja JWT トークンタイプ
+            Ninja JWT 黑名单应用: Ninja JWT ブラックリストアプリ
+            Ninja JWT 提交贡献: Ninja JWT コントリビュート
+            Ninja Extra 文档: Ninja Extra ドキュメント
+            Ninja Extra 介绍: Ninja Extra の紹介
+            Ninja Extra API 控制器路由装饰器: Ninja Extra API コントローラールートデコレータ
+            Ninja Extra API 控制器权限: Ninja Extra API コントローラー権限
+            Ninja Extra 模型控制器: Ninja Extra モデルコントローラー
+            Ninja Extra 用法: Ninja Extra の使用法
+            Ninja Extra 快速教程: Ninja Extra クイックチュートリアル
+            Ninja Extra 鉴权: Ninja Extra 認証
+            Ninja Extra 路径传参: Ninja Extra パスパラメータ
+            Ninja Extra 查询传参: Ninja Extra クエリパラメータ
+            Ninja Extra 请求体: Ninja Extra リクエストボディ
+            Ninja Extra 请求表单: Ninja Extra リクエストフォーム
+            Ninja Extra 分页: Ninja Extra ページネーション
+            Ninja Extra 过滤: Ninja Extra フィルタリング
+            Ninja Extra 排序: Ninja Extra 並べ替え
+            Ninja Extra 检索: Ninja Extra 検索
+            Ninja Extra 错误处理: Ninja Extra エラー処理
+            Ninja Extra API 版本控制: Ninja Extra API バージョニング
+            Ninja Extra 节流: Ninja Extra スロットリング
+            Ninja Extra 测试: Ninja Extra テスト
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Ninja Extra 設定
+            Ninja Extra 依赖注入: Ninja Extra 依存性注入
+            Ninja Extra 贡献指南: Ninja Extra コントリビューションガイド
+            Ninja CRUD 文档: Ninja CRUD ドキュメント
+            Django Ninja CRUD 文档: Django Ninja CRUD ドキュメント
+            Ninja CRUD 教程: Ninja CRUD チュートリアル
+            Ninja CRUD 介绍: Ninja CRUD の紹介
+            Ninja CRUD 如何安装: Ninja CRUD インストール
+            Ninja CRUD 快速示例: Ninja CRUD クイック例
+            Pydantic 文档: Pydantic ドキュメント
+            Logfire 文档: Logfire ドキュメント
+            Starlette 文档: Starlette ドキュメント
+            在线工具: オンラインツール
+            996 薪资计算助手: 996 給与計算機
+            问答集: Q&A
+            开始试用 Django Ninja: Django Ninja を試す
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API 用 Python フレームワーク"
+            如何处理外键字段: ForeignKey フィールドの扱い方
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: 高レベル比較"
+            关于本站: このサイトについて
+            联系站长: お問い合わせ
+            本站建设: サイト構築
+        - locale: fr
+          name: Français
+          build: true
+          site_name: "Documentation Django Ninja"
+          site_description: "Django Ninja - Un framework Django REST rapide et facile à utiliser"
+          nav_translations:
+            介绍: Introduction
+            开发动机: Motivation
+            教程: Tutoriel
+            入门: Démarrage
+            解析输入: Analyse des entrées
+            处理响应: Traitement des réponses
+            其它教程: Autres tutoriels
+            Django Ninja JWT 文档: Documentation Django Ninja JWT
+            Django Ninja Extra 文档: Documentation Django Ninja Extra
+            Django Ninja CRUD 文档: Documentation Django Ninja CRUD
+            How-to 系列: Guides How-to
+            解析传参: Analyse des paramètres
+            定义新 Schema: Définir un nouveau Schema
+            调整响应: Ajuster les réponses
+            从 Django models 中生成 Schema: Générer un Schema depuis les modèles Django
+            动态生成 Schema: Génération dynamique de Schema
+            覆盖 Pydantic 配置: Surcharger la config Pydantic
+            分页: Pagination
+            响应渲染: Rendu des réponses
+            通过路由来区分你的 API : Organiser l'API avec des routeurs
+            鉴权: Authentification
+            测试: Tests
+            API 文档: Documentation API
+            处理错误: Gestion des erreurs
+            反转资源的 URLS 链接: Liens URL inversés
+            异步支持: Support asynchrone
+            API 版本控制: Versionnage de l'API
+            其它: Autres
+            参考: Référence
+            操作参数: Paramètres d'opération
+            自定义管理命令: Commandes de gestion personnalisées
+            Django 设置: Paramètres Django
+            发布日志: Notes de version
+            规划中的功能: Fonctionnalités prévues
+            简介: Introduction
+            基于类的操作（cbv）: Opérations basées sur les classes (CBV)
+            提案: Propositions
+            V1 的新版变化: Nouveautés de V1
+            Ninja JWT 文档: Documentation Ninja JWT
+            Ninja JWT 介绍: Introduction à Ninja JWT
+            Ninja JWT 入门指南: Guide de démarrage Ninja JWT
+            Ninja JWT 路由鉴权: Authentification des routes Ninja JWT
+            Ninja JWT 配置: Configuration Ninja JWT
+            Ninja JWT 自定义令牌声明: Claims de jeton personnalisés Ninja JWT
+            Ninja JWT 手动创建令牌: Création manuelle de jeton Ninja JWT
+            Ninja JWT 令牌类型: Types de jeton Ninja JWT
+            Ninja JWT 黑名单应用: Application de liste noire Ninja JWT
+            Ninja JWT 提交贡献: Contribution à Ninja JWT
+            Ninja Extra 文档: Documentation Ninja Extra
+            Ninja Extra 介绍: Introduction à Ninja Extra
+            Ninja Extra API 控制器路由装饰器: Décorateur de route du contrôleur API Ninja Extra
+            Ninja Extra API 控制器权限: Permissions du contrôleur API Ninja Extra
+            Ninja Extra 模型控制器: Contrôleur de modèle Ninja Extra
+            Ninja Extra 用法: Utilisation de Ninja Extra
+            Ninja Extra 快速教程: Tutoriel rapide Ninja Extra
+            Ninja Extra 鉴权: Authentification Ninja Extra
+            Ninja Extra 路径传参: Paramètres de chemin Ninja Extra
+            Ninja Extra 查询传参: Paramètres de requête Ninja Extra
+            Ninja Extra 请求体: Corps de requête Ninja Extra
+            Ninja Extra 请求表单: Formulaire de requête Ninja Extra
+            Ninja Extra 分页: Pagination Ninja Extra
+            Ninja Extra 过滤: Filtrage Ninja Extra
+            Ninja Extra 排序: Tri Ninja Extra
+            Ninja Extra 检索: Recherche Ninja Extra
+            Ninja Extra 错误处理: Gestion des erreurs Ninja Extra
+            Ninja Extra API 版本控制: Versionnage de l'API Ninja Extra
+            Ninja Extra 节流: Limitation de débit Ninja Extra
+            Ninja Extra 测试: Tests Ninja Extra
+            Ninja Extra RouteContext 路由上下文: Ninja Extra RouteContext
+            Ninja Extra 设置: Paramètres Ninja Extra
+            Ninja Extra 依赖注入: Injection de dépendances Ninja Extra
+            Ninja Extra 贡献指南: Guide de contribution Ninja Extra
+            Ninja CRUD 文档: Documentation Ninja CRUD
+            Django Ninja CRUD 文档: Documentation Django Ninja CRUD
+            Ninja CRUD 教程: Tutoriel Ninja CRUD
+            Ninja CRUD 介绍: Introduction à Ninja CRUD
+            Ninja CRUD 如何安装: Installation de Ninja CRUD
+            Ninja CRUD 快速示例: Exemples rapides Ninja CRUD
+            Pydantic 文档: Documentation Pydantic
+            Logfire 文档: Documentation Logfire
+            Starlette 文档: Documentation Starlette
+            在线工具: Outils en ligne
+            996 薪资计算助手: Calculateur de salaire 996
+            问答集: FAQ
+            开始试用 Django Ninja: Essayer Django Ninja
+            Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Framework Python pour REST API"
+            如何处理外键字段: Comment gérer les champs ForeignKey
+            Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Comparaison de haut niveau"
+            关于本站: À propos du site
+            联系站长: Contact
+            本站建设: Construction du site
   - mkdocstrings:
       handlers:
         python:
