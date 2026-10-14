@@ -1,0 +1,3 @@
+- [mkdocs 문서에 Google Adsense 추가하기](add-google-adsense-with-mkdocs.md)
+- [mkdocs 사이트를 Google/Baidu에 색인시키기](google-baidu-shou-lu.md)
+- [GitHub Issues 기반의 무료 댓글 시스템 추가하기](adding_coment_system.md)

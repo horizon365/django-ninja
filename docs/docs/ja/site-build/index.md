@@ -1,0 +1,3 @@
+- [mkdocs ドキュメントに Google Adsense を追加する](add-google-adsense-with-mkdocs.md)
+- [mkdocs サイトを Google/百度（Baidu）にインデックス登録させる](google-baidu-shou-lu.md)
+- [GitHub Issues を活用した無料コメントシステムの追加](adding_coment_system.md)

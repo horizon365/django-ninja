@@ -1,0 +1,3 @@
+- [Menambahkan Google Adsense ke Dokumentasi mkdocs](add-google-adsense-with-mkdocs.md)
+- [Membuat Situs mkdocs Terindeks oleh Google/Baidu](google-baidu-shou-lu.md)
+- [Menambahkan Sistem Komentar Gratis Bertenaga GitHub Issues](adding_coment_system.md)

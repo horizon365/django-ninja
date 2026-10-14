@@ -1,0 +1,3 @@
+- [Ajouter Google Adsense à une documentation mkdocs](add-google-adsense-with-mkdocs.md)
+- [Faire indexer les sites mkdocs par Google/Baidu](google-baidu-shou-lu.md)
+- [Ajouter un système de commentaires gratuit propulsé par les Issues GitHub](adding_coment_system.md)
