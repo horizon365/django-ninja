@@ -229,6 +229,14 @@ plugins:
           build: true
           site_name: "Django Ninja documentation"
           site_description: "Django Ninja - A fast, easy-to-use, high-performance Django REST framework"
+          home_tagline: "Django Ninja - Fast Django REST framework"
+          home_description: "Django Ninja is a web framework for building APIs with Django and Python 3.6+ type hints."
+          home_button1_name: "Tutorial"
+          home_button1_blurb: "This tutorial shows you how to use most of the features of Django Ninja. It assumes you know at least some basics of the Django framework, such as how to create a project and run it."
+          home_button2_name: "How-to Guides"
+          home_button2_blurb: "Covers parsing parameters, handling responses, custom routes, authentication, custom API docs, async support, and more."
+          home_button3_name: "Learn More"
+          home_button3_blurb: "Django Ninja's development motivation, benchmarks, getting started, quick examples, and interactive API docs."
           nav_translations:
             介绍: Introduction
             开发动机: Motivation
@@ -332,6 +340,14 @@ plugins:
           build: true
           site_name: "Документация Django Ninja"
           site_description: "Django Ninja - быстрый и простой в использовании Django REST framework"
+          home_tagline: "Django Ninja - Быстрый Django REST framework"
+          home_description: "Django Ninja — это веб-фреймворк для создания API с Django и подсказками типов Python 3.6+."
+          home_button1_name: "Руководство"
+          home_button1_blurb: "Это руководство покажет вам, как использовать большинство возможностей Django Ninja. Предполагается, что вы знаете хотя бы основы фреймворка Django, например, как создать проект и запустить его."
+          home_button2_name: "Практические руководства"
+          home_button2_blurb: "Включает разбор параметров, обработку ответов, пользовательские маршруты, аутентификацию, кастомную документацию API, поддержку асинхронности и многое другое."
+          home_button3_name: "Подробнее"
+          home_button3_blurb: "Мотивация разработки Django Ninja, бенчмарки, начало работы, быстрые примеры и интерактивная документация API."
           nav_translations:
             介绍: Введение
             开发动机: Мотивация
@@ -421,6 +437,7 @@ plugins:
             使用 djoser 进行 Django ninja 令牌身份验证: Аутентификация токенов Django Ninja с djoser
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python фреймворк для REST API"
             如何处理外键字段: Как обрабатывать поля внешнего ключа
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: Использование django-ninja-jwt с HTTP Hooks tusd для аутентификации
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Сравнение высокого уровня"
             Django ninja jwt 试用: Пробный запуск Django Ninja JWT
             自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Пользовательский путь API с export_openapi_schema
@@ -433,6 +450,14 @@ plugins:
           build: true
           site_name: "Django Ninja दस्तावेज़"
           site_description: "Django Ninja - एक तेज़, उपयोग में आसान Django REST फ्रेमवर्क"
+          home_tagline: "Django Ninja - तेज़ Django REST framework"
+          home_description: "Django Ninja, Django और Python 3.6+ type hints के साथ API बनाने के लिए एक web framework है।"
+          home_button1_name: "ट्यूटोरियल"
+          home_button1_blurb: "यह ट्यूटोरियल आपको Django Ninja की अधिकांश सुविधाओं का उपयोग करना दिखाता है। यह मानता है कि आप Django framework की कम से कम कुछ बुनियादी बातें जानते हैं, जैसे कि project कैसे बनाएं और उसे चलाएं।"
+          home_button2_name: "How-to गाइड"
+          home_button2_blurb: "इसमें parameters को parse करना, responses handle करना, custom routes, authentication, custom API docs, async support आदि शामिल हैं।"
+          home_button3_name: "और जानें"
+          home_button3_blurb: "Django Ninja के विकास की प्रेरणा, benchmarks, शुरुआत कैसे करें, त्वरित उदाहरण और इंटरैक्टिव API docs।"
           nav_translations:
             介绍: परिचय
             开发动机: प्रेरणा
@@ -521,6 +546,11 @@ plugins:
             开始试用 Django Ninja: Django Ninja आज़माएँ
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API के लिए Python फ्रेमवर्क"
             如何处理外键字段: ForeignKey फ़ील्ड कैसे संभालें
+            Django ninja jwt 试用: Django Ninja JWT परीक्षण
+            django-ninja中导出 openapi schema为中文: चीनी में OpenAPI Schema निर्यात करें
+            使用 djoser 进行 Django ninja 令牌身份验证: djoser के साथ Django Ninja टोकन प्रमाणीकरण
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: प्रमाणीकरण के लिए tusd HTTP Hooks के साथ django-ninja-jwt का उपयोग
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: export_openapi_schema के साथ कस्टम API पाथ
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: उच्च-स्तरीय तुलना"
             关于本站: साइट के बारे में
             联系站长: संपर्क करें
@@ -530,6 +560,14 @@ plugins:
           build: true
           site_name: "Dokumentasi Django Ninja"
           site_description: "Django Ninja - Django REST framework yang cepat dan mudah digunakan"
+          home_tagline: "Django Ninja - Framework REST Django yang Cepat"
+          home_description: "Django Ninja adalah web framework untuk membangun API dengan Django dan Python 3.6+ type hints."
+          home_button1_name: "Tutorial"
+          home_button1_blurb: "Tutorial ini menunjukkan cara menggunakan sebagian besar fitur Django Ninja. Tutorial ini mengasumsikan Anda mengetahui setidaknya beberapa dasar framework Django, seperti cara membuat project dan menjalankannya."
+          home_button2_name: "Panduan How-to"
+          home_button2_blurb: "Mencakup parsing parameter, menangani response, custom routes, authentication, custom API docs, dukungan async, dan banyak lagi."
+          home_button3_name: "Pelajari Lebih Lanjut"
+          home_button3_blurb: "Motivasi pengembangan Django Ninja, benchmark, cara memulai, contoh cepat, dan dokumentasi API interaktif."
           nav_translations:
             介绍: Pengenalan
             开发动机: Motivasi
@@ -618,6 +656,11 @@ plugins:
             开始试用 Django Ninja: Mencoba Django Ninja
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Framework Python untuk REST API"
             如何处理外键字段: Cara Menangani Field ForeignKey
+            Django ninja jwt 试用: Uji Coba Django Ninja JWT
+            django-ninja中导出 openapi schema为中文: Ekspor Skema OpenAPI dalam Bahasa Mandarin
+            使用 djoser 进行 Django ninja 令牌身份验证: Autentikasi Token Django Ninja dengan djoser
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: Menggunakan django-ninja-jwt dengan HTTP Hooks tusd untuk Auth
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Kustom Jalur API dengan export_openapi_schema
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Perbandingan Tingkat Tinggi"
             关于本站: Tentang Situs
             联系站长: Hubungi
@@ -627,6 +670,14 @@ plugins:
           build: true
           site_name: "Django Ninja Dokumentation"
           site_description: "Django Ninja - Ein schnelles, einfach zu bedienendes Django REST Framework"
+          home_tagline: "Django Ninja - Schnelles Django REST Framework"
+          home_description: "Django Ninja ist ein Web-Framework zum Erstellen von APIs mit Django und Python 3.6+ Type-Hints."
+          home_button1_name: "Tutorial"
+          home_button1_blurb: "Dieses Tutorial zeigt Ihnen, wie Sie die meisten Funktionen von Django Ninja nutzen können. Es setzt voraus, dass Sie zumindest einige Grundkenntnisse des Django-Frameworks haben, z. B. wie Sie ein Projekt erstellen und ausführen."
+          home_button2_name: "How-to Anleitungen"
+          home_button2_blurb: "Beinhaltet das Parsen von Parametern, die Verarbeitung von Antworten, benutzerdefinierte Routen, Authentifizierung, benutzerdefinierte API-Dokumentation, Async-Unterstützung und mehr."
+          home_button3_name: "Mehr erfahren"
+          home_button3_blurb: "Die Entwicklungsbeweggründe von Django Ninja, Benchmarks, Erste Schritte, schnelle Beispiele und interaktive API-Dokumentation."
           nav_translations:
             介绍: Einführung
             开发动机: Motivation
@@ -715,6 +766,11 @@ plugins:
             开始试用 Django Ninja: Django Ninja ausprobieren
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python-Framework für REST API"
             如何处理外键字段: ForeignKey-Felder behandeln
+            Django ninja jwt 试用: Django Ninja JWT Test
+            django-ninja中导出 openapi schema为中文: OpenAPI-Schema auf Chinesisch exportieren
+            使用 djoser 进行 Django ninja 令牌身份验证: Django Ninja Token-Authentifizierung mit djoser
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: django-ninja-jwt mit tusd HTTP Hooks für Auth
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Eigener API-Pfad mit export_openapi_schema
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: High-Level-Vergleich"
             关于本站: Über diese Site
             联系站长: Kontakt
@@ -724,6 +780,14 @@ plugins:
           build: true
           site_name: "Django Ninja documentatie"
           site_description: "Django Ninja - Een snel en gebruiksvriendelijk Django REST framework"
+          home_tagline: "Django Ninja - Snel Django REST Framework"
+          home_description: "Django Ninja is een webframework voor het bouwen van API's met Django en Python 3.6+ type hints."
+          home_button1_name: "Tutorial"
+          home_button1_blurb: "Deze tutorial laat zien hoe je de meeste functies van Django Ninja kunt gebruiken. Het gaat ervan uit dat je op zijn minst enkele basisprincipes van het Django-framework kent, zoals het maken en uitvoeren van een project."
+          home_button2_name: "How-to handleidingen"
+          home_button2_blurb: "Omvat het parsen van parameters, het verwerken van responses, aangepaste routes, authenticatie, aangepaste API-documentatie, async-ondersteuning en meer."
+          home_button3_name: "Meer weten"
+          home_button3_blurb: "De ontwikkelingsmotivatie van Django Ninja, benchmarks, hoe je begint, snelle voorbeelden en interactieve API-documentatie."
           nav_translations:
             介绍: Introductie
             开发动机: Motivatie
@@ -812,6 +876,11 @@ plugins:
             开始试用 Django Ninja: Django Ninja uitproberen
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Python-framework voor REST API"
             如何处理外键字段: ForeignKey-velden verwerken
+            Django ninja jwt 试用: Django Ninja JWT Proef
+            django-ninja中导出 openapi schema为中文: OpenAPI-schema in het Chinees exporteren
+            使用 djoser 进行 Django ninja 令牌身份验证: Django Ninja Token-authenticatie met djoser
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: django-ninja-jwt met tusd HTTP Hooks voor Auth
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Aangepast API-pad met export_openapi_schema
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Vergelijking op hoog niveau"
             关于本站: Over deze site
             联系站长: Contact
@@ -821,6 +890,14 @@ plugins:
           build: true
           site_name: "Django Ninja 문서"
           site_description: "Django Ninja - 빠르고 사용하기 쉬운 Django REST 프레임워크"
+          home_tagline: "Django Ninja - 빠른 Django REST 프레임워크"
+          home_description: "Django Ninja는 Django와 Python 3.6+ 타입 힌트를 사용하여 API를 구축하기 위한 웹 프레임워크입니다."
+          home_button1_name: "튜토리얼"
+          home_button1_blurb: "이 튜토리얼은 Django Ninja의 대부분 기능을 사용하는 방법을 보여줍니다. Django 프레임워크의 기본 사항(프로젝트 생성 및 실행 방법 등)을 이미 알고 있다고 가정합니다."
+          home_button2_name: "How-to 가이드"
+          home_button2_blurb: "매개변수 파싱, 응답 처리, 커스텀 라우트, 인증, 커스텀 API 문서, 비동기 지원 등을 다룹니다."
+          home_button3_name: "더 알아보기"
+          home_button3_blurb: "Django Ninja 개발 동기, 벤치마크, 시작 방법, 빠른 예시 및 대화형 API 문서."
           nav_translations:
             介绍: 소개
             开发动机: 동기
@@ -909,6 +986,11 @@ plugins:
             开始试用 Django Ninja: Django Ninja 체험
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API용 Python 프레임워크"
             如何处理外键字段: ForeignKey 필드 처리 방법
+            Django ninja jwt 试用: Django Ninja JWT 사용해 보기
+            django-ninja中导出 openapi schema为中文: 중국어로 OpenAPI 스키마 내보내기
+            使用 djoser 进行 Django ninja 令牌身份验证: djoser를 사용한 Django Ninja 토큰 인증
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: 인증을 위해 tusd HTTP Hooks와 django-ninja-jwt 사용
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: export_openapi_schema를 사용한 커스텀 API 경로
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: 상위 수준 비교"
             关于本站: 사이트 소개
             联系站长: 문의하기
@@ -918,6 +1000,14 @@ plugins:
           build: true
           site_name: "Django Ninja ドキュメント"
           site_description: "Django Ninja - 高速で使いやすい Django REST フレームワーク"
+          home_tagline: "Django Ninja - 高速な Django REST フレームワーク"
+          home_description: "Django Ninja は、Django と Python 3.6+ の型ヒントを使って API を構築するための Web フレームワークです。"
+          home_button1_name: "チュートリアル"
+          home_button1_blurb: "このチュートリアルでは、Django Ninja の主要な機能の使い方を紹介します。プロジェクトの作成や実行方法など、Django フレームワークの基本的な知識があることを前提としています。"
+          home_button2_name: "How-to ガイド"
+          home_button2_blurb: "パラメータのパース、レスポンスの処理、カスタムルート、認証、カスタム API ドキュメント、非同期サポートなどを扱います。"
+          home_button3_name: "詳しく見る"
+          home_button3_blurb: "Django Ninja の開発動機、ベンチマーク、始め方、クイック例、インタラクティブな API ドキュメント。"
           nav_translations:
             介绍: はじめに
             开发动机: 開発の動機
@@ -1006,6 +1096,11 @@ plugins:
             开始试用 Django Ninja: Django Ninja を試す
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: REST API 用 Python フレームワーク"
             如何处理外键字段: ForeignKey フィールドの扱い方
+            Django ninja jwt 试用: Django Ninja JWT を試す
+            django-ninja中导出 openapi schema为中文: 中国語で OpenAPI スキーマをエクスポート
+            使用 djoser 进行 Django ninja 令牌身份验证: djoser による Django Ninja トークン認証
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: 認証に tusd HTTP Hooks と django-ninja-jwt を使用
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: export_openapi_schema によるカスタム API パス
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: 高レベル比較"
             关于本站: このサイトについて
             联系站长: お問い合わせ
@@ -1015,6 +1110,14 @@ plugins:
           build: true
           site_name: "Documentation Django Ninja"
           site_description: "Django Ninja - Un framework Django REST rapide et facile à utiliser"
+          home_tagline: "Django Ninja - Framework REST rapide pour Django"
+          home_description: "Django Ninja est un framework web pour construire des API avec Django et les annotations de type Python 3.6+."
+          home_button1_name: "Tutoriel"
+          home_button1_blurb: "Ce tutoriel vous montre comment utiliser la plupart des fonctionnalités de Django Ninja. Il suppose que vous connaissez au moins les bases du framework Django, comme créer un projet et le lancer."
+          home_button2_name: "Guides How-to"
+          home_button2_blurb: "Inclut le parsing des paramètres, la gestion des réponses, les routes personnalisées, l'authentification, la documentation API personnalisée, le support asynchrone, et plus encore."
+          home_button3_name: "En savoir plus"
+          home_button3_blurb: "La motivation du développement de Django Ninja, les benchmarks, la prise en main, des exemples rapides et la documentation API interactive."
           nav_translations:
             介绍: Introduction
             开发动机: Motivation
@@ -1103,6 +1206,11 @@ plugins:
             开始试用 Django Ninja: Essayer Django Ninja
             Django-Ninja：用于 REST API 的 Python 框架: "Django-Ninja: Framework Python pour REST API"
             如何处理外键字段: Comment gérer les champs ForeignKey
+            Django ninja jwt 试用: Essai de Django Ninja JWT
+            django-ninja中导出 openapi schema为中文: Exporter le schéma OpenAPI en chinois
+            使用 djoser 进行 Django ninja 令牌身份验证: Authentification par token Django Ninja avec djoser
+            如何使用 `django-ninja-jwt` 与 `tusd` 的 HTTP Hooks 对接，实现用户身份验证: Utiliser django-ninja-jwt avec les hooks HTTP tusd pour l'auth
+            自定义api一级路径后，如何使用export_openapi_schema导出schema文件: Chemin API personnalisé avec export_openapi_schema
             Django Rest Framework 与 Django-Ninja：高级别比较: "DRF vs Django-Ninja: Comparaison de haut niveau"
             关于本站: À propos du site
             联系站长: Contact
