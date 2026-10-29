@@ -1,6 +1,20 @@
 {#-
   This file was automatically generated - do not edit
 -#}
+{#- Locale-aware copy for the footer, defaults to Chinese -#}
+{% set footer_copy = {
+  "zh": {"pv": "本站总访问量", "uv": "总访客数", "sep": "，", "end": "。", "links": "友情链接:", "pydantic": "Pydantic文档", "ad_text": "小红书广受好评的 AI 聚合平台", "ad_title": "注册立即送 20万Token", "gpt": "🔥免费 GPT", "gpt_title": "免费 GPT 工具"},
+  "en": {"pv": "Total visits", "uv": "Unique visitors", "sep": ", ", "end": ".", "links": "Links:", "pydantic": "Pydantic docs", "ad_text": "AI aggregation platform widely praised on social media", "ad_title": "Get 200K tokens instantly on sign-up", "gpt": "🔥 Free GPT", "gpt_title": "Free GPT tool"},
+  "ru": {"pv": "Всего посещений", "uv": "Уникальных посетителей", "sep": ", ", "end": ".", "links": "Ссылки:", "pydantic": "Документация Pydantic", "ad_text": "Платформа агрегации ИИ, высоко оценённая в соцсетях", "ad_title": "200 тыс. токенов сразу при регистрации", "gpt": "🔥 Бесплатный GPT", "gpt_title": "Бесплатный инструмент GPT"},
+  "hi": {"pv": "कुल विज़िट", "uv": "अद्वितीय विज़िटर", "sep": ", ", "end": ".", "links": "लिंक:", "pydantic": "Pydantic दस्तावेज़", "ad_text": "सोशल मीडिया पर बेहद लोकप्रिय AI एग्रीगेशन प्लेटफ़ॉर्म", "ad_title": "साइन-अप पर तुरंत 200K टोकन पाएं", "gpt": "🔥 मुफ़्त GPT", "gpt_title": "मुफ़्त GPT टूल"},
+  "id": {"pv": "Total kunjungan", "uv": "Pengunjung unik", "sep": ", ", "end": ".", "links": "Tautan:", "pydantic": "Dokumentasi Pydantic", "ad_text": "Platform agregasi AI yang sangat populer di media sosial", "ad_title": "Dapatkan 200K token langsung saat mendaftar", "gpt": "🔥 GPT gratis", "gpt_title": "Alat GPT gratis"},
+  "de": {"pv": "Gesamtbesuche", "uv": "Eindeutige Besucher", "sep": ", ", "end": ".", "links": "Links:", "pydantic": "Pydantic-Dokumentation", "ad_text": "Beliebte KI-Aggregationsplattform", "ad_title": "200K Token sofort bei der Anmeldung", "gpt": "🔥 Kostenloses GPT", "gpt_title": "Kostenloses GPT-Tool"},
+  "nl": {"pv": "Totaal bezoeken", "uv": "Unieke bezoekers", "sep": ", ", "end": ".", "links": "Links:", "pydantic": "Pydantic-documentatie", "ad_text": "Populaire AI-aggregatieplatform", "ad_title": "Ontvang direct 200K tokens bij aanmelding", "gpt": "🔥 Gratis GPT", "gpt_title": "Gratis GPT-tool"},
+  "ko": {"pv": "총 방문 수", "uv": "순 방문자 수", "sep": ", ", "end": ".", "links": "링크:", "pydantic": "Pydantic 문서", "ad_text": "소셜 미디어에서 호평받는 AI 통합 플랫폼", "ad_title": "가입 즉시 20만 토큰 지급", "gpt": "🔥 무료 GPT", "gpt_title": "무료 GPT 도구"},
+  "ja": {"pv": "総訪問数", "uv": "ユニークビジター数", "sep": "、", "end": "。", "links": "リンク:", "pydantic": "Pydanticドキュメント", "ad_text": "SNSで高評価のAI統合プラットフォーム", "ad_title": "登録で20万トークンを即時進呈", "gpt": "🔥 無料GPT", "gpt_title": "無料GPTツール"},
+  "fr": {"pv": "Total des visites", "uv": "Visiteurs uniques", "sep": ", ", "end": ".", "links": "Liens :", "pydantic": "Documentation Pydantic", "ad_text": "Plateforme d'agrégation d'IA très appréciée", "ad_title": "200K tokens offerts dès l'inscription", "gpt": "🔥 GPT gratuit", "gpt_title": "Outil GPT gratuit"}
+} %}
+{% set ftr = footer_copy.get(i18n_page_locale | d("zh", true), footer_copy["en"]) %}
 <div class="md-copyright">
   {% if config.copyright %}
     <div class="md-copyright__highlight">
@@ -8,13 +22,13 @@
     </div>
   {% endif %}
   {% if not config.extra.generator == false %}
-<span id="busuanzi_container_site_pv" style="font-size:1em;color:grey">本站总访问量 <span id="busuanzi_value_site_pv">pv</span></span>，<span id="busuanzi_container_site_uv" style="font-size:1em;color:grey">总访客数 <span id="busuanzi_value_site_uv">uv</span>。</span>
+<span id="busuanzi_container_site_pv" style="font-size:1em;color:grey">{{ ftr.pv }} <span id="busuanzi_value_site_pv">pv</span></span>{{ ftr.sep }}<span id="busuanzi_container_site_uv" style="font-size:1em;color:grey">{{ ftr.uv }} <span id="busuanzi_value_site_uv">uv</span></span>{{ ftr.end }}
   <div class="footer-content">
-    <p>友情链接:</p>
+    <p>{{ ftr.links }}</p>
     <ul class="footer-links">
-      <li style="display: inline-block;"><a href="https://pydantic.com.cn/#" target="_blank">Pydantic文档</a></li>
-      <li style="display: inline-block;"><a href="https://oi.zjuaim.com/auth?aff=WO1W" target="_blank" title="注册立即送 20万Token"> 小红书广受好评的 AI 聚合平台 </a></li>
-      <li style="display: inline-block;"><a href="https://deepthink.ltd/" target="_blank" title="免费 GPT 工具">🔥免费 GPT</a></li>
+      <li style="display: inline-block;"><a href="https://pydantic.com.cn/#" target="_blank">{{ ftr.pydantic }}</a></li>
+      <li style="display: inline-block;"><a href="https://oi.zjuaim.com/auth?aff=WO1W" target="_blank" title="{{ ftr.ad_title }}"> {{ ftr.ad_text }} </a></li>
+      <li style="display: inline-block;"><a href="https://deepthink.ltd/" target="_blank" title="{{ ftr.gpt_title }}">{{ ftr.gpt }}</a></li>
     </ul>
   </div>
   {% endif %}

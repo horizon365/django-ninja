@@ -1,6 +1,20 @@
 {#-
   This file was automatically generated - do not edit
 -#}
+{#- Locale-aware copy for the ad / community links, defaults to Chinese -#}
+{% set header_copy = {
+  "zh": {"qq_alt": "点击加群交流", "qq_title": "交流群: 672827055", "ad_text": "小红书广受好评的 AI 聚合平台", "ad_title": "注册立即送 20万Token"},
+  "en": {"qq_alt": "Join the community chat", "qq_title": "Community chat: 672827055", "ad_text": "AI aggregation platform widely praised on social media", "ad_title": "Get 200K tokens instantly on sign-up"},
+  "ru": {"qq_alt": "Присоединяйтесь к чату сообщества", "qq_title": "Чат сообщества: 672827055", "ad_text": "Платформа агрегации ИИ, высоко оценённая в соцсетях", "ad_title": "200 тыс. токенов сразу при регистрации"},
+  "hi": {"qq_alt": "कम्युनिटी चैट से जुड़ें", "qq_title": "कम्युनिटी चैट: 672827055", "ad_text": "सोशल मीडिया पर बेहद लोकप्रिय AI एग्रीगेशन प्लेटफ़ॉर्म", "ad_title": "साइन-अप पर तुरंत 200K टोकन पाएं"},
+  "id": {"qq_alt": "Gabung obrolan komunitas", "qq_title": "Obrolan komunitas: 672827055", "ad_text": "Platform agregasi AI yang sangat populer di media sosial", "ad_title": "Dapatkan 200K token langsung saat mendaftar"},
+  "de": {"qq_alt": "Community-Chat beitreten", "qq_title": "Community-Chat: 672827055", "ad_text": "Beliebte KI-Aggregationsplattform", "ad_title": "200K Token sofort bei der Anmeldung"},
+  "nl": {"qq_alt": "Word lid van de communitychat", "qq_title": "Communitychat: 672827055", "ad_text": "Populaire AI-aggregatieplatform", "ad_title": "Ontvang direct 200K tokens bij aanmelding"},
+  "ko": {"qq_alt": "커뮤니티 채팅 참여", "qq_title": "커뮤니티 채팅: 672827055", "ad_text": "소셜 미디어에서 호평받는 AI 통합 플랫폼", "ad_title": "가입 즉시 20만 토큰 지급"},
+  "ja": {"qq_alt": "コミュニティチャットに参加", "qq_title": "コミュニティチャット: 672827055", "ad_text": "SNSで高評価のAI統合プラットフォーム", "ad_title": "登録で20万トークンを即時進呈"},
+  "fr": {"qq_alt": "Rejoindre le chat communautaire", "qq_title": "Chat communautaire : 672827055", "ad_text": "Plateforme d'agrégation d'IA très appréciée", "ad_title": "200K tokens offerts dès l'inscription"}
+} %}
+{% set hdr = header_copy.get(i18n_page_locale | d("zh", true), header_copy["en"]) %}
 {% set class = "md-header" %}
 {% if "navigation.tabs.sticky" in features %}
   {% set class = class ~ " md-header--shadow md-header--lifted" %}
@@ -63,10 +77,10 @@
 {#  <span class="md-ellipsis">交流群: </span>#}
 {#  </a>#}
   <a href="https://qm.qq.com/q/e0JkcwEFgs" target="_blank" class="md-header__button md-logo" >
-    <img class="md-source__icon md-icon" src="/img/qq.svg" alt="点击加群交流"
-         title="交流群: 672827055">
+    <img class="md-source__icon md-icon" src="/img/qq.svg" alt="{{ hdr.qq_alt }}"
+         title="{{ hdr.qq_title }}">
 </a>
-  <a href="https://oi.zjuaim.com/auth?aff=WO1W" target="_blank" class="md-header__title" title="注册立即送 20万Token"> 小红书广受好评的 AI 聚合平台 </a>
+  <a href="https://oi.zjuaim.com/auth?aff=WO1W" target="_blank" class="md-header__title" title="{{ hdr.ad_title }}"> {{ hdr.ad_text }} </a>
   </nav>
   {% if "navigation.tabs.sticky" in features %}
     {% if "navigation.tabs" in features %}

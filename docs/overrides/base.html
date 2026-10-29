@@ -2,6 +2,20 @@
   This file was automatically generated - do not edit
 -#}
 {% import "partials/language.html" as lang with context %}
+{#- Locale-aware copy for the page view counter, defaults to Chinese -#}
+{% set pv_copy = {
+  "zh": ["本文总阅读量", "次"],
+  "en": ["Page views: ", ""],
+  "ru": ["Просмотров страницы: ", ""],
+  "hi": ["पेज व्यूज़: ", ""],
+  "id": ["Tampilan halaman: ", ""],
+  "de": ["Seitenaufrufe: ", ""],
+  "nl": ["Paginaweergaven: ", ""],
+  "ko": ["페이지 조회수: ", ""],
+  "ja": ["本文の閲覧数", "回"],
+  "fr": ["Vues de la page : ", ""]
+} %}
+{% set pv_txt = pv_copy.get(i18n_page_locale | d("zh", true), pv_copy["en"]) %}
 <!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
   <head>
@@ -188,7 +202,7 @@
                 {% block content %}
                   {% include "partials/content.html" %}
                 {% endblock %}
-              <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/></article>
+              <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">{{ pv_txt[0] }}<span id="busuanzi_value_page_pv"></span>{{ pv_txt[1] }}</font></span><br/></article>
             </div>
           {% endblock %}
           {% include "partials/javascripts/content.html" %}
